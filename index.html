@@ -1,29 +1,31 @@
 <!DOCTYPE html>
+<!-- Tag pembuka HTML, atribut lang="id" untuk Bahasa Indonesia, class="scroll-smooth" membuat navigasi klik menu menggulir dengan halus -->
 <html lang="id" class="scroll-smooth">
 <head>
+    <!-- Pengaturan karakter dan viewport agar website menyesuaikan ukuran layar perangkat (HP, Tablet, Laptop, PC) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPL KPI di Prokompim Kota Pekalongan</title>
+    <title>Portofolio PPL KPI - Prokompim Kota Pekalongan</title>
     
-    <!-- Memuat Tailwind CSS via CDN -->
+    <!-- Memuat pustaka Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome untuk Ikon -->
+    <!-- Memuat Font Awesome untuk menampilkan ikon-ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Konfigurasi Tema Tailwind (Sesuai Palet Warna Anda) -->
+    <!-- Konfigurasi palet warna (Biru & Putih) menyesuaikan logo -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-bg': '#E1E8ED',       // Background utama
-                        'brand-sub': '#94A3B8',      // Subtitle / teks sekunder
-                        'brand-div': '#475569',      // Divider / border
-                        'brand-header': '#2D3748',   // Header / Heading
-                        'brand-text': '#1A202C',     // Teks utama
-                        'brand-dark': '#1A202C',     // Gelap ekstra
-                        'brand-accent': '#EAB308',   // Mustard Gold aksen
+                        'brand-bg': '#F0F4F8',       // Latar belakang utama (Biru sangat muda/abu-abu terang)
+                        'brand-sub': '#475569',      // Teks sekunder (Abu-abu kebiruan)
+                        'brand-div': '#93C5FD',      // Garis pembatas (Biru muda)
+                        'brand-header': '#1E3A8A',   // Teks judul (Biru gelap/Navy)
+                        'brand-text': '#1E293B',     // Teks utama paragraf
+                        'brand-dark': '#1E3A8A',     // Warna tema gelap (Biru Navy)
+                        'brand-accent': '#3B82F6',   // Warna aksen (Biru terang)
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'], 
@@ -34,136 +36,159 @@
         }
     </script>
     
-    <!-- Google Fonts -->
+    <!-- Memuat font dari Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
+    <!-- CSS Kustom untuk efek kartu dengan warna palet -->
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #E1E8ED; color: #1A202C; }
+        body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
         h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
 
-        /* Efek Positivus (Neobrutalism ringan)*/
+        /* Gaya visual untuk kotak/elemen kartu terang */
         .card-neo {
             background-color: white;
-            border: 2px solid #2D3748;
+            border: 2px solid #1E3A8A;
             border-radius: 1rem;
-            box-shadow: 4px 4px 0px #2D3748;
+            box-shadow: 4px 4px 0px #1E3A8A;
         }
+        /* Gaya visual untuk kotak/elemen kartu gelap */
         .card-neo-dark {
-            background-color: #1A202C;
-            color: #E1E8ED;
-            border: 2px solid #1A202C;
+            background-color: #1E3A8A;
+            color: #EFF6FF;
+            border: 2px solid #1E3A8A;
             border-radius: 1rem;
-            box-shadow: 4px 4px 0px #475569;
+            box-shadow: 4px 4px 0px #0F172A;
         }
+        /* Gaya visual untuk tombol utama */
         .btn-neo {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0.75rem 1.5rem;
-            background-color: #EAB308;
-            color: #1A202C;
-            font-weight: 600;
-            border: 2px solid #1A202C;
-            border-radius: 0.75rem;
-            box-shadow: 3px 3px 0px #1A202C;
-            cursor: pointer;
-        }
-        .btn-neo-dark {
-            background-color: #2D3748;
+            background-color: #3B82F6;
             color: white;
-            border-color: #1A202C;
+            font-weight: 600;
+            border: 2px solid #1E3A8A;
+            border-radius: 0.75rem;
+            box-shadow: 3px 3px 0px #1E3A8A;
+            cursor: pointer;
+            transition: all 0.2s;
         }
+        .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
+        
+        /* Gaya visual untuk tombol gelap */
+        .btn-neo-dark {
+            background-color: #1E3A8A;
+            color: white;
+            border-color: #1E3A8A;
+        }
+        /* Gaya visual untuk sorotan (highlight) teks */
         .highlight-bg {
-            background-color: #EAB308;
-            padding: 0 0.5rem;
-            border-radius: 0.25rem;
-            color: #1A202C;
+            background-color: #3B82F6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            color: white;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-brand-dark">
 
-<!-- NAVBAR -->
-<nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/20 sticky top-0 z-50">
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+<!-- BAGIAN NAVBAR -->
+<nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-brand-header rounded-lg flex items-center justify-center text-white font-bold text-xl rotate-3">
-                <i class="fa-solid fa-microphone-lines"></i>
-            </div>
+        <!-- Logo dan Judul Singkat -->
+        <div class="flex items-center gap-3">
+            <img src="Akun IG Logo.jpeg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm">
             <span class="font-display font-bold text-xl text-brand-header tracking-tight">PPL KPI PROKOMPIM 2026</span>
         </div>
         
+        <!-- Tautan Navigasi Menu -->
         <div class="hidden md:flex space-x-8 items-center">
-            <a href="#tentang" class="text-brand-header font-medium text-sm">Tentang</a>
-            <a href="#kegiatan" class="text-brand-header font-medium text-sm">Jurnal</a>
-            <a href="#karya" class="text-brand-header font-medium text-sm">Portofolio</a>
-            <a href="#tim" class="text-brand-header font-medium text-sm">Tim Kami</a>
+            <a href="#tentang" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Profil</a>
+            <a href="#tugas" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Ruang Lingkup</a>
+            <a href="#kegiatan" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tujuan</a>
+            <a href="#tim" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tim</a>
         </div>
 
+        <!-- Tombol Aksi di Navigasi -->
         <div class="hidden md:block">
-            <a href="#karya" class="btn-neo text-sm py-2 px-4">Lihat Portofolio</a>
+            <a href="#karya" class="btn-neo text-sm py-2 px-4">Tinjau Karya</a>
         </div>
     </div>
 </nav>
 
-<!-- HERO SECTION -->
-<main class="py-20 lg:py-32 px-6">
+<!-- BAGIAN HERO (Area Banner Utama) -->
+<main class="py-20 lg:py-28 px-6 bg-white">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Kolom Kiri: Teks Utama -->
         <div class="flex flex-col space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-div/20 text-xs font-medium text-brand-sub w-fit">
-                <span class="w-2 h-2 rounded-full bg-green-500"></span> 02 Agustus - 02 September 2026
+            <!-- Label Tanggal Pelaksanaan -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-bg border border-brand-div/50 text-xs font-medium text-brand-header w-fit">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span> 03 Agustus - 02 September 2026
             </div>
             
-            <h1 class="text-5xl lg:text-6xl font-bold leading-tight text-brand-header">
-                Merekam Jejak,<br>
-                <span class="highlight-bg mt-2 inline-block">Menyuarakan Pesan.</span>
+            <!-- Judul Utama (Headline) -->
+            <h1 class="text-4xl lg:text-5xl font-bold leading-[1.3] text-brand-header py-2">
+                Mendokumentasikan Kinerja,<br>
+                <span class="highlight-bg mt-3 inline-block leading-normal">Menyampaikan Informasi Publik.</span>
             </h1>
             
-            <p class="text-lg text-brand-sub max-w-lg leading-relaxed">
-                Dokumentasi dan Publikasi mahasiswa Praktik Pengalaman Lapangan (PPL) Prodi Komunikasi dan Penyiaran Islam di <strong class="text-brand-header">Bagian Protokol dan Komunikasi Pimpinan Sekretaris Daerah Kota Pekalongan</strong>.
-            </p>
+            <!-- Bagian Ringkasan -->
+            <div class="bg-brand-bg/50 p-5 rounded-xl border border-brand-div/30 mt-2">
+                <h3 class="text-sm font-bold text-brand-accent mb-2 uppercase tracking-wide">Ringkasan</h3>
+                <p class="text-base text-brand-sub leading-relaxed">
+                    Portofolio ini mendokumentasikan kegiatan Praktik Pengalaman Lapangan (PPL) mahasiswa Komunikasi dan Penyiaran Islam di Sekretariat Daerah Kota Pekalongan (Bagian Protokol dan Komunikasi Pimpinan) tahun 2026. Dokumen ini memuat profil kelompok, tujuan magang, ruang lingkup pekerjaan, dokumentasi kegiatan.
+                </p>
+            </div>
             
-            <div class="flex flex-wrap gap-4 pt-4">
-                <a href="#kegiatan" class="btn-neo"><i class="fa-solid fa-book-open mr-2"></i> Jurnal Magang</a>
-                <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Lihat Karya</a>
+            <!-- Tombol Navigasi Pintas -->
+            <div class="flex flex-wrap gap-4 pt-2">
+                <a href="#kegiatan" class="btn-neo"><i class="fa-solid fa-bullseye mr-2"></i> Tujuan PPL</a>
+                <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Tinjau Karya</a>
             </div>
         </div>
         
+        <!-- Kolom Kanan: Tempat Menaruh Foto Banner/Kelompok -->
         <div class="card-neo bg-white aspect-square flex flex-col justify-center items-center p-6 text-center relative overflow-hidden">
-            <div class="w-full h-full border-2 border-dashed border-brand-sub/50 rounded-lg flex flex-col items-center justify-center bg-gray-50">
-                <i class="fa-solid fa-image text-6xl text-brand-sub mb-4"></i>
-                <p class="text-brand-sub text-sm">Upload Foto Kelompok Anda di Framer</p>
+            <div class="w-full h-full border-2 border-dashed border-brand-div rounded-lg flex flex-col items-center justify-center bg-brand-bg/30">
+                <i class="fa-solid fa-users text-6xl text-brand-sub mb-4"></i>
+                <p class="text-brand-sub text-sm">Ganti Area ini dengan Foto Kelompok Anda</p>
             </div>
         </div>
     </div>
 </main>
 
-<!-- TENTANG KAMI -->
-<section id="tentang" class="py-20 bg-white px-6">
+<!-- BAGIAN PROFIL & INSTANSI PENEMPATAN -->
+<section id="tentang" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto">
+        <!-- Judul Bagian Profil -->
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1">01</span>
-            <h2 class="text-4xl font-bold text-brand-header">Who We Are</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Profil Penugasan</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card-neo p-8 md:col-span-2 bg-brand-bg">
-                <h3 class="text-2xl font-bold mb-4 text-brand-header">Mahasiswa KPI Bergerak</h3>
-                <p class="text-brand-text leading-relaxed">
-                    Kami mengaplikasikan Ilmu Komunikasi, Jurnalistik, Public Relation dan Broadcasting ke dunia kerja nyata. Melalui PPL ini, kami belajar beradaptasi dengan ritme kerja instansi pemerintah, mengelola informasi publik, dan mendokumentasikan kegiatan pimpinan daerah secara profesional.
+            <!-- Kartu Instansi (Lebar 2 Kolom, Tinggi diseimbangkan dengan konten Kanan) -->
+            <div class="card-neo p-6 lg:p-8 md:col-span-2 bg-white flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-4 text-brand-header">Instansi Penempatan</h3>
+                <p class="text-brand-text leading-relaxed text-lg">
+                    Kami bertugas di <strong>Sekretariat Daerah Kota Pekalongan — Bagian Protokol dan Komunikasi Pimpinan</strong>.
                 </p>
             </div>
 
-            <div class="card-neo-dark p-8 flex flex-col justify-center">
-                <h3 class="text-xl font-bold mb-6 text-brand-accent">Where & When</h3>
-                <div class="space-y-4">
+            <!-- Kartu Informasi Lokasi & Waktu -->
+            <div class="card-neo-dark p-6 lg:p-8 flex flex-col justify-center">
+                <h3 class="text-xl font-bold mb-6 text-brand-accent">Informasi Teknis</h3>
+                <div class="space-y-6">
                     <div>
-                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-location-dot text-brand-accent mr-2"></i> Lokasi</h4>
-                        <p class="text-sm text-brand-sub mt-1">Prokompim Setda Kota Pekalongan</p>
+                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-calendar-days text-brand-accent mr-2"></i> Periode Magang</h4>
+                        <p class="text-sm text-brand-div mt-1">03 Agustus – 02 September 2026</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-calendar-days text-brand-accent mr-2"></i> Waktu</h4>
-                        <p class="text-sm text-brand-sub mt-1">1 Agustus - 30 Oktober 2026</p>
+                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-location-dot text-brand-accent mr-2"></i> Lokasi Kantor</h4>
+                        <p class="text-sm text-brand-div mt-1">Jl. Mataram No. 1, Kota Pekalongan 51111</p>
                     </div>
                 </div>
             </div>
@@ -171,148 +196,202 @@
     </div>
 </section>
 
-<!-- JURNAL KEGIATAN -->
+<!-- BAGIAN RUANG LINGKUP PEKERJAAN -->
+<section id="tugas" class="py-20 bg-white px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">02</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Ruang Lingkup Pekerjaan</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Ruang Lingkup A: Protokol -->
+            <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-header">Subbagian Protokol</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-brand-text flex-grow">
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun rencana kegiatan & kebijakan protokol.</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Melaksanakan tata protokoler penyambutan tamu Pemda.</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun bahan informasi acara & jadwal kegiatan Walikota / Wakil Walikota.</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Melaksanakan koordinasi & fasilitasi kegiatan pimpinan.</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun evaluasi SOP/SP dan tata usaha bagian.</li>
+                </ul>
+            </div>
+
+            <!-- Ruang Lingkup B: Komunikasi Pimpinan -->
+            <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-header">Komunikasi Pimpinan & Dokumentasi</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-brand-text flex-grow">
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyelenggarakan fasilitasi komunikasi pimpinan dengan publik/media.</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Mendokumentasikan tugas pimpinan (arsip publikasi & dokumentasi).</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun perencanaan dan pelaporan kegiatan.</li>
+                    <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Monitoring & evaluasi pelaksanaan kegiatan komunikasi instansi.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BAGIAN TUJUAN & TARGET PEMBELAJARAN PPL -->
 <section id="kegiatan" class="py-20 bg-brand-bg px-6">
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1">02</span>
-            <h2 class="text-4xl font-bold text-brand-header">Activity Log</h2>
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">03</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Target & Luaran Pembelajaran</h2>
         </div>
 
-        <div class="space-y-6">
-            <div class="card-neo p-6 bg-white">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold text-brand-header">Minggu 1: Orientasi Lingkungan Kerja</h3>
+        <div class="space-y-4">
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">01.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Praktik Keprotokolan</h4>
+                    <p class="text-sm text-brand-text">Memahami dan mempraktikkan penyusunan rencana kegiatan, informasi acara, fasilitasi keprotokolan, dan penyambutan tamu resmi.</p>
                 </div>
-                <p class="text-brand-text text-sm leading-relaxed mb-4">
-                    Melakukan audiensi dengan Kepala Bagian Prokompim. Mengenali tupoksi sub-bagian: Protokol, Komunikasi Pimpinan, dan Dokumentasi Pimpinan.
-                </p>
-                <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-brand-sub border border-brand-div/20">#Orientasi</span>
             </div>
-
-            <div class="card-neo p-6 bg-white">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold text-brand-header">Minggu 2: Liputan Kunjungan Kerja</h3>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">02.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Kompetensi Public Relation</h4>
+                    <p class="text-sm text-brand-text">Mengelola alur informasi kegiatan pimpinan dan berkomunikasi secara profesional dengan OPD, panitia, maupun tamu daerah.</p>
                 </div>
-                <p class="text-brand-text text-sm leading-relaxed mb-4">
-                    Praktik langsung mendampingi tim dokumentasi pimpinan. Membagi peran: fotografer, videografer, dan pencatat poin rilis berita.
-                </p>
-                <span class="px-2 py-1 bg-gray-100 text-xs font-semibold rounded text-brand-sub border border-brand-div/20">#LiputanLapangan</span>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">03.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Produksi Konten Publikasi</h4>
+                    <p class="text-sm text-brand-text">Meningkatkan keterampilan dokumentasi visual (foto/video), penyusunan teks berita, serta pengarsipan materi untuk publikasi resmi.</p>
+                </div>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">04.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Disiplin Birokrasi & SOP</h4>
+                    <p class="text-sm text-brand-text">Menjunjung etika profesi, memahami tata tertib instansi pemerintahan, menerapkan SOP, dan menyusun pelaporan kegiatan yang tertib.</p>
+                </div>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">05.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Luaran PPL (Output Karya)</h4>
+                    <p class="text-sm text-brand-text">Menghasilkan arsip yang terukur seperti rundown acara, naskah/caption rilis singkat, dan karya visual dokumentasi kegiatan.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- PORTOFOLIO -->
+<!-- BAGIAN TEMPAT MENARUH KARYA/PORTOFOLIO -->
 <section id="karya" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1">03</span>
-            <h2 class="text-4xl font-bold text-brand-header">Our Works</h2>
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">04</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Luaran Karya / Portofolio</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Karya 1 -->
             <div class="card-neo flex flex-col overflow-hidden">
-                <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center p-4">
-                    <span class="text-brand-sub font-bold text-sm">FOTO PORTFOLIO 1</span>
+                <div class="aspect-[4/3] bg-brand-bg flex items-center justify-center p-4">
+                    <span class="text-brand-sub font-bold text-sm text-center">FOTO DOKUMENTASI KEGIATAN<br>(Insert Image Here)</span>
                 </div>
                 <div class="p-6 bg-white border-t-2 border-brand-header">
-                    <span class="text-xs font-bold text-brand-accent uppercase mb-1 block">Fotografi</span>
-                    <h4 class="font-bold text-lg mb-2 text-brand-header">Apel Pagi Gabungan</h4>
-                    <p class="text-sm text-brand-sub">Dokumentasi apel pagi gabungan ASN di lingkungan Setda Kota Pekalongan.</p>
+                    <h4 class="font-bold text-lg mb-2 text-brand-header">Dokumentasi Tugas Pimpinan</h4>
+                    <p class="text-sm text-brand-sub">Kumpulan hasil foto pendampingan acara Walikota/Wakil Walikota.</p>
                 </div>
             </div>
 
-            <!-- Karya 2 -->
             <div class="card-neo flex flex-col overflow-hidden">
-                <div class="aspect-[4/3] bg-brand-header flex items-center justify-center p-4">
-                    <span class="text-white font-bold text-sm">VIDEO PORTFOLIO 1</span>
+                <div class="aspect-[4/3] bg-brand-bg flex items-center justify-center p-4">
+                    <span class="text-brand-sub font-bold text-sm text-center">RILIS BERITA / CAPTION<br>(Insert Image/Text Here)</span>
                 </div>
                 <div class="p-6 bg-white border-t-2 border-brand-header">
-                    <span class="text-xs font-bold text-brand-accent uppercase mb-1 block">Videografi</span>
-                    <h4 class="font-bold text-lg mb-2 text-brand-header">Reels Inovasi Daerah</h4>
-                    <p class="text-sm text-brand-sub">Video liputan singkat bergaya reels untuk Instagram Prokompim.</p>
+                    <h4 class="font-bold text-lg mb-2 text-brand-header">Naskah Komunikasi Publik</h4>
+                    <p class="text-sm text-brand-sub">Draft naskah informasi publik, rilis media, dan caption sosial media instansi.</p>
                 </div>
             </div>
             
-            <!-- Karya 3 -->
             <div class="card-neo flex flex-col overflow-hidden">
                 <div class="aspect-[4/3] bg-brand-bg flex items-center justify-center p-4">
-                    <span class="text-brand-header font-bold text-sm">DESAIN / RILIS 1</span>
+                    <span class="text-brand-sub font-bold text-sm text-center">JADWAL / RUNDOWN ACARA<br>(Insert Image Here)</span>
                 </div>
                 <div class="p-6 bg-white border-t-2 border-brand-header">
-                    <span class="text-xs font-bold text-brand-accent uppercase mb-1 block">Rilis Berita</span>
-                    <h4 class="font-bold text-lg mb-2 text-brand-header">Peresmian Fasilitas</h4>
-                    <p class="text-sm text-brand-sub">Penyusunan draft press release untuk didistribusikan ke wartawan.</p>
+                    <h4 class="font-bold text-lg mb-2 text-brand-header">Fasilitasi Keprotokolan</h4>
+                    <p class="text-sm text-brand-sub">Contoh dokumen tata acara dan penjadwalan kegiatan resmi pemerintahan.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TIM KAMI -->
+<!-- BAGIAN SUSUNAN ANGGOTA TIM MAGANG -->
 <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
-        <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block">04</span>
-        <h2 class="text-4xl font-bold text-brand-header mb-12">Meet The Team</h2>
+        <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block">05</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-brand-header mb-12">Susunan Anggota Kelompok</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Anggota -->
             <div class="card-neo p-6 bg-white">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full border-2 border-brand-header mb-4 flex items-center justify-center">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <i class="fa-solid fa-user text-3xl text-brand-sub"></i>
                 </div>
-                <h4 class="font-bold text-lg text-brand-header">Mazda Ghazali Hidayat</h4>
-                <p class="text-xs font-bold text-brand-accent mb-3">Ketua / Videografer</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Mazda Ghazali Hidayat</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423003</p>
             </div>
             <div class="card-neo p-6 bg-white">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full border-2 border-brand-header mb-4 flex items-center justify-center">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <i class="fa-solid fa-user text-3xl text-brand-sub"></i>
                 </div>
-                <h4 class="font-bold text-lg text-brand-header">Nabilla R. Citra Anggraeny</h4>
-                <p class="text-xs font-bold text-brand-accent mb-3">Copywriter</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Nabila R. Citra Anggraeny</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423011</p>
             </div>
             <div class="card-neo p-6 bg-white">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full border-2 border-brand-header mb-4 flex items-center justify-center">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <i class="fa-solid fa-user text-3xl text-brand-sub"></i>
                 </div>
-                <h4 class="font-bold text-lg text-brand-header">Fara Azahra</h4>
-                <p class="text-xs font-bold text-brand-accent mb-3">Fotografer</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Fara Azahra</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423081</p>
             </div>
             <div class="card-neo p-6 bg-white">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full border-2 border-brand-header mb-4 flex items-center justify-center">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <i class="fa-solid fa-user text-3xl text-brand-sub"></i>
                 </div>
-                <h4 class="font-bold text-lg text-brand-header">Intan Fatmah Farkhati</h4>
-                <p class="text-xs font-bold text-brand-accent mb-3">Desainer Grafis</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Intan Fatmah Farkhati</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423158</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-brand-dark pt-16 pb-8 px-6 text-brand-bg border-t-8 border-brand-accent">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/50 pb-8 mb-8">
-        <div>
-            <div class="flex items-center gap-2 mb-4">
-                <div class="w-8 h-8 bg-brand-accent rounded text-brand-dark flex items-center justify-center font-bold text-lg rotate-3">
-                    <i class="fa-solid fa-microphone-lines"></i>
-                </div>
-                <span class="font-display font-bold text-xl text-white">PPL KPI 2026</span>
+<!-- BAGIAN FOOTER -->
+<footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
+        <div class="w-full md:w-1/2">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="Akun IG Logo.jpeg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-cover">
+                <span class="font-display font-bold text-xl text-white">Portofolio PPL 2026</span>
             </div>
-            <p class="text-brand-sub text-sm max-w-sm">Dokumentasi portofolio mahasiswa PPL di Bagian Prokompim Setda Kota Pekalongan.</p>
+            <p class="text-brand-div text-sm max-w-sm">Dokumen laporan akhir dan pameran karya magang kelompok mahasiswa Komunikasi dan Penyiaran Islam.</p>
         </div>
-        <div>
-            <h4 class="text-white font-bold mb-4 font-display">Kontak Instansi</h4>
-            <ul class="space-y-2 text-sm text-brand-sub">
-                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2"></i> Jl. Mataram No.1, Pekalongan</li>
-                <li><i class="fa-brands fa-instagram text-brand-accent mr-2"></i> @ppl.prokompimpkl26</li>
+        
+        <div class="w-full md:w-1/2 md:text-right">
+            <h4 class="text-white font-bold mb-4 font-display">Bagian Prokompim Setda</h4>
+            <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
+                <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
+                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, 51111</li>
             </ul>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto text-center text-xs text-brand-sub">
-        <p>&copy; 2026 Tim PPL KPI Bagian Protokol dan Komunikasi Pimpinan Sekdetaris Daerah Kota Pekalongan.</p>
+    
+    <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
+        <p>&copy; 2026 Tim Magang Kelompok PPL KPI — Sekretariat Daerah Kota Pekalongan.</p>
     </div>
 </footer>
 
