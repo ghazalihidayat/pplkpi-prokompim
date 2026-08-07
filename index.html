@@ -1,41 +1,34 @@
 <!DOCTYPE html>
-<!-- Tag pembuka HTML, atribut lang="id" untuk Bahasa Indonesia, class="scroll-smooth" membuat navigasi klik menu menggulir dengan halus -->
+
 <html lang="id" class="scroll-smooth">
 <head>
-    <!-- Pengaturan karakter dan viewport agar website menyesuaikan ukuran layar perangkat (HP, Tablet, Laptop, PC) -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio PPL KPI - Prokompim Kota Pekalongan</title>
 
-    <!-- ============================================
-         SEO & PREVIEW LINK (WhatsApp/Instagram/dll)
-         Ganti isi content="..." di bawah sesuai kebutuhan.
-         ============================================ -->
     <meta name="description" content="Portofolio kegiatan Praktik Pengalaman Lapangan (PPL) mahasiswa Komunikasi dan Penyiaran Islam di Bagian Protokol dan Komunikasi Pimpinan, Sekretariat Daerah Kota Pekalongan, 2026.">
     <meta property="og:title" content="Portofolio PPL KPI - Prokompim Kota Pekalongan">
     <meta property="og:description" content="Dokumentasi kegiatan, ruang lingkup tugas, dan karya PPL mahasiswa KPI di Bagian Prokompim Setda Kota Pekalongan.">
     <meta property="og:image" content="Akun IG Logo.jpeg">
     <meta property="og:type" content="website">
 
-    <!-- Memuat pustaka Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Memuat Font Awesome untuk menampilkan ikon-ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Konfigurasi palet warna (Biru & Putih) menyesuaikan logo -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-bg': '#F0F4F8',       // Latar belakang utama (Biru sangat muda/abu-abu terang)
-                        'brand-sub': '#475569',      // Teks sekunder (Abu-abu kebiruan)
-                        'brand-div': '#93C5FD',      // Garis pembatas (Biru muda)
-                        'brand-header': '#1E3A8A',   // Teks judul (Biru gelap/Navy)
-                        'brand-text': '#1E293B',     // Teks utama paragraf
-                        'brand-dark': '#1E3A8A',     // Warna tema gelap (Biru Navy)
-                        'brand-accent': '#3B82F6',   // Warna aksen (Biru terang)
+                        'brand-bg': '#F0F4F8',
+                        'brand-sub': '#475569',
+                        'brand-div': '#93C5FD',
+                        'brand-header': '#1E3A8A',
+                        'brand-text': '#1E293B',
+                        'brand-dark': '#1E3A8A',
+                        'brand-accent': '#3B82F6',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -46,28 +39,23 @@
         }
     </script>
 
-    <!-- Memuat font dari Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS Kustom untuk efek kartu dengan warna palet -->
     <style>
-        /* Pengaman anti-overflow: mencegah halaman melebar ke samping di layar manapun */
+
         html, body { overflow-x: hidden; max-width: 100%; }
         body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
         h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
 
-        /* Pengaman untuk foto yang nanti ditambahkan: gambar tidak akan pernah
-           melebihi lebar wadahnya, jadi aman untuk foto ukuran berapa pun */
         img { max-width: 100%; height: auto; display: block; }
 
-        /* Gaya visual untuk kotak/elemen kartu terang */
         .card-neo {
             background-color: white;
             border: 2px solid #1E3A8A;
             border-radius: 1rem;
             box-shadow: 4px 4px 0px #1E3A8A;
         }
-        /* Gaya visual untuk kotak/elemen kartu gelap */
+
         .card-neo-dark {
             background-color: #1E3A8A;
             color: #EFF6FF;
@@ -75,7 +63,7 @@
             border-radius: 1rem;
             box-shadow: 4px 4px 0px #0F172A;
         }
-        /* Gaya visual untuk tombol utama */
+
         .btn-neo {
             display: inline-flex;
             align-items: center;
@@ -92,13 +80,12 @@
         }
         .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
 
-        /* Gaya visual untuk tombol gelap */
         .btn-neo-dark {
             background-color: #1E3A8A;
             color: white;
             border-color: #1E3A8A;
         }
-        /* Gaya visual untuk sorotan (highlight) teks */
+
         .highlight-bg {
             background-color: #3B82F6;
             padding: 0.25rem 0.75rem;
@@ -110,18 +97,14 @@
 
 <body class="antialiased selection:bg-brand-accent selection:text-white">
 
-<!-- ================================================================
-     BAGIAN NAVBAR
-     ================================================================ -->
 <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-        <!-- Logo dan Judul Singkat -->
+
         <div class="flex items-center gap-3 min-w-0">
             <img src="Akun IG Logo.jpeg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm flex-shrink-0">
             <span class="font-display font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
         </div>
 
-        <!-- Tautan Navigasi Menu (Tampilan Desktop) -->
         <div class="hidden md:flex space-x-8 items-center">
             <a href="#tentang" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Profil</a>
             <a href="#tugas" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Ruang Lingkup</a>
@@ -129,18 +112,15 @@
             <a href="#tim" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tim</a>
         </div>
 
-        <!-- Tombol Aksi di Navigasi (Tampilan Desktop) -->
         <div class="hidden md:block">
             <a href="#karya" class="btn-neo text-sm py-2 px-4">Jelajahi Karya Kami</a>
         </div>
 
-        <!-- Tombol Menu Hamburger (Tampilan HP saja) -->
         <button id="menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="md:hidden text-brand-header text-2xl flex-shrink-0 ml-3">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
 
-    <!-- Menu Dropdown untuk Tampilan HP (tersembunyi secara default) -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-div/50 px-6 py-4 space-y-4">
         <a href="#tentang" class="block text-brand-header font-medium text-sm">Profil</a>
         <a href="#tugas" class="block text-brand-header font-medium text-sm">Ruang Lingkup</a>
@@ -150,26 +130,20 @@
     </div>
 </nav>
 
-<!-- ================================================================
-     BAGIAN HERO (Area Banner Utama)
-     ================================================================ -->
 <main class="py-20 lg:py-28 px-6 bg-white">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        <!-- Kolom Kiri: Teks Utama -->
         <div class="flex flex-col space-y-6">
-            <!-- Label Tanggal Pelaksanaan -->
+
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-bg border border-brand-div/50 text-xs font-medium text-brand-header w-fit">
                 <span class="w-2 h-2 rounded-full bg-blue-500"></span> 03 Agustus - 02 September 2026
             </div>
 
-            <!-- Judul Utama (Headline) -->
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.3] text-brand-header py-2 break-words">
                 Mendokumentasikan Kinerja,<br>
                 <span class="highlight-bg mt-3 inline-block leading-normal">Menyampaikan Informasi Publik.</span>
             </h1>
 
-            <!-- Bagian Ringkasan -->
             <div class="bg-brand-bg/50 p-5 rounded-xl border border-brand-div/30 mt-2">
                 <h3 class="text-sm font-bold text-brand-accent mb-2 uppercase tracking-wide">Ringkasan</h3>
                 <p class="text-base text-brand-sub leading-relaxed">
@@ -177,18 +151,12 @@
                 </p>
             </div>
 
-            <!-- Tombol Navigasi Pintas -->
             <div class="flex flex-wrap gap-4 pt-2">
                 <a href="#kegiatan" class="btn-neo"><i class="fa-solid fa-bullseye mr-2"></i> Lihat Tujuan Kami</a>
                 <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Jelajahi Karya Kami</a>
             </div>
         </div>
 
-        <!-- ============================================
-             EDIT DI SINI: Foto Kelompok
-             Ganti blok <div class="w-full h-full border-2..."> di bawah
-             dengan tag <img src="nama-foto-kelompok.jpg" alt="Foto Kelompok PPL KPI" class="w-full h-full object-cover rounded-lg">
-             ============================================ -->
         <div class="card-neo bg-white aspect-square flex flex-col justify-center items-center p-6 text-center relative overflow-hidden">
             <div class="w-full h-full border-2 border-dashed border-brand-div rounded-lg flex flex-col items-center justify-center bg-brand-bg/30">
                 <i class="fa-solid fa-users text-6xl text-brand-sub mb-4"></i>
@@ -198,19 +166,16 @@
     </div>
 </main>
 
-<!-- ================================================================
-     BAGIAN PROFIL & INSTANSI PENEMPATAN
-     ================================================================ -->
 <section id="tentang" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto">
-        <!-- Judul Bagian Profil -->
+
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1">01</span>
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Profil Penugasan</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Kartu Instansi (Lebar 2 Kolom, Tinggi diseimbangkan dengan konten Kanan) -->
+
             <div class="card-neo p-6 lg:p-8 md:col-span-2 bg-white flex flex-col justify-center">
                 <h3 class="text-2xl font-bold mb-4 text-brand-header">Instansi Penempatan</h3>
                 <p class="text-brand-text leading-relaxed text-lg">
@@ -218,7 +183,6 @@
                 </p>
             </div>
 
-            <!-- Kartu Informasi Lokasi & Waktu -->
             <div class="card-neo-dark p-6 lg:p-8 flex flex-col justify-center">
                 <h3 class="text-xl font-bold mb-6 text-brand-accent">Detail Kegiatan</h3>
                 <div class="space-y-6">
@@ -236,9 +200,6 @@
     </div>
 </section>
 
-<!-- ================================================================
-     BAGIAN RUANG LINGKUP PEKERJAAN
-     ================================================================ -->
 <section id="tugas" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
@@ -247,7 +208,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Ruang Lingkup A: Protokol -->
+
             <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
@@ -264,7 +225,6 @@
                 </ul>
             </div>
 
-            <!-- Ruang Lingkup B: Komunikasi Pimpinan -->
             <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
@@ -283,9 +243,6 @@
     </div>
 </section>
 
-<!-- ================================================================
-     BAGIAN TUJUAN & TARGET PEMBELAJARAN PPL
-     ================================================================ -->
 <section id="kegiatan" class="py-20 bg-brand-bg px-6">
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
@@ -333,16 +290,6 @@
     </div>
 </section>
 
-<!-- ================================================================
-     BAGIAN TEMPAT MENARUH KARYA/PORTOFOLIO
-     EDIT DI SINI: ganti setiap blok "aspect-[4/3]" berisi teks
-     placeholder dengan <img src="nama-file.jpg" class="w-full h-full object-cover">
-
-     TIPS CAPTION: saat foto asli sudah dipasang, ganti juga kalimat
-     deskripsi di bawah judul kartu dengan format "aktivitas + konteks + tanggal",
-     contoh: "Mendampingi kunjungan kerja Wakil Walikota ke Kelurahan X, 12 Agustus 2026."
-     Format ini bikin portofolio terasa seperti laporan kerja nyata.
-     ================================================================ -->
 <section id="karya" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
@@ -384,11 +331,6 @@
     </div>
 </section>
 
-<!-- ================================================================
-     BAGIAN SUSUNAN ANGGOTA TIM MAGANG
-     EDIT DI SINI: ganti ikon <i class="fa-solid fa-user"...> dengan
-     <img src="nama-foto.jpg" class="w-full h-full object-cover"> kalau mau pasang foto anggota
-     ================================================================ -->
 <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
         <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block">05</span>
@@ -427,9 +369,6 @@
     </div>
 </section>
 
-<!-- ================================================================
-     BAGIAN FOOTER
-     ================================================================ -->
 <footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
         <div class="w-full md:w-1/2">
@@ -454,7 +393,6 @@
     </div>
 </footer>
 
-<!-- Skrip untuk membuka/tutup menu hamburger di tampilan HP -->
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -468,7 +406,6 @@
             : '<i class="fa-solid fa-xmark"></i>';
     });
 
-    // Menu otomatis tertutup setelah salah satu tautan diklik
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
