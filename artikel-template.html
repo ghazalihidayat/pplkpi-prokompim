@@ -24,10 +24,13 @@
                         'brand-text': '#1E293B',
                         'brand-dark': '#1E3A8A',
                         'brand-accent': '#3B82F6',
+                        'kat-liputan': '#3B82F6',
+                        'kat-jurnal': '#0D9488',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
                         'display': ['Syne', 'sans-serif'],
+                        'brand': ['Space Grotesk', 'sans-serif'],
                         'voice': ['Georgia', 'serif'],
                     }
                 }
@@ -35,7 +38,7 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Space+Grotesk:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
@@ -76,7 +79,7 @@
     <div class="max-w-4xl mx-auto px-6 h-20 flex justify-between items-center">
         <div class="flex items-center gap-3 min-w-0">
             <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm flex-shrink-0">
-            <span class="font-display font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
+            <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
         </div>
         <a href="galeri.html" class="text-brand-header font-medium text-sm hover:text-brand-accent transition flex-shrink-0">
             <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
@@ -85,6 +88,8 @@
 </nav>
 
 <header class="max-w-4xl mx-auto px-6 pt-12 pb-6">
+
+    <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">Liputan Kegiatan</span>
 
     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-header leading-tight mb-4">
         Mendampingi Kunjungan Kerja Wali Kota ke Kelurahan Setono
@@ -134,6 +139,23 @@
         <p>
             Kunjungan berlangsung sekitar dua jam dan ditutup dengan sesi tanya jawab bersama warga setempat. Pengalaman ini menjadi salah satu momen paling berkesan bagi kami, karena secara langsung mempraktikkan kompetensi keprotokolan dan dokumentasi yang selama ini hanya dipelajari secara teori di bangku kuliah.
         </p>
+    </div>
+
+
+    <div class="mb-10">
+        <h3 class="text-lg font-bold text-brand-header mb-4">Galeri Foto Tambahan</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="aspect-square rounded-lg border-2 border-dashed border-brand-div bg-brand-bg/40 flex items-center justify-center">
+                <i class="fa-solid fa-image text-2xl text-brand-sub"></i>
+            </div>
+            <div class="aspect-square rounded-lg border-2 border-dashed border-brand-div bg-brand-bg/40 flex items-center justify-center">
+                <i class="fa-solid fa-image text-2xl text-brand-sub"></i>
+            </div>
+            <div class="aspect-square rounded-lg border-2 border-dashed border-brand-div bg-brand-bg/40 flex items-center justify-center">
+                <i class="fa-solid fa-image text-2xl text-brand-sub"></i>
+            </div>
+
+        </div>
     </div>
 
     <div class="mt-10 pt-8 border-t border-brand-div/30">
