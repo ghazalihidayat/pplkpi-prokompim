@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="id" class="scroll-smooth">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dokumentasi Kegiatan - Portofolio PPL KPI Prokompim</title>
-
 
     <meta name="description" content="Seluruh dokumentasi kegiatan Praktik Pengalaman Lapangan (PPL) mahasiswa Komunikasi dan Penyiaran Islam di Bagian Protokol dan Komunikasi Pimpinan, Sekretariat Daerah Kota Pekalongan, 2026.">
     <meta property="og:title" content="Dokumentasi Kegiatan - Portofolio PPL KPI Prokompim">
@@ -14,12 +11,8 @@
     <meta property="og:image" content="aset-profil/Logo-PPL.svg">
     <meta property="og:type" content="website">
 
-
     <script src="https://cdn.tailwindcss.com"></script>
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 
     <script>
         tailwind.config = {
@@ -46,19 +39,13 @@
         }
     </script>
 
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
-
         html, body { overflow-x: hidden; max-width: 100%; }
         body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
         h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
-
-
         img { max-width: 100%; height: auto; display: block; }
-
 
         .card-neo {
             background-color: white;
@@ -66,15 +53,6 @@
             border-radius: 1rem;
             box-shadow: 4px 4px 0px #1E3A8A;
         }
-
-        .card-neo-dark {
-            background-color: #1E3A8A;
-            color: #EFF6FF;
-            border: 2px solid #1E3A8A;
-            border-radius: 1rem;
-            box-shadow: 4px 4px 0px #0F172A;
-        }
-
         .btn-neo {
             display: inline-flex;
             align-items: center;
@@ -90,20 +68,16 @@
             transition: all 0.2s;
         }
         .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
+        .highlight-bg { background-color: #3B82F6; padding: 0.25rem 0.75rem; border-radius: 0.5rem; color: white; }
 
 
-        .btn-neo-dark {
-            background-color: #1E3A8A;
-            color: white;
-            border-color: #1E3A8A;
+        .row-artikel {
+            background-color: white;
+            border: 1.5px solid #1E3A8A33;
+            border-radius: 0.75rem;
+            transition: all 0.15s;
         }
-
-        .highlight-bg {
-            background-color: #3B82F6;
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.5rem;
-            color: white;
-        }
+        .row-artikel:hover { border-color: #1E3A8A; transform: translateX(2px); }
     </style>
 </head>
 
@@ -111,14 +85,12 @@
 
 <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-
         <div class="flex items-center gap-3 min-w-0">
             <a href="index.html" class="flex items-center gap-3 min-w-0">
                 <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm flex-shrink-0">
                 <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
             </a>
         </div>
-
 
         <div class="hidden md:flex space-x-8 items-center">
             <a href="index.html#tentang" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Profil</a>
@@ -128,17 +100,14 @@
             <a href="galeri.html" class="text-brand-accent font-bold text-sm">Dokumentasi</a>
         </div>
 
-
         <div class="hidden md:block">
             <a href="index.html" class="btn-neo text-sm py-2 px-4"><i class="fa-solid fa-arrow-left mr-2"></i> Kembali</a>
         </div>
-
 
         <button id="menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="md:hidden text-brand-header text-2xl flex-shrink-0 ml-3">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
-
 
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-div/50 px-6 py-4 space-y-4">
         <a href="index.html#tentang" class="block text-brand-header font-medium text-sm">Profil</a>
@@ -150,8 +119,8 @@
     </div>
 </nav>
 
-<header class="pt-8 pb-12 sm:pt-10 sm:pb-16 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
+<header class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
         <div class="flex items-center gap-4 mb-4">
             <span class="highlight-bg text-2xl font-bold px-3 py-1"><i class="fa-solid fa-images"></i></span>
             <h1 class="text-3xl lg:text-4xl font-bold text-brand-header">Dokumentasi Kegiatan</h1>
@@ -160,43 +129,51 @@
     </div>
 </header>
 
-<section class="pb-20 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<section class="px-6 mb-12">
+    <div class="max-w-5xl mx-auto">
+        <a href="berita/bunda-literasi.html" class="card-neo flex flex-col md:flex-row overflow-hidden hover:-translate-y-1 transition">
+            <div class="md:w-1/2 aspect-[16/10] md:aspect-auto overflow-hidden">
+                <img src="aset-artikel/bunda-literasi.jpeg" alt="Roadshow Bunda Literasi" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
+                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit">Liputan Kegiatan</span>
+                <h2 class="text-xl md:text-2xl font-bold text-brand-header leading-snug mb-3">Bunda Literasi Kota Pekalongan Pimpin Roadshow Literasi dan Deklarasi Sekolah Ramah Anak</h2>
+                <p class="text-sm text-brand-sub mb-4">Kegiatan menjadi wujud komitmen Pemkot menumbuhkan budaya literasi sekaligus lingkungan sekolah yang aman bagi anak.</p>
+                <span class="text-xs text-brand-sub"><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> 05 Agustus 2026</span>
+            </div>
+        </a>
+    </div>
+</section>
 
-            <a href="artikel-template.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg flex items-center justify-center p-4">
-                    <span class="text-brand-sub font-bold text-sm text-center">FOTO DOKUMENTASI KEGIATAN<br>(Insert Image Here)</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header">
-                    <h4 class="font-bold text-lg mb-2 text-brand-header">Dokumentasi Tugas Pimpinan</h4>
-                    <p class="text-sm text-brand-sub">Kumpulan hasil foto pendampingan acara Walikota/Wakil Walikota.</p>
-                </div>
-            </a>
+<section class="px-6 pb-20">
+    <div class="max-w-5xl mx-auto space-y-4">
 
-            <a href="artikel-template.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg flex items-center justify-center p-4">
-                    <span class="text-brand-sub font-bold text-sm text-center">RILIS BERITA / CAPTION<br>(Insert Image/Text Here)</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header">
-                    <h4 class="font-bold text-lg mb-2 text-brand-header">Naskah Komunikasi Publik</h4>
-                    <p class="text-sm text-brand-sub">Draft naskah informasi publik, rilis media, dan caption sosial media instansi.</p>
-                </div>
-            </a>
+        <a href="berita/apbd.html" class="row-artikel flex items-center gap-4 p-3 sm:p-4">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden flex-shrink-0">
+                <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
+            </div>
+            <div class="min-w-0 flex-1">
+                <span class="inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full mb-1.5">Liputan Kegiatan</span>
+                <h3 class="font-bold text-brand-header text-sm sm:text-base leading-snug truncate sm:whitespace-normal">Perubahan APBD 2026 Difokuskan untuk Program Prioritas dan Kebutuhan Mendesak</h3>
+                <span class="text-xs text-brand-sub"><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> 05 Agustus 2026</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-brand-div flex-shrink-0"></i>
+        </a>
 
-            <a href="artikel-template.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg flex items-center justify-center p-4">
-                    <span class="text-brand-sub font-bold text-sm text-center">JADWAL / RUNDOWN ACARA<br>(Insert Image Here)</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header">
-                    <h4 class="font-bold text-lg mb-2 text-brand-header">Fasilitasi Keprotokolan</h4>
-                    <p class="text-sm text-brand-sub">Contoh dokumen tata acara dan penjadwalan kegiatan resmi pemerintahan.</p>
-                </div>
-            </a>
+        <a href="berita/penerjunan.html" class="row-artikel flex items-center gap-4 p-3 sm:p-4">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden flex-shrink-0">
+                <img src="aset-artikel/penerjunan.jpeg" alt="Penerjunan PPL" class="w-full h-full object-cover">
+            </div>
+            <div class="min-w-0 flex-1">
+                <span class="inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full mb-1.5">Liputan Kegiatan</span>
+                <h3 class="font-bold text-brand-header text-sm sm:text-base leading-snug truncate sm:whitespace-normal">Empat Mahasiswa KPI UIN Gusdur Pekalongan Jalani PPL di Prokompim Kota Pekalongan</h3>
+                <span class="text-xs text-brand-sub"><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> 03 Agustus 2026</span>
+            </div>
+            <i class="fa-solid fa-chevron-right text-brand-div flex-shrink-0"></i>
+        </a>
 
 
 
-        </div>
     </div>
 </section>
 
@@ -209,7 +186,6 @@
             </div>
             <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
         </div>
-
         <div class="w-full md:w-1/2 md:text-right">
             <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
             <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
@@ -218,25 +194,20 @@
             </ul>
         </div>
     </div>
-
     <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
-        <p>&copy; 2026 Tim Magang Kelompok PPL KPI — Sekretariat Daerah Kota Pekalongan.</p>
+        <p>&copy; 2026 Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
     </div>
 </footer>
 
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-
     menuBtn.addEventListener('click', () => {
         const isOpen = !mobileMenu.classList.contains('hidden');
         mobileMenu.classList.toggle('hidden');
         menuBtn.setAttribute('aria-expanded', String(!isOpen));
-        menuBtn.innerHTML = isOpen
-            ? '<i class="fa-solid fa-bars"></i>'
-            : '<i class="fa-solid fa-xmark"></i>';
+        menuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
     });
-
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
