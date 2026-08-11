@@ -162,12 +162,11 @@
             </div>
         </div>
 
+        <div class="relative aspect-square w-full max-w-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
 
-        <div class="relative aspect-square" id="hero-stack" aria-hidden="true">
-
-            <div class="hero-photo absolute inset-0"><img src="aset-artikel/apbd.jpeg" alt="" class="w-full h-full object-cover"></div>
-            <div class="hero-photo absolute inset-0"><img src="aset-artikel/bunda-literasi.jpeg" alt="" class="w-full h-full object-cover"></div>
-            <div class="hero-photo absolute inset-0"><img src="aset-artikel/penerjunan.jpeg" alt="" class="w-full h-full object-cover"></div>
+            <div class="hero-photo absolute inset-0"><img src="aset-artikel/igtki-pgri.jpeg" alt="" class="w-full h-full object-contain"></div>
+            <div class="hero-photo absolute inset-0"><img src="aset-artikel/mtq-manic.jpeg" alt="" class="w-full h-full object-contain"></div>
+            <div class="hero-photo absolute inset-0"><img src="aset-artikel/rsud-bendan.jpeg" alt="" class="w-full h-full object-contain"></div>
         </div>
 
     </div>
@@ -179,10 +178,11 @@
         border-radius: 2.5rem;
         overflow: hidden;
         border: 6px solid white;
+        background: #F0F4F8;
         box-shadow: 0 10px 30px -8px rgba(30,58,138,0.35);
         transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
     }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: contain; }
     .hero-photo.pos-front  { transform: rotate(0deg)   translate(0, 0)     scale(1);    z-index: 30; opacity: 1; }
     .hero-photo.pos-left   { transform: rotate(-9deg)  translate(-8%, 6%)  scale(0.9);  z-index: 20; opacity: 0.9; }
     .hero-photo.pos-right  { transform: rotate(8deg)   translate(8%, 6%)   scale(0.9);  z-index: 10; opacity: 0.9; }
@@ -219,7 +219,7 @@
                 if (terbaru.length === 0) return startAutoRotate(3); // pakai fallback HTML
 
                 stack.innerHTML = terbaru.map(item =>
-                    `<div class="hero-photo absolute inset-0"><img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover"></div>`
+                    `<div class="hero-photo absolute inset-0"><img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-contain"></div>`
                 ).join('');
                 startAutoRotate(terbaru.length);
             })
@@ -374,7 +374,6 @@
             <span class="highlight-bg text-2xl font-bold px-3 py-1">04</span>
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Luaran Karya / Portofolio</h2>
         </div>
-
 
         <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
