@@ -34,7 +34,7 @@
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
-                        'display': ['Syne', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
                         'brand': ['Space Grotesk', 'sans-serif'],
                     }
                 }
@@ -42,13 +42,13 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
 
         html, body { overflow-x: hidden; max-width: 100%; }
         body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
-        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
 
         img { max-width: 100%; height: auto; display: block; }
 
@@ -162,52 +162,100 @@
             </div>
         </div>
 
-        <div class="relative aspect-square w-full max-w-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
+        <div class="relative w-full max-w-[420px] h-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
 
-            <div class="hero-photo absolute inset-0"><img src="aset-artikel/igtki-pgri.jpeg" alt="" class="w-full h-full object-contain"></div>
-            <div class="hero-photo absolute inset-0"><img src="aset-artikel/mtq-manic.jpeg" alt="" class="w-full h-full object-contain"></div>
-            <div class="hero-photo absolute inset-0"><img src="aset-artikel/rsud-bendan.jpeg" alt="" class="w-full h-full object-contain"></div>
+            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="1.33"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="0.8"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
         </div>
 
     </div>
 </main>
 
 <style>
-
+    /* ================================================================
+       STACK FOTO HERO — tiap bingkai MENYESUAIKAN bentuk asli fotonya
+       (potret/landscape), bukan kotak seragam. Ukurannya dihitung oleh
+       JS di bawah berdasarkan lebar/tinggi asli gambar (naturalWidth/
+       naturalHeight), jadi tidak ada foto yang terpotong atau ada ruang
+       kosong di pinggirnya.
+       ================================================================ -->
     .hero-photo {
-        border-radius: 2.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 1.75rem;
         overflow: hidden;
         border: 6px solid white;
-        background: #F0F4F8;
         box-shadow: 0 10px 30px -8px rgba(30,58,138,0.35);
         transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
     }
-    .hero-photo img { width: 100%; height: 100%; object-fit: contain; }
-    .hero-photo.pos-front  { transform: rotate(0deg)   translate(0, 0)     scale(1);    z-index: 30; opacity: 1; }
-    .hero-photo.pos-left   { transform: rotate(-9deg)  translate(-8%, 6%)  scale(0.9);  z-index: 20; opacity: 0.9; }
-    .hero-photo.pos-right  { transform: rotate(8deg)   translate(8%, 6%)   scale(0.9);  z-index: 10; opacity: 0.9; }
+    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 </style>
 
 <script>
     (function () {
         const stack = document.getElementById('hero-stack');
+        const MAX_H = 300; // tinggi acuan (px) tiap bingkai foto sebelum di-scale posisi
+
+        const POSISI = [
+            { rot: 0,   tx: 0,   ty: 0,   scale: 1.00, z: 50, op: 1 },
+            { rot: -8,  tx: -16, ty: 8,   scale: 0.88, z: 40, op: 0.92 },
+            { rot: 8,   tx: 16,  ty: 8,   scale: 0.88, z: 30, op: 0.92 },
+            { rot: -14, tx: -8,  ty: -14, scale: 0.78, z: 20, op: 0.8 },
+            { rot: 13,  tx: 8,   ty: -14, scale: 0.78, z: 10, op: 0.8 },
+        ];
+
+        function sizeFrame(frame, ratio) {
+            const h = MAX_H;
+            const w = Math.round(h * ratio);
+            frame.style.height = h + 'px';
+            frame.style.width = w + 'px';
+        }
 
         function applyPositions(order) {
             const photos = stack.querySelectorAll('.hero-photo');
-            photos.forEach(p => p.classList.remove('pos-front', 'pos-left', 'pos-right'));
-            if (photos[order[0]]) photos[order[0]].classList.add('pos-front');
-            if (photos[order[1]]) photos[order[1]].classList.add('pos-left');
-            if (photos[order[2]]) photos[order[2]].classList.add('pos-right');
+            order.forEach((photoIndex, posIndex) => {
+                const p = POSISI[posIndex] || POSISI[POSISI.length - 1];
+                const el = photos[photoIndex];
+                if (!el) return;
+                el.style.zIndex = p.z;
+                el.style.opacity = p.op;
+                el.style.transform =
+                    `translate(-50%, -50%) rotate(${p.rot}deg) translate(${p.tx}%, ${p.ty}%) scale(${p.scale})`;
+            });
         }
 
         function startAutoRotate(count) {
-            let order = [...Array(count).keys()]; // [0,1,2,...]
+            let order = [...Array(count).keys()];
             applyPositions(order);
             if (count <= 1) return;
             setInterval(() => {
-                order.push(order.shift()); // geser: yang depan pindah ke belakang
+                order.push(order.shift());
                 applyPositions(order);
             }, 3200);
+        }
+
+        function prepareFrames(count) {
+            const photos = stack.querySelectorAll('.hero-photo');
+            let loaded = 0;
+            photos.forEach(frame => {
+                const img = frame.querySelector('img');
+                const fallback = parseFloat(frame.dataset.fallbackRatio || '1');
+                function done(ratio) {
+                    sizeFrame(frame, ratio);
+                    loaded++;
+                    if (loaded === photos.length) startAutoRotate(count);
+                }
+                if (img.complete && img.naturalWidth) {
+                    done(img.naturalWidth / img.naturalHeight);
+                } else {
+                    img.addEventListener('load', () => done(img.naturalWidth / img.naturalHeight));
+                    img.addEventListener('error', () => done(fallback));
+                }
+            });
         }
 
         fetch('manifest.json')
@@ -215,15 +263,15 @@
             .then(data => {
                 const terbaru = [...data]
                     .sort((a, b) => b.tanggal.localeCompare(a.tanggal))
-                    .slice(0, 3);
-                if (terbaru.length === 0) return startAutoRotate(3); // pakai fallback HTML
+                    .slice(0, 5);
+                if (terbaru.length === 0) return prepareFrames(5); // pakai fallback HTML
 
                 stack.innerHTML = terbaru.map(item =>
-                    `<div class="hero-photo absolute inset-0"><img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-contain"></div>`
+                    `<div class="hero-photo"><img src="${item.foto}" alt="${item.judul}"></div>`
                 ).join('');
-                startAutoRotate(terbaru.length);
+                prepareFrames(terbaru.length);
             })
-            .catch(() => startAutoRotate(3)); // manifest.json gagal dimuat -> pakai 3 foto fallback di HTML
+            .catch(() => prepareFrames(5)); // manifest.json gagal dimuat -> pakai 5 foto fallback di HTML
     })();
 </script>
 
