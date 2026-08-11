@@ -36,7 +36,6 @@
                         'sans': ['Inter', 'sans-serif'],
                         'display': ['Syne', 'sans-serif'],
                         'brand': ['Space Grotesk', 'sans-serif'],
-                        'brand': ['Space Grotesk', 'sans-serif'],
                     }
                 }
             }
@@ -164,73 +163,67 @@
         </div>
 
 
-        <div class="card-neo aspect-square relative overflow-hidden select-none group" id="hero-carousel">
-            <div id="carousel-track" class="flex h-full transition-transform duration-300 ease-out">
-                <div class="carousel-slide flex-shrink-0 h-full">
-                    <img src="aset-artikel/penerjunan.jpeg" alt="Penerjunan PPL di Prokompim" class="w-full h-full object-cover">
-                </div>
-                <div class="carousel-slide flex-shrink-0 h-full">
-                    <img src="aset-artikel/bunda-literasi.jpeg" alt="Roadshow Bunda Literasi" class="w-full h-full object-cover">
-                </div>
-                <div class="carousel-slide flex-shrink-0 h-full">
-                    <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna Perubahan APBD" class="w-full h-full object-cover">
-                </div>
-            </div>
+        <div class="relative aspect-square" id="hero-stack" aria-hidden="true">
 
-
-            <button id="carousel-prev" aria-label="Foto sebelumnya" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-brand-div items-center justify-center text-brand-header opacity-0 hover:opacity-100 group-hover:opacity-100 transition z-10">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button id="carousel-next" aria-label="Foto berikutnya" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-brand-div items-center justify-center text-brand-header opacity-0 hover:opacity-100 group-hover:opacity-100 transition z-10">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-
-
-            <div id="carousel-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                <button class="w-2 h-2 rounded-full bg-white transition" aria-label="Foto 1"></button>
-                <button class="w-2 h-2 rounded-full bg-white/50 transition" aria-label="Foto 2"></button>
-                <button class="w-2 h-2 rounded-full bg-white/50 transition" aria-label="Foto 3"></button>
-            </div>
+            <div class="hero-photo absolute inset-0"><img src="aset-artikel/apbd.jpeg" alt="" class="w-full h-full object-cover"></div>
+            <div class="hero-photo absolute inset-0"><img src="aset-artikel/bunda-literasi.jpeg" alt="" class="w-full h-full object-cover"></div>
+            <div class="hero-photo absolute inset-0"><img src="aset-artikel/penerjunan.jpeg" alt="" class="w-full h-full object-cover"></div>
         </div>
 
     </div>
 </main>
 
+<style>
+
+    .hero-photo {
+        border-radius: 2.5rem;
+        overflow: hidden;
+        border: 6px solid white;
+        box-shadow: 0 10px 30px -8px rgba(30,58,138,0.35);
+        transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo.pos-front  { transform: rotate(0deg)   translate(0, 0)     scale(1);    z-index: 30; opacity: 1; }
+    .hero-photo.pos-left   { transform: rotate(-9deg)  translate(-8%, 6%)  scale(0.9);  z-index: 20; opacity: 0.9; }
+    .hero-photo.pos-right  { transform: rotate(8deg)   translate(8%, 6%)   scale(0.9);  z-index: 10; opacity: 0.9; }
+</style>
+
 <script>
     (function () {
-        const wrapper = document.getElementById('hero-carousel');
-        const track = document.getElementById('carousel-track');
-        const slides = track.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('#carousel-dots button');
-        const total = slides.length;
-        let current = 0;
+        const stack = document.getElementById('hero-stack');
 
-        slides.forEach(s => s.style.width = '100%');
-        track.style.width = (total * 100) + '%';
-        slides.forEach(s => s.style.width = (100 / total) + '%');
-
-        function goTo(index) {
-            current = (index + total) % total;
-            track.style.transform = `translateX(-${current * (100 / total)}%)`;
-            dots.forEach((d, i) => {
-                d.classList.toggle('bg-white', i === current);
-                d.classList.toggle('bg-white/50', i !== current);
-            });
+        function applyPositions(order) {
+            const photos = stack.querySelectorAll('.hero-photo');
+            photos.forEach(p => p.classList.remove('pos-front', 'pos-left', 'pos-right'));
+            if (photos[order[0]]) photos[order[0]].classList.add('pos-front');
+            if (photos[order[1]]) photos[order[1]].classList.add('pos-left');
+            if (photos[order[2]]) photos[order[2]].classList.add('pos-right');
         }
 
-        dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-        document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
-        document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
+        function startAutoRotate(count) {
+            let order = [...Array(count).keys()]; // [0,1,2,...]
+            applyPositions(order);
+            if (count <= 1) return;
+            setInterval(() => {
+                order.push(order.shift()); // geser: yang depan pindah ke belakang
+                applyPositions(order);
+            }, 3200);
+        }
 
-        let startX = 0;
-        track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-        track.addEventListener('touchend', e => {
-            const diff = e.changedTouches[0].clientX - startX;
-            if (diff > 40) goTo(current - 1);
-            else if (diff < -40) goTo(current + 1);
-        }, { passive: true });
+        fetch('manifest.json')
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(data => {
+                const terbaru = [...data]
+                    .sort((a, b) => b.tanggal.localeCompare(a.tanggal))
+                    .slice(0, 3);
+                if (terbaru.length === 0) return startAutoRotate(3); // pakai fallback HTML
 
-        goTo(0);
+                stack.innerHTML = terbaru.map(item =>
+                    `<div class="hero-photo absolute inset-0"><img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover"></div>`
+                ).join('');
+                startAutoRotate(terbaru.length);
+            })
+            .catch(() => startAutoRotate(3)); // manifest.json gagal dimuat -> pakai 3 foto fallback di HTML
     })();
 </script>
 
@@ -382,40 +375,17 @@
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Luaran Karya / Portofolio</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <a href="berita/penerjunan.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
-                    <img src="aset-artikel/penerjunan.jpeg" alt="Penerjunan PPL" class="w-full h-full object-cover">
-                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">LIPUTAN KEGIATAN</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
-                    <h4 class="font-bold text-lg mb-2 text-brand-header line-clamp-2">Penyerahan Mahasiswa PPL KPI di Prokompim</h4>
-                    <p class="text-sm text-brand-sub line-clamp-3">Penerjunan 4 mahasiswa KPI UIN Gusdur Pekalongan untuk magang selama satu bulan.</p>
-                </div>
-            </a>
-
-
-            <a href="berita/bunda-literasi.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
-                    <img src="aset-artikel/bunda-literasi.jpeg" alt="Bunda Literasi" class="w-full h-full object-cover">
-                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">LIPUTAN KEGIATAN</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
-                    <h4 class="font-bold text-lg mb-2 text-brand-header line-clamp-2">Roadshow Bunda Literasi & Deklarasi Sekolah Ramah Anak</h4>
-                    <p class="text-sm text-brand-sub line-clamp-3">Pendampingan kegiatan Bunda Literasi di SDN 10 Kandang Panjang.</p>
-                </div>
-            </a>
-
+        <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
             <a href="berita/apbd.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
                 <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
                     <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
-                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">LIPUTAN KEGIATAN</span>
+                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
                 </div>
                 <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
-                    <h4 class="font-bold text-lg mb-2 text-brand-header line-clamp-2">Rapat Paripurna Raperda Perubahan APBD 2026</h4>
-                    <p class="text-sm text-brand-sub line-clamp-3">Liputan kebijakan Wali Kota Pekalongan terkait pemfokusan APBD 2026.</p>
+                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Perubahan APBD 2026 Difokuskan untuk Program Prioritas dan Kebutuhan Mendesak Masyarakat</h4>
+                    <p class="text-sm text-brand-sub line-clamp-3">Wali Kota arahkan perubahan APBD 2026 untuk program mendesak dan prioritas warga.</p>
                 </div>
             </a>
         </div>
@@ -425,6 +395,31 @@
         </div>
     </div>
 </section>
+
+<script>
+    (function () {
+        const grid = document.getElementById('karya-grid');
+        fetch('manifest.json')
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(data => {
+                const terbaru = [...data].sort((a, b) => b.tanggal.localeCompare(a.tanggal)).slice(0, 3);
+                if (terbaru.length === 0) return; // biarkan fallback tampil
+                grid.innerHTML = terbaru.map(item => `
+                    <a href="${item.link}" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
+                        <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
+                            <img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">${item.kategori}</span>
+                        </div>
+                        <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                            <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">${item.judul}</h4>
+                            <p class="text-sm text-brand-sub line-clamp-3">${item.dek}</p>
+                        </div>
+                    </a>
+                `).join('');
+            })
+            .catch(() => {}); // gagal -> biarkan fallback di HTML tetap tampil
+    })();
+</script>
 
 <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
