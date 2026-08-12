@@ -162,7 +162,11 @@
             </div>
         </div>
 
-        <div class="relative w-full max-w-[420px] h-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
+        <div class="relative w-full max-w-[420px] h-[420px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
+
+            <span class="hero-dot" style="width:22px;height:22px;top:-6px;left:-10px;"></span>
+            <span class="hero-dot" style="width:14px;height:14px;bottom:10%;left:-14px;"></span>
+            <span class="hero-dot" style="width:18px;height:18px;top:20%;right:-16px;"></span>
 
             <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
             <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
@@ -176,19 +180,30 @@
 
 <style>
     /* ================================================================
-       STACK FOTO HERO — tiap bingkai MENYESUAIKAN bentuk asli fotonya
-       (potret/landscape), tidak dipotong. Posisi tumpuk & ukuran diatur
-       LANGSUNG oleh JS lewat inline style (lihat <script> di bawah), CSS
-       ini cuma buat tampilan visual (sudut, border, bayangan).
+       STACK FOTO HERO — gaya "instant photo" (polaroid): bingkai putih
+       tebal terutama di bawah, sudut membulat, ditumpuk & diputar rapi.
+       Ukuran & posisi diatur JS di bawah; CSS ini untuk visual (bentuk
+       kartu, border, bayangan, aksen bulat dekoratif).
        ================================================================ -->
     .hero-photo {
         overflow: hidden;
-        border-radius: 1.25rem;
-        border: 5px solid white;
-        box-shadow: 0 8px 24px -6px rgba(30,58,138,0.35);
+        background: white;
+        border-radius: 1.5rem;
+        border: 10px solid white;
+        border-bottom-width: 34px;
+        box-shadow: 0 14px 30px -8px rgba(30,58,138,0.4), 0 2px 6px rgba(30,58,138,0.15);
         transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
     }
-    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; border-radius: 0.9rem; }
+
+    .hero-dot {
+        position: absolute;
+        border-radius: 9999px;
+        background: radial-gradient(circle at 35% 30%, #93C5FD, #3B82F6 65%, #1E3A8A);
+        box-shadow: 0 6px 14px -4px rgba(30,58,138,0.5);
+        z-index: 60;
+        pointer-events: none;
+    }
 </style>
 
 <script>
@@ -215,6 +230,25 @@
             const w = Math.round(h * ratio);
             frame.style.height = h + 'px';
             frame.style.width = w + 'px';
+        }
+
+        // Fokus otomatis ke objek utama (biasanya wajah/orang) memakai
+        // Face Detection API bawaan browser kalau tersedia. Kalau tidak
+        // didukung, pakai bias ke sepertiga atas foto (posisi wajah pada
+        // kebanyakan foto kegiatan/group photo), bukan potong tengah polos.
+        async function fokusOtomatis(frame, img) {
+            let posY = 22; // fallback: bias ke atas (%)
+            try {
+                if ('FaceDetector' in window) {
+                    const detector = new FaceDetector({ maxDetectedFaces: 5, fastMode: true });
+                    const faces = await detector.detect(img);
+                    if (faces && faces.length) {
+                        const cyAvg = faces.reduce((sum, f) => sum + (f.boundingBox.y + f.boundingBox.height / 2), 0) / faces.length;
+                        posY = Math.min(85, Math.max(10, (cyAvg / img.naturalHeight) * 100));
+                    }
+                }
+            } catch (e) { /* diamkan, pakai fallback */ }
+            img.style.objectPosition = `center ${posY}%`;
         }
 
         function applyPositions(order) {
@@ -249,6 +283,7 @@
                 const fallback = parseFloat(frame.dataset.fallbackRatio || '1');
                 function done(ratio) {
                     sizeFrame(frame, ratio);
+                    fokusOtomatis(frame, img);
                     loaded++;
                     if (loaded === photos.length) startAutoRotate(count);
                 }
