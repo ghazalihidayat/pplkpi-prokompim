@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="id" class="scroll-smooth">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio PPL KPI - Prokompim Kota Pekalongan</title>
@@ -14,7 +12,6 @@
     <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -45,11 +42,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-
         html, body { overflow-x: hidden; max-width: 100%; }
         body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
         h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
-
         img { max-width: 100%; height: auto; display: block; }
 
         .card-neo {
@@ -102,9 +97,9 @@
 
 <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-
         <div class="flex items-center gap-3 min-w-0">
-            <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm flex-shrink-0">
+            <!-- Ganti dengan URL Logo asli jika ada -->
+            <div class="w-10 h-10 rounded-lg bg-blue-100 border border-brand-div/30 shadow-sm flex items-center justify-center flex-shrink-0 text-brand-header font-bold text-xs">PPL</div>
             <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
         </div>
 
@@ -135,11 +130,11 @@
     </div>
 </nav>
 
-<main class="py-10 lg:py-14 px-6 bg-white">
+<main class="py-10 lg:py-14 px-6 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-        <div class="flex flex-col space-y-6">
-
+        
+        <!-- Area Teks Kiri -->
+        <div class="flex flex-col space-y-6 relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-bg border border-brand-div/50 text-xs font-medium text-brand-header w-fit">
                 <span class="w-2 h-2 rounded-full bg-blue-500"></span> 03 Agustus - 02 September 2026
             </div>
@@ -162,122 +157,234 @@
             </div>
         </div>
 
-        <div class="relative w-full max-w-[420px] h-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
-
-            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="1.33"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="0.8"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
+        <!-- AREA WIDGET INSTAN -->
+        <div class="flex justify-center lg:justify-end items-center relative h-[380px] w-full" aria-hidden="true">
+            <div class="instans-wrapper" id="instansWrapper">
+                <!-- Kartu Instans akan di-generate oleh JavaScript di sini -->
+                <!-- Fallback Loading -->
+                <div class="text-brand-div font-medium animate-pulse">Memuat Momen...</div>
+            </div>
         </div>
+        <!-- AKHIR AREA WIDGET INSTAN -->
 
     </div>
 </main>
 
 <style>
     /* ================================================================
-       STACK FOTO HERO — tiap bingkai MENYESUAIKAN bentuk asli fotonya
-       (potret/landscape), bukan kotak seragam. Ukurannya dihitung oleh
-       JS di bawah berdasarkan lebar/tinggi asli gambar (naturalWidth/
-       naturalHeight), jadi tidak ada foto yang terpotong atau ada ruang
-       kosong di pinggirnya.
-       ================================================================ -->
-    .hero-photo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        border-radius: 1.75rem;
-        overflow: hidden;
-        border: 6px solid white;
-        box-shadow: 0 10px 30px -8px rgba(30,58,138,0.35);
-        transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
+       STYLING WIDGET INSTAN - Desain Akurat 100% Mengikuti Gambar
+       ================================================================ */
+    .instans-wrapper {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        perspective: 1000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2rem;
     }
-    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .instans-card {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* BENTUK INSTAN ORIGINAL: Organik, squircle tidak beraturan */
+        border-radius: 40% 45% 45% 40% / 45% 45% 50% 50%;
+        overflow: hidden;
+        border: 4px solid white;
+        box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        background-color: #e2e8f0;
+        cursor: pointer;
+    }
+
+    /* Gradient gelap pinggiran agar tulisan Instants terbaca (Vignette) */
+    .instans-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 45%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* PENDEKATAN "AI CROP" MENGGUNAKAN CSS */
+    .instans-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Fokus ke 50% horizontal (Tengah) dan 25% vertikal (Atas) 
+           Sangat cocok agar kepala/badan tidak terpotong di gambar landscape */
+        object-position: 50% 25%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .card-front {
+        z-index: 3;
+        transform: scale(1) rotate(-4deg);
+        opacity: 1;
+    }
+
+    .card-middle {
+        z-index: 2;
+        transform: scale(0.9) translate(25px, -20px) rotate(5deg);
+        opacity: 0.95;
+        filter: brightness(0.7); /* Gelapkan kartu di belakang */
+    }
+
+    .card-back {
+        z-index: 1;
+        transform: scale(0.8) translate(30px, -30px) rotate(10deg);
+        opacity: 0; /* Sembunyikan tumpukan ketiga */
+    }
+
+    .card-out {
+        z-index: 4;
+        /* Animasi terlempar keluar dari antrean */
+        transform: scale(1.1) translate(-120px, 80px) rotate(-25deg);
+        opacity: 0;
+    }
+
+    /* Lencana Teks Melengkung (SVG) */
+    .instants-badge {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        width: 140px;
+        height: 140px;
+        z-index: 10;
+        pointer-events: none;
+    }
+    
+    .card-middle .instants-badge, 
+    .card-back .instants-badge,
+    .card-out .instants-badge {
+        display: none; /* Badge hanya muncul di kartu paling depan */
+    }
 </style>
 
 <script>
-    (function () {
-        const stack = document.getElementById('hero-stack');
-        const MAX_H = 300; // tinggi acuan (px) tiap bingkai foto sebelum di-scale posisi
-
-        const POSISI = [
-            { rot: 0,   tx: 0,   ty: 0,   scale: 1.00, z: 50, op: 1 },
-            { rot: -8,  tx: -16, ty: 8,   scale: 0.88, z: 40, op: 0.92 },
-            { rot: 8,   tx: 16,  ty: 8,   scale: 0.88, z: 30, op: 0.92 },
-            { rot: -14, tx: -8,  ty: -14, scale: 0.78, z: 20, op: 0.8 },
-            { rot: 13,  tx: 8,   ty: -14, scale: 0.78, z: 10, op: 0.8 },
-        ];
-
-        function sizeFrame(frame, ratio) {
-            const h = MAX_H;
-            const w = Math.round(h * ratio);
-            frame.style.height = h + 'px';
-            frame.style.width = w + 'px';
+    document.addEventListener('DOMContentLoaded', () => {
+        const wrapper = document.getElementById('instansWrapper');
+        
+        // Fungsi simulasi untuk AI Crop via Cloudinary di masa depan (opsional)
+        // Saat ini akan mereturn URL aslinya saja karena sudah dihandle CSS object-position
+        function getSmartCropUrl(url) {
+            return url; 
         }
 
-        function applyPositions(order) {
-            const photos = stack.querySelectorAll('.hero-photo');
-            order.forEach((photoIndex, posIndex) => {
-                const p = POSISI[posIndex] || POSISI[POSISI.length - 1];
-                const el = photos[photoIndex];
-                if (!el) return;
-                el.style.zIndex = p.z;
-                el.style.opacity = p.op;
-                el.style.transform =
-                    `translate(-50%, -50%) rotate(${p.rot}deg) translate(${p.tx}%, ${p.ty}%) scale(${p.scale})`;
+        function buildInstans(data) {
+            wrapper.innerHTML = ''; // Hapus teks loading fallback
+            let cards = [];
+            let autoRollInterval;
+
+            data.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'instans-card';
+                
+                // SVG untuk teks melengkung sempurna mengikuti sisi kiri atas bingkai
+                const badge = document.createElement('div');
+                badge.className = 'instants-badge';
+                badge.innerHTML = `
+                    <svg viewBox="0 0 100 100" width="100%" height="100%">
+                        <path id="curve-${index}" d="M 18 82 A 65 65 0 0 1 82 18" fill="transparent" />
+                        <text>
+                            <textPath href="#curve-${index}" startOffset="48%" text-anchor="middle" fill="white" font-weight="900" font-family="'Inter', sans-serif" font-size="13.5" letter-spacing="2.5">INSTANTS</textPath>
+                        </text>
+                    </svg>
+                `;
+                card.appendChild(badge);
+
+                // Tambahkan Gambar Artikel
+                const img = document.createElement('img');
+                img.src = getSmartCropUrl(item.foto);
+                img.alt = item.judul;
+                card.appendChild(img);
+
+                // Atur posisi kedalaman tumpukan
+                if (index === 0) card.classList.add('card-front');
+                else if (index === 1) card.classList.add('card-middle');
+                else card.classList.add('card-back');
+
+                wrapper.appendChild(card);
+                cards.push(card);
+            });
+
+            // Logika Pergeseran Kartu Terlempar
+            function rollNext() {
+                const frontCard = wrapper.querySelector('.card-front');
+                const middleCard = wrapper.querySelector('.card-middle');
+                const backCards = Array.from(wrapper.querySelectorAll('.card-back'));
+
+                if (!frontCard || !middleCard) return;
+
+                // Animasi Keluar
+                frontCard.classList.remove('card-front');
+                frontCard.classList.add('card-out');
+
+                // Majukan ke Depan
+                middleCard.classList.remove('card-middle');
+                middleCard.classList.add('card-front');
+
+                if (backCards.length > 0) {
+                    backCards[0].classList.remove('card-back');
+                    backCards[0].classList.add('card-middle');
+                }
+
+                // Pindahkan ke Antrean Paling Belakang Secara Halus
+                setTimeout(() => {
+                    frontCard.classList.remove('card-out');
+                    frontCard.classList.add('card-back');
+                    
+                    if (backCards.length === 0) {
+                         frontCard.classList.remove('card-back');
+                         frontCard.classList.add('card-middle');
+                    }
+                    wrapper.insertBefore(frontCard, wrapper.firstChild);
+                }, 600); // Sesuaikan durasi transition css (0.6s)
+            }
+
+            // Jalankan Otomatis setiap 3,5 detik
+            autoRollInterval = setInterval(rollNext, 3500);
+
+            // Ganti Instan jika disentuh/diklik secara manual
+            wrapper.addEventListener('click', () => {
+                clearInterval(autoRollInterval); 
+                rollNext();
+                autoRollInterval = setInterval(rollNext, 3500);
             });
         }
 
-        function startAutoRotate(count) {
-            let order = [...Array(count).keys()];
-            applyPositions(order);
-            if (count <= 1) return;
-            setInterval(() => {
-                order.push(order.shift());
-                applyPositions(order);
-            }, 3200);
-        }
-
-        function prepareFrames(count) {
-            const photos = stack.querySelectorAll('.hero-photo');
-            let loaded = 0;
-            photos.forEach(frame => {
-                const img = frame.querySelector('img');
-                const fallback = parseFloat(frame.dataset.fallbackRatio || '1');
-                function done(ratio) {
-                    sizeFrame(frame, ratio);
-                    loaded++;
-                    if (loaded === photos.length) startAutoRotate(count);
-                }
-                if (img.complete && img.naturalWidth) {
-                    done(img.naturalWidth / img.naturalHeight);
-                } else {
-                    img.addEventListener('load', () => done(img.naturalWidth / img.naturalHeight));
-                    img.addEventListener('error', () => done(fallback));
-                }
-            });
-        }
-
+        // Ambil Data dari manifest.json
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
+                // Sortir dan ambil 5 kegiatan terbaru
                 const terbaru = [...data]
                     .sort((a, b) => b.tanggal.localeCompare(a.tanggal))
                     .slice(0, 5);
-                if (terbaru.length === 0) return prepareFrames(5); // pakai fallback HTML
-
-                stack.innerHTML = terbaru.map(item =>
-                    `<div class="hero-photo"><img src="${item.foto}" alt="${item.judul}"></div>`
-                ).join('');
-                prepareFrames(terbaru.length);
+                
+                if (terbaru.length > 0) {
+                    buildInstans(terbaru);
+                }
             })
-            .catch(() => prepareFrames(5)); // manifest.json gagal dimuat -> pakai 5 foto fallback di HTML
-    })();
+            .catch(() => {
+                // FALLBACK: Data dummy jika file manifest.json tidak terbaca (misal karena dijalankan lokal)
+                const dummyData = [
+                    { foto: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&auto=format&fit=crop', judul: 'Rapat 1' },
+                    { foto: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop', judul: 'Rapat 2' },
+                    { foto: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&auto=format&fit=crop', judul: 'Diskusi 3' },
+                    { foto: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop', judul: 'Tim 4' }
+                ];
+                buildInstans(dummyData);
+            });
+    });
 </script>
 
 <section id="tentang" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto">
-
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1">01</span>
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Profil Penugasan</h2>
@@ -294,7 +401,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-
             <div class="card-neo p-6 lg:p-8 md:col-span-2 bg-white flex flex-col justify-center">
                 <h3 class="text-2xl font-bold mb-4 text-brand-header">Instansi Penempatan</h3>
                 <p class="text-brand-text leading-relaxed text-lg">
@@ -334,7 +440,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
             <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
@@ -424,7 +529,6 @@
         </div>
 
         <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
             <a href="berita/apbd.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
                 <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
                     <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
@@ -476,28 +580,28 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
-                    <img src="aset-profil/Ghazali.jpeg" class="w-full h-full object-cover">
+                    <img src="aset-profil/Ghazali.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Mazda Ghazali Hidayat</h4>
                 <p class="text-xs font-bold text-brand-accent">NIM: 30423003</p>
             </div>
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
-                    <img src="aset-profil/Nabila.jpeg" class="w-full h-full object-cover">
+                    <img src="aset-profil/Nabila.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Nabilla R. Citra Anggraeny</h4>
                 <p class="text-xs font-bold text-brand-accent">NIM: 30423011</p>
             </div>
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
-                    <img src="aset-profil/Fara.jpeg" class="w-full h-full object-cover">
+                    <img src="aset-profil/Fara.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Fara Azahra</h4>
                 <p class="text-xs font-bold text-brand-accent">NIM: 30423081</p>
             </div>
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
-                    <img src="aset-profil/Intan.jpeg" class="w-full h-full object-cover">
+                    <img src="aset-profil/Intan.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Intan Fatmah Farkhati</h4>
                 <p class="text-xs font-bold text-brand-accent">NIM: 30423158</p>
@@ -510,7 +614,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
         <div class="w-full md:w-1/2">
             <div class="flex items-center gap-3 mb-4">
-                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-cover">
+                <div class="w-8 h-8 rounded bg-white text-brand-header flex items-center justify-center font-bold text-[10px]">PPL</div>
                 <span class="font-brand font-bold text-xl text-white">Portofolio PPL 2026</span>
             </div>
             <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
