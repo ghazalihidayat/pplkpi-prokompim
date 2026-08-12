@@ -162,7 +162,7 @@
             </div>
         </div>
 
-        <div class="relative w-full max-w-[300px] h-[240px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
+        <div class="relative w-full max-w-[420px] h-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
 
             <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
             <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
@@ -194,14 +194,14 @@
 <script>
     (function () {
         const stack = document.getElementById('hero-stack');
-        const MAX_H = 190; // tinggi acuan (px) tiap bingkai foto -- perkecil angka ini kalau mau lebih mungil lagi
+        const MAX_H = 300; // tinggi acuan (px) tiap bingkai foto -- perbesar angka ini kalau mau efek lebih mencolok
 
         const POSISI = [
             { rot: 0,   tx: 0,   ty: 0,   scale: 1.00, z: 50, op: 1 },
-            { rot: -8,  tx: -18, ty: 10,  scale: 0.85, z: 40, op: 0.92 },
-            { rot: 8,   tx: 18,  ty: 10,  scale: 0.85, z: 30, op: 0.92 },
-            { rot: -14, tx: -10, ty: -16, scale: 0.72, z: 20, op: 0.8 },
-            { rot: 13,  tx: 10,  ty: -16, scale: 0.72, z: 10, op: 0.8 },
+            { rot: -8,  tx: -16, ty: 8,   scale: 0.88, z: 40, op: 0.92 },
+            { rot: 8,   tx: 16,  ty: 8,   scale: 0.88, z: 30, op: 0.92 },
+            { rot: -14, tx: -8,  ty: -14, scale: 0.78, z: 20, op: 0.8 },
+            { rot: 13,  tx: 8,   ty: -14, scale: 0.78, z: 10, op: 0.8 },
         ];
 
         function setupFrame(frame) {
@@ -383,4 +383,199 @@
             <div class="card-neo p-5 bg-white flex items-start gap-4">
                 <div class="mt-1 font-bold text-brand-accent text-lg">01.</div>
                 <div>
-                    <h4 class="font-bold text-bra
+                    <h4 class="font-bold text-brand-header mb-1">Praktik Keprotokolan</h4>
+                    <p class="text-sm text-brand-text">Kami belajar langsung menyusun rencana kegiatan, menyiapkan informasi acara, dan mempraktikkan fasilitasi keprotokolan saat menyambut tamu resmi.</p>
+                </div>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">02.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Kompetensi Kehumasan</h4>
+                    <p class="text-sm text-brand-text">Kami mengasah kemampuan mengelola alur informasi kegiatan pimpinan, sekaligus berkomunikasi secara profesional dengan OPD, panitia, dan tamu daerah.</p>
+                </div>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">03.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Produksi Konten Publikasi</h4>
+                    <p class="text-sm text-brand-text">Kami melatih keterampilan dokumentasi visual, penulisan berita, dan pengarsipan materi untuk publikasi resmi instansi.</p>
+                </div>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">04.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Disiplin Birokrasi & SOP</h4>
+                    <p class="text-sm text-brand-text">Kami belajar menjunjung etika profesi, memahami tata tertib birokrasi pemerintahan, dan menerapkan SOP dalam setiap pelaporan kegiatan.</p>
+                </div>
+            </div>
+            <div class="card-neo p-5 bg-white flex items-start gap-4">
+                <div class="mt-1 font-bold text-brand-accent text-lg">05.</div>
+                <div>
+                    <h4 class="font-bold text-brand-header mb-1">Luaran PPL (Output Karya)</h4>
+                    <p class="text-sm text-brand-text">Sebagai hasil nyata, kami menghasilkan arsip rundown acara, naskah/caption rilis, dan karya visual dokumentasi kegiatan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="karya" class="py-20 bg-white px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-4 mb-12">
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">04</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Luaran Karya / Portofolio</h2>
+        </div>
+
+        <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <a href="berita/Igtki-pgri.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
+                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
+                    <img src="aset-artikel/igtki-pgri.jpeg" alt="Semarak HUT ke-81 RI IGTKI-PGRI dan Brimob" class="w-full h-full object-cover">
+                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
+                </div>
+                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Ketua TP-PKK Kota Pekalongan Dorong Sinergi IGTKI-PGRI dan Brimob dalam Penguatan Pendidikan Anak</h4>
+                    <p class="text-sm text-brand-sub line-clamp-3">Ketua TP-PKK menghadiri Semarak HUT ke-81 RI bersama IGTKI-PGRI Kecamatan Pekalongan Timur dan Mako Brimob Batalyon B.</p>
+                </div>
+            </a>
+
+            <a href="berita/manic-mtq.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
+                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
+                    <img src="aset-artikel/mtq-manic.jpeg" alt="Pamitan Kontingen Pelajar Pekalongan" class="w-full h-full object-cover">
+                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
+                </div>
+                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Pelajar Pekalongan Siap Berlaga di Tiga Kompetisi Nasional, Wali Kota Beri Dukungan</h4>
+                    <p class="text-sm text-brand-sub line-clamp-3">Pemkot melepas kontingen pelajar untuk MTQ Nasional, Final FIKSI MAN Insan Cendekia, dan OSN 2026.</p>
+                </div>
+            </a>
+
+            <a href="berita/rsud-bendan.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
+                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
+                    <img src="aset-artikel/rsud-bendan.jpeg" alt="Survei Akreditasi RSUD Bendan" class="w-full h-full object-cover">
+                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
+                </div>
+                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Wali Kota Pekalongan Buka Survei Akreditasi RSUD Bendan, Dorong Peningkatan Mutu Layanan</h4>
+                    <p class="text-sm text-brand-sub line-clamp-3">Survei akreditasi oleh LARS DHP untuk mengevaluasi standar dan mutu layanan kesehatan RSUD Bendan.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="text-center mt-10">
+            <a href="galeri.html" class="btn-neo btn-neo-dark">Lihat Semua Dokumentasi <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<script>
+    (function () {
+        const grid = document.getElementById('karya-grid');
+        fetch('manifest.json')
+            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(data => {
+                const terbaru = [...data].sort((a, b) => b.tanggal.localeCompare(a.tanggal)).slice(0, 3);
+                if (terbaru.length === 0) return; // biarkan fallback tampil
+                grid.innerHTML = terbaru.map(item => `
+                    <a href="${item.link}" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
+                        <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
+                            <img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">${item.kategori}</span>
+                        </div>
+                        <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                            <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">${item.judul}</h4>
+                            <p class="text-sm text-brand-sub line-clamp-3">${item.dek}</p>
+                        </div>
+                    </a>
+                `).join('');
+            })
+            .catch(() => {}); // gagal -> biarkan fallback di HTML tetap tampil
+    })();
+</script>
+
+<section id="tim" class="py-20 bg-brand-bg px-6">
+    <div class="max-w-7xl mx-auto text-center">
+        <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block">05</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-brand-header mb-12">Susunan Anggota Kelompok</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="card-neo p-6 bg-white">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="aset-profil/Ghazali.jpeg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Mazda Ghazali Hidayat</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423003</p>
+            </div>
+            <div class="card-neo p-6 bg-white">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="aset-profil/Nabila.jpeg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Nabilla R. Citra Anggraeny</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423011</p>
+            </div>
+            <div class="card-neo p-6 bg-white">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="aset-profil/Fara.jpeg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Fara Azahra</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423081</p>
+            </div>
+            <div class="card-neo p-6 bg-white">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="aset-profil/Intan.jpeg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Intan Fatmah Farkhati</h4>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423158</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
+        <div class="w-full md:w-1/2">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-cover">
+                <span class="font-brand font-bold text-xl text-white">Portofolio PPL 2026</span>
+            </div>
+            <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
+        </div>
+
+        <div class="w-full md:w-1/2 md:text-right">
+            <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
+            <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
+                <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
+                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, 51111</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
+        <p>&copy; 2026 Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
+    </div>
+</footer>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        menuBtn.innerHTML = isOpen
+            ? '<i class="fa-solid fa-bars"></i>'
+            : '<i class="fa-solid fa-xmark"></i>';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+    });
+</script>
+
+</body>
+</html>
