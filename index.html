@@ -162,17 +162,33 @@
             </div>
         </div>
 
-        <div class="relative w-full max-w-[420px] h-[420px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
+        <div class="hero-card w-full max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
+            <div class="relative w-full h-[360px]" id="hero-stack" aria-hidden="true">
 
-            <span class="hero-dot" style="width:22px;height:22px;top:-6px;left:-10px;"></span>
-            <span class="hero-dot" style="width:14px;height:14px;bottom:10%;left:-14px;"></span>
-            <span class="hero-dot" style="width:18px;height:18px;top:20%;right:-16px;"></span>
+                <span class="hero-dot" style="width:22px;height:22px;top:-14px;left:-18px;"></span>
+                <span class="hero-dot" style="width:14px;height:14px;bottom:6%;left:-20px;"></span>
+                <span class="hero-dot" style="width:18px;height:18px;top:18%;right:-22px;"></span>
 
-            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="1.33"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="0.8"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
-            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
+                <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
+                <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
+                <div class="hero-photo" data-fallback-ratio="1.33"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
+                <div class="hero-photo" data-fallback-ratio="0.8"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
+                <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
+
+                <div class="hero-badge" aria-hidden="true">
+                    <svg viewBox="0 0 220 70" class="w-full h-full">
+                        <path id="heroArc" d="M 12 55 A 98 98 0 0 1 208 55" fill="none"></path>
+                        <text font-family="Space Grotesk, sans-serif" font-weight="700" font-size="19" letter-spacing="3" fill="#1E3A8A">
+                            <textPath href="#heroArc" xlink:href="#heroArc" startOffset="50%" text-anchor="middle">PROKOMPIM</textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="font-brand font-bold text-brand-header text-sm">Dokumentasi Kegiatan</p>
+                <p class="text-xs text-brand-sub mt-0.5">Momen liputan terbaru dari lapangan.</p>
+            </div>
         </div>
 
     </div>
@@ -180,11 +196,19 @@
 
 <style>
     /* ================================================================
-       STACK FOTO HERO — gaya "instant photo" (polaroid): bingkai putih
-       tebal terutama di bawah, sudut membulat, ditumpuk & diputar rapi.
-       Ukuran & posisi diatur JS di bawah; CSS ini untuk visual (bentuk
-       kartu, border, bayangan, aksen bulat dekoratif).
+       STACK FOTO HERO — gaya kartu "instant photo": kartu putih besar
+       membungkus tumpukan foto berbingkai polaroid, dengan badge teks
+       melengkung di atas foto teratas & aksen bulat dekoratif di sekitar.
+       Ukuran & posisi tumpukan foto diatur JS; CSS ini untuk visualnya.
        ================================================================ -->
+    .hero-card {
+        background: white;
+        border-radius: 2rem;
+        padding: 2rem 1.75rem 1.5rem;
+        box-shadow: 0 25px 50px -15px rgba(30,58,138,0.35), 0 8px 20px -8px rgba(30,58,138,0.15);
+        border: 1px solid rgba(147,197,253,0.4);
+    }
+
     .hero-photo {
         overflow: hidden;
         background: white;
@@ -204,12 +228,24 @@
         z-index: 60;
         pointer-events: none;
     }
+
+    .hero-badge {
+        position: absolute;
+        top: -8%;
+        left: 50%;
+        width: 200px;
+        height: 64px;
+        transform: translateX(-50%) rotate(-4deg);
+        z-index: 65;
+        pointer-events: none;
+        filter: drop-shadow(0 3px 4px rgba(30,58,138,0.25));
+    }
 </style>
 
 <script>
     (function () {
         const stack = document.getElementById('hero-stack');
-        const MAX_H = 300; // tinggi acuan (px) tiap bingkai foto -- perbesar angka ini kalau mau efek lebih mencolok
+        const MAX_H = 260; // tinggi acuan (px) tiap bingkai foto -- perbesar angka ini kalau mau efek lebih mencolok
 
         const POSISI = [
             { rot: 0,   tx: 0,   ty: 0,   scale: 1.00, z: 50, op: 1 },
