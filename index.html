@@ -162,33 +162,13 @@
             </div>
         </div>
 
-        <div class="hero-card w-full max-w-[420px] mx-auto lg:mx-0 lg:ml-auto">
-            <div class="relative w-full h-[360px]" id="hero-stack" aria-hidden="true">
+        <div class="relative w-full max-w-[340px] h-[320px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
 
-                <span class="hero-dot" style="width:22px;height:22px;top:-14px;left:-18px;"></span>
-                <span class="hero-dot" style="width:14px;height:14px;bottom:6%;left:-20px;"></span>
-                <span class="hero-dot" style="width:18px;height:18px;top:18%;right:-22px;"></span>
-
-                <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
-                <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
-                <div class="hero-photo" data-fallback-ratio="1.33"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
-                <div class="hero-photo" data-fallback-ratio="0.8"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
-                <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
-
-                <div class="hero-badge" aria-hidden="true">
-                    <svg viewBox="0 0 220 70" class="w-full h-full">
-                        <path id="heroArc" d="M 12 55 A 98 98 0 0 1 208 55" fill="none"></path>
-                        <text font-family="Space Grotesk, sans-serif" font-weight="700" font-size="19" letter-spacing="3" fill="#1E3A8A">
-                            <textPath href="#heroArc" xlink:href="#heroArc" startOffset="50%" text-anchor="middle">PROKOMPIM</textPath>
-                        </text>
-                    </svg>
-                </div>
-            </div>
-
-            <div class="text-center mt-4">
-                <p class="font-brand font-bold text-brand-header text-sm">Dokumentasi Kegiatan</p>
-                <p class="text-xs text-brand-sub mt-0.5">Momen liputan terbaru dari lapangan.</p>
-            </div>
+            <div class="hero-photo"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
+            <div class="hero-photo"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
+            <div class="hero-photo"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
+            <div class="hero-photo"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
+            <div class="hero-photo"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
         </div>
 
     </div>
@@ -196,96 +176,39 @@
 
 <style>
     /* ================================================================
-       STACK FOTO HERO — gaya kartu "instant photo": kartu putih besar
-       membungkus tumpukan foto berbingkai polaroid, dengan badge teks
-       melengkung di atas foto teratas & aksen bulat dekoratif di sekitar.
-       Ukuran & posisi tumpukan foto diatur JS; CSS ini untuk visualnya.
+       STACK FOTO HERO — SEMUA bingkai berukuran SERAGAM (kunci supaya
+       tumpukannya rapi & dinamis, bukan berantakan). Foto di dalamnya
+       pakai object-fit: contain supaya tidak ada bagian yang terpotong;
+       kalau proporsi foto beda dari bingkai, sisanya diisi warna latar
+       lembut (bukan dipotong, bukan kosong putih polos).
        ================================================================ -->
-    .hero-card {
-        background: white;
-        border-radius: 2rem;
-        padding: 2rem 1.75rem 1.5rem;
-        box-shadow: 0 25px 50px -15px rgba(30,58,138,0.35), 0 8px 20px -8px rgba(30,58,138,0.15);
-        border: 1px solid rgba(147,197,253,0.4);
-    }
-
     .hero-photo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 210px;
+        height: 250px;
         overflow: hidden;
-        background: white;
-        border-radius: 1.5rem;
-        border: 10px solid white;
-        border-bottom-width: 34px;
-        box-shadow: 0 14px 30px -8px rgba(30,58,138,0.4), 0 2px 6px rgba(30,58,138,0.15);
+        border-radius: 1.25rem;
+        border: 5px solid white;
+        background: #F0F4F8;
+        box-shadow: 0 10px 26px -6px rgba(30,58,138,0.4);
         transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
     }
-    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; border-radius: 0.9rem; }
-
-    .hero-dot {
-        position: absolute;
-        border-radius: 9999px;
-        background: radial-gradient(circle at 35% 30%, #93C5FD, #3B82F6 65%, #1E3A8A);
-        box-shadow: 0 6px 14px -4px rgba(30,58,138,0.5);
-        z-index: 60;
-        pointer-events: none;
-    }
-
-    .hero-badge {
-        position: absolute;
-        top: -8%;
-        left: 50%;
-        width: 200px;
-        height: 64px;
-        transform: translateX(-50%) rotate(-4deg);
-        z-index: 65;
-        pointer-events: none;
-        filter: drop-shadow(0 3px 4px rgba(30,58,138,0.25));
-    }
+    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
 </style>
 
 <script>
     (function () {
         const stack = document.getElementById('hero-stack');
-        const MAX_H = 260; // tinggi acuan (px) tiap bingkai foto -- perbesar angka ini kalau mau efek lebih mencolok
 
         const POSISI = [
             { rot: 0,   tx: 0,   ty: 0,   scale: 1.00, z: 50, op: 1 },
-            { rot: -8,  tx: -16, ty: 8,   scale: 0.88, z: 40, op: 0.92 },
-            { rot: 8,   tx: 16,  ty: 8,   scale: 0.88, z: 30, op: 0.92 },
-            { rot: -14, tx: -8,  ty: -14, scale: 0.78, z: 20, op: 0.8 },
-            { rot: 13,  tx: 8,   ty: -14, scale: 0.78, z: 10, op: 0.8 },
+            { rot: -11, tx: -22, ty: 10,  scale: 0.88, z: 40, op: 0.95 },
+            { rot: 11,  tx: 22,  ty: 10,  scale: 0.88, z: 30, op: 0.95 },
+            { rot: -18, tx: -12, ty: -14, scale: 0.76, z: 20, op: 0.85 },
+            { rot: 17,  tx: 12,  ty: -14, scale: 0.76, z: 10, op: 0.85 },
         ];
-
-        function setupFrame(frame) {
-            frame.style.position = 'absolute';
-            frame.style.top = '50%';
-            frame.style.left = '50%';
-        }
-
-        function sizeFrame(frame, ratio) {
-            const h = MAX_H;
-            const w = Math.round(h * ratio);
-            frame.style.height = h + 'px';
-            frame.style.width = w + 'px';
-        }
-
-        // Fokus otomatis ke objek utama (biasanya wajah/orang) memakai
-        // Face Detection API bawaan browser kalau tersedia. Kalau tidak
-        // didukung, pakai bias ke sepertiga atas foto (posisi wajah pada
-        // kebanyakan foto kegiatan/group photo), bukan potong tengah polos.
-        async function fokusOtomatis(frame, img) {
-            let posY = 22; // fallback: bias ke atas (%)
-            try {
-                if ('FaceDetector' in window) {
-                    const detector = new FaceDetector({ maxDetectedFaces: 5, fastMode: true });
-                    const faces = await detector.detect(img);
-                    if (faces && faces.length) {
-                        const cyAvg = faces.reduce((sum, f) => sum + (f.boundingBox.y + f.boundingBox.height / 2), 0) / faces.length;
-                        posY = Math.min(85, Math.max(10, (cyAvg / img.naturalHeight) * 100));
-                    }
-                }
-            } catch (e) { /* diamkan, pakai fallback */ }
-            img.style.objectPosition = `center ${posY}%`;
-        }
 
         function applyPositions(order) {
             const photos = stack.querySelectorAll('.hero-photo');
@@ -310,42 +233,20 @@
             }, 3200);
         }
 
-        function prepareFrames(count) {
-            const photos = stack.querySelectorAll('.hero-photo');
-            let loaded = 0;
-            photos.forEach(frame => {
-                setupFrame(frame);
-                const img = frame.querySelector('img');
-                const fallback = parseFloat(frame.dataset.fallbackRatio || '1');
-                function done(ratio) {
-                    sizeFrame(frame, ratio);
-                    fokusOtomatis(frame, img);
-                    loaded++;
-                    if (loaded === photos.length) startAutoRotate(count);
-                }
-                if (img.complete && img.naturalWidth) {
-                    done(img.naturalWidth / img.naturalHeight);
-                } else {
-                    img.addEventListener('load', () => done(img.naturalWidth / img.naturalHeight));
-                    img.addEventListener('error', () => done(fallback));
-                }
-            });
-        }
-
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
                 const terbaru = [...data]
                     .sort((a, b) => b.tanggal.localeCompare(a.tanggal))
                     .slice(0, 5);
-                if (terbaru.length === 0) return prepareFrames(5); // pakai fallback HTML
+                if (terbaru.length === 0) return startAutoRotate(5); // pakai fallback HTML
 
                 stack.innerHTML = terbaru.map(item =>
-                    `<div class="hero-photo" data-fallback-ratio="1"><img src="${item.foto}" alt="${item.judul}"></div>`
+                    `<div class="hero-photo"><img src="${item.foto}" alt="${item.judul}"></div>`
                 ).join('');
-                prepareFrames(terbaru.length);
+                startAutoRotate(terbaru.length);
             })
-            .catch(() => prepareFrames(5)); // manifest.json gagal dimuat -> pakai 5 foto fallback di HTML
+            .catch(() => startAutoRotate(5)); // manifest.json gagal dimuat -> pakai 5 foto fallback di HTML
     })();
 </script>
 
@@ -499,36 +400,14 @@
 
         <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <a href="berita/Igtki-pgri.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
+            <a href="berita/apbd.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
                 <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
-                    <img src="aset-artikel/igtki-pgri.jpeg" alt="Semarak HUT ke-81 RI IGTKI-PGRI dan Brimob" class="w-full h-full object-cover">
+                    <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
                     <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
                 </div>
                 <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
-                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Ketua TP-PKK Kota Pekalongan Dorong Sinergi IGTKI-PGRI dan Brimob dalam Penguatan Pendidikan Anak</h4>
-                    <p class="text-sm text-brand-sub line-clamp-3">Ketua TP-PKK menghadiri Semarak HUT ke-81 RI bersama IGTKI-PGRI Kecamatan Pekalongan Timur dan Mako Brimob Batalyon B.</p>
-                </div>
-            </a>
-
-            <a href="berita/manic-mtq.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
-                    <img src="aset-artikel/mtq-manic.jpeg" alt="Pamitan Kontingen Pelajar Pekalongan" class="w-full h-full object-cover">
-                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
-                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Pelajar Pekalongan Siap Berlaga di Tiga Kompetisi Nasional, Wali Kota Beri Dukungan</h4>
-                    <p class="text-sm text-brand-sub line-clamp-3">Pemkot melepas kontingen pelajar untuk MTQ Nasional, Final FIKSI MAN Insan Cendekia, dan OSN 2026.</p>
-                </div>
-            </a>
-
-            <a href="berita/rsud-bendan.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
-                    <img src="aset-artikel/rsud-bendan.jpeg" alt="Survei Akreditasi RSUD Bendan" class="w-full h-full object-cover">
-                    <span class="absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
-                </div>
-                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
-                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Wali Kota Pekalongan Buka Survei Akreditasi RSUD Bendan, Dorong Peningkatan Mutu Layanan</h4>
-                    <p class="text-sm text-brand-sub line-clamp-3">Survei akreditasi oleh LARS DHP untuk mengevaluasi standar dan mutu layanan kesehatan RSUD Bendan.</p>
+                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Perubahan APBD 2026 Difokuskan untuk Program Prioritas dan Kebutuhan Mendesak Masyarakat</h4>
+                    <p class="text-sm text-brand-sub line-clamp-3">Wali Kota arahkan perubahan APBD 2026 untuk program mendesak dan prioritas warga.</p>
                 </div>
             </a>
         </div>
