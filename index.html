@@ -162,13 +162,13 @@
             </div>
         </div>
 
-        <div class="relative w-full max-w-[340px] h-[320px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
+        <div class="relative w-full max-w-[420px] h-[380px] mx-auto lg:mx-0 lg:ml-auto" id="hero-stack" aria-hidden="true">
 
-            <div class="hero-photo"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
-            <div class="hero-photo"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
-            <div class="hero-photo"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
-            <div class="hero-photo"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
-            <div class="hero-photo"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/igtki-pgri.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="0.75"><img src="aset-artikel/mtq-manic.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="1.33"><img src="aset-artikel/rsud-bendan.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="0.8"><img src="aset-artikel/hut-komedi-misteri.jpeg" alt=""></div>
+            <div class="hero-photo" data-fallback-ratio="1.5"><img src="aset-artikel/kepsek.jpeg" alt=""></div>
         </div>
 
     </div>
@@ -176,39 +176,44 @@
 
 <style>
     /* ================================================================
-       STACK FOTO HERO — SEMUA bingkai berukuran SERAGAM (kunci supaya
-       tumpukannya rapi & dinamis, bukan berantakan). Foto di dalamnya
-       pakai object-fit: contain supaya tidak ada bagian yang terpotong;
-       kalau proporsi foto beda dari bingkai, sisanya diisi warna latar
-       lembut (bukan dipotong, bukan kosong putih polos).
+       STACK FOTO HERO — tiap bingkai MENYESUAIKAN bentuk asli fotonya
+       (potret/landscape), bukan kotak seragam. Ukurannya dihitung oleh
+       JS di bawah berdasarkan lebar/tinggi asli gambar (naturalWidth/
+       naturalHeight), jadi tidak ada foto yang terpotong atau ada ruang
+       kosong di pinggirnya.
        ================================================================ -->
     .hero-photo {
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 210px;
-        height: 250px;
+        border-radius: 1.75rem;
         overflow: hidden;
-        border-radius: 1.25rem;
-        border: 5px solid white;
-        background: #F0F4F8;
-        box-shadow: 0 10px 26px -6px rgba(30,58,138,0.4);
+        border: 6px solid white;
+        box-shadow: 0 10px 30px -8px rgba(30,58,138,0.35);
         transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.7s ease, z-index 0s 0.35s;
     }
-    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 </style>
 
 <script>
     (function () {
         const stack = document.getElementById('hero-stack');
+        const MAX_H = 300; // tinggi acuan (px) tiap bingkai foto sebelum di-scale posisi
 
         const POSISI = [
             { rot: 0,   tx: 0,   ty: 0,   scale: 1.00, z: 50, op: 1 },
-            { rot: -11, tx: -22, ty: 10,  scale: 0.88, z: 40, op: 0.95 },
-            { rot: 11,  tx: 22,  ty: 10,  scale: 0.88, z: 30, op: 0.95 },
-            { rot: -18, tx: -12, ty: -14, scale: 0.76, z: 20, op: 0.85 },
-            { rot: 17,  tx: 12,  ty: -14, scale: 0.76, z: 10, op: 0.85 },
+            { rot: -8,  tx: -16, ty: 8,   scale: 0.88, z: 40, op: 0.92 },
+            { rot: 8,   tx: 16,  ty: 8,   scale: 0.88, z: 30, op: 0.92 },
+            { rot: -14, tx: -8,  ty: -14, scale: 0.78, z: 20, op: 0.8 },
+            { rot: 13,  tx: 8,   ty: -14, scale: 0.78, z: 10, op: 0.8 },
         ];
+
+        function sizeFrame(frame, ratio) {
+            const h = MAX_H;
+            const w = Math.round(h * ratio);
+            frame.style.height = h + 'px';
+            frame.style.width = w + 'px';
+        }
 
         function applyPositions(order) {
             const photos = stack.querySelectorAll('.hero-photo');
@@ -233,20 +238,40 @@
             }, 3200);
         }
 
+        function prepareFrames(count) {
+            const photos = stack.querySelectorAll('.hero-photo');
+            let loaded = 0;
+            photos.forEach(frame => {
+                const img = frame.querySelector('img');
+                const fallback = parseFloat(frame.dataset.fallbackRatio || '1');
+                function done(ratio) {
+                    sizeFrame(frame, ratio);
+                    loaded++;
+                    if (loaded === photos.length) startAutoRotate(count);
+                }
+                if (img.complete && img.naturalWidth) {
+                    done(img.naturalWidth / img.naturalHeight);
+                } else {
+                    img.addEventListener('load', () => done(img.naturalWidth / img.naturalHeight));
+                    img.addEventListener('error', () => done(fallback));
+                }
+            });
+        }
+
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
                 const terbaru = [...data]
                     .sort((a, b) => b.tanggal.localeCompare(a.tanggal))
                     .slice(0, 5);
-                if (terbaru.length === 0) return startAutoRotate(5); // pakai fallback HTML
+                if (terbaru.length === 0) return prepareFrames(5); // pakai fallback HTML
 
                 stack.innerHTML = terbaru.map(item =>
                     `<div class="hero-photo"><img src="${item.foto}" alt="${item.judul}"></div>`
                 ).join('');
-                startAutoRotate(terbaru.length);
+                prepareFrames(terbaru.length);
             })
-            .catch(() => startAutoRotate(5)); // manifest.json gagal dimuat -> pakai 5 foto fallback di HTML
+            .catch(() => prepareFrames(5)); // manifest.json gagal dimuat -> pakai 5 foto fallback di HTML
     })();
 </script>
 
