@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
+    <!-- Head: identitas halaman, SEO, font, dan konfigurasi visual. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokumentasi Kegiatan - Portofolio PPL KPI Prokompim</title>
+    <title>Dokumentasi | PPL PROKOMPIM 2026</title>
 
-    <meta name="description" content="Seluruh dokumentasi kegiatan Praktik Pengalaman Lapangan (PPL) mahasiswa Komunikasi dan Penyiaran Islam di Bagian Protokol dan Komunikasi Pimpinan, Sekretariat Daerah Kota Pekalongan, 2026.">
-    <meta property="og:title" content="Dokumentasi Kegiatan - Portofolio PPL KPI Prokompim">
-    <meta property="og:description" content="Arsip lengkap dokumentasi kegiatan dan karya PPL mahasiswa KPI di Protokol dan Komunikasi Pimpinan Kota Pekalongan.">
+    <meta name="description" content="Dokumentasi publikasi dan karya mahasiswa selama Praktik Pengalaman Lapangan di Bagian Protokol dan Komunikasi Pimpinan Kota Pekalongan, 2026.">
+    <meta property="og:title" content="Dokumentasi | PPL PROKOMPIM 2026">
+    <meta property="og:description" content="Publikasi kegiatan, liputan, dan karya mahasiswa selama pelaksanaan PPL di Prokompim Kota Pekalongan.">
     <meta property="og:image" content="aset-profil/Logo-PPL.svg">
     <meta property="og:type" content="website">
 
@@ -33,41 +34,25 @@
                     },
                     fontFamily: {
                         'sans': ['Plus Jakarta Sans', 'sans-serif'],
-                        'display': ['Space Grotesk', 'sans-serif'],
-                        'brand': ['Space Grotesk', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                        'voice': ['Merriweather', 'serif'],
+                        'display': ['Plus Jakarta Sans', 'sans-serif'],
+                        'brand': ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #F0F4F8; 
-            color: #1E293B; 
-            font-variant-numeric: lining-nums tabular-nums;
-            font-feature-settings: "lnum" 1, "tnum" 1;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F0F4F8;
+            color: #1E293B;
+            font-variant-numeric: tabular-nums lining-nums;
         }
-        h1, h2, h3, h4, .font-brand { 
-            font-family: 'Space Grotesk', sans-serif; 
-            letter-spacing: -0.02em;
-        }
-        .badge, .dates, .nim-text, .mono-text, 
-        [class*="calendar-days"] + span,
-        [class*="location-dot"] + span,
-        span:has(> .fa-calendar-days),
-        span:has(> .fa-location-dot) {
-            font-family: 'JetBrains Mono', monospace !important;
-            letter-spacing: -0.03em;
-        }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
         img { max-width: 100%; height: auto; display: block; }
 
         .card-neo {
@@ -76,6 +61,7 @@
             border-radius: 1rem;
             box-shadow: 4px 4px 0px #1E3A8A;
         }
+
         .btn-neo {
             display: inline-flex;
             align-items: center;
@@ -90,34 +76,55 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
-        .highlight-bg { background-color: #3B82F6; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 2px solid #1E3A8A; box-shadow: 3px 3px 0px #1E3A8A; color: white; }
 
-        .row-artikel {
+        .btn-neo:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #1E3A8A;
+        }
+
+        .btn-neo-dark {
+            background-color: #1E3A8A;
+            color: white;
+            border-color: #1E3A8A;
+        }
+
+        .highlight-bg {
+            background-color: #3B82F6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            color: white;
+        }
+
+        .archive-item {
             background-color: white;
             border: 1.5px solid #1E3A8A33;
             border-radius: 0.75rem;
             transition: all 0.15s;
         }
-        .row-artikel:hover { border-color: #1E3A8A; transform: translateX(2px); }
+
+        .archive-item:hover {
+            border-color: #1E3A8A;
+            transform: translateX(2px);
+        }
     </style>
 </head>
 
 <body class="antialiased selection:bg-brand-accent selection:text-white">
 
+<!-- Navbar: dibuat mengikuti identitas dan navigasi index.html. -->
 <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
         <div class="flex items-center gap-3 min-w-0">
             <a href="index.html" class="flex items-center gap-3 min-w-0">
-                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm flex-shrink-0">
-                <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL <span class="mono-text">2026</span></span>
+                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50">
+                <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">PPL PROKOMPIM 2026</span>
             </a>
         </div>
 
         <div class="hidden md:flex space-x-8 items-center">
             <a href="index.html#tentang" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Profil</a>
             <a href="index.html#tugas" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Ruang Lingkup</a>
-            <a href="index.html#kegiatan" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tujuan</a>
+            <a href="index.html#kegiatan" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Pengalaman</a>
             <a href="index.html#tim" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tim</a>
             <a href="galeri.html" class="text-brand-accent font-bold text-sm">Dokumentasi</a>
         </div>
@@ -134,139 +141,231 @@
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-div/50 px-6 py-4 space-y-4">
         <a href="index.html#tentang" class="block text-brand-header font-medium text-sm">Profil</a>
         <a href="index.html#tugas" class="block text-brand-header font-medium text-sm">Ruang Lingkup</a>
-        <a href="index.html#kegiatan" class="block text-brand-header font-medium text-sm">Tujuan</a>
+        <a href="index.html#kegiatan" class="block text-brand-header font-medium text-sm">Pengalaman</a>
         <a href="index.html#tim" class="block text-brand-header font-medium text-sm">Tim</a>
         <a href="galeri.html" class="block text-brand-accent font-bold text-sm">Dokumentasi</a>
         <a href="index.html" class="btn-neo text-sm py-2 px-4 w-full"><i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Beranda</a>
     </div>
 </nav>
 
-<header class="py-16 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
+<!-- Header: menjelaskan fungsi halaman dokumentasi. -->
+<header class="py-14 lg:py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-4">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1"><i class="fa-solid fa-images"></i></span>
-            <h1 class="text-3xl lg:text-4xl font-bold text-brand-header">Dokumentasi Kegiatan</h1>
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">
+                <i class="fa-solid fa-images"></i>
+            </span>
+            <h1 class="text-3xl lg:text-4xl font-bold text-brand-header">Dokumentasi</h1>
         </div>
-        <p class="text-brand-sub text-base max-w-2xl">Arsip lengkap kegiatan PPL kami selama bertugas di Bagian Protokol dan Komunikasi Pimpinan — terus diperbarui sepanjang masa magang berlangsung.</p>
+        <p class="text-brand-sub text-base lg:text-lg max-w-2xl leading-relaxed">
+            Kumpulan publikasi kegiatan, liputan, dan karya yang dihasilkan selama pelaksanaan PPL di Bagian Protokol dan Komunikasi Pimpinan Kota Pekalongan.
+        </p>
     </div>
 </header>
 
-<section class="px-6 mb-12">
-    <div class="max-w-5xl mx-auto" id="galeri-featured">
+<!-- Publikasi terbaru: hanya satu publikasi paling baru yang ditampilkan dengan preview gambar. -->
+<section class="px-6 py-12 lg:py-16 bg-brand-bg">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between gap-4 mb-8">
+            <div>
+                <p class="text-sm font-bold text-brand-accent uppercase tracking-wide mb-2">Publikasi Terbaru</p>
+                <h2 class="text-2xl lg:text-3xl font-bold text-brand-header">Liputan Terkini</h2>
+            </div>
+        </div>
 
-        <a href="berita/penerjunan.html" class="card-neo flex flex-col md:flex-row overflow-hidden hover:-translate-y-1 transition">
-            <div class="md:w-1/2 aspect-[16/10] md:aspect-auto overflow-hidden">
-                <img src="aset-artikel/penerjunan.jpeg" alt="Penerjunan PPL" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
-                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit badge">Liputan Kegiatan</span>
-                <h2 class="font-brand text-xl md:text-2xl font-bold text-brand-header leading-snug mb-3">Empat Mahasiswa KPI UIN Gusdur Pekalongan Jalani PPL di Prokompim Kota Pekalongan</h2>
-                <p class="text-sm text-brand-sub mb-4">Penyerahan simbolis empat mahasiswa PPL KPI kepada Prokompim Kota Pekalongan.</p>
-                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
-                    <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> Senin, 03 Agustus 2026</span>
-                    <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Ruang Kabag Protokol dan Komunikasi Pimpinan</span>
-                </div>
-            </div>
-        </a>
+        <div id="featured-publication">
+            <p class="text-sm text-brand-sub text-center py-8">Memuat publikasi terbaru...</p>
+        </div>
     </div>
 </section>
 
-<section class="px-6 pb-20">
-    <div class="max-w-5xl mx-auto space-y-3" id="galeri-list">
-        <p class="text-sm text-brand-sub text-center py-8">Belum ada publikasi lain.</p>
+<!-- Arsip publikasi: publikasi lama ditampilkan sebagai daftar judul tanpa preview gambar. -->
+<section class="px-6 py-12 lg:py-16 bg-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-8">
+            <p class="text-sm font-bold text-brand-accent uppercase tracking-wide mb-2">Arsip</p>
+            <h2 class="text-2xl lg:text-3xl font-bold text-brand-header">Publikasi Sebelumnya</h2>
+            <p class="text-sm text-brand-sub mt-2 max-w-2xl">
+                Publikasi yang lebih lama tetap dapat dibaca melalui daftar arsip berikut.
+            </p>
+        </div>
+
+        <div id="archive-list" class="space-y-3">
+            <p class="text-sm text-brand-sub text-center py-8">Memuat arsip publikasi...</p>
+        </div>
     </div>
 </section>
+
+<!-- Footer: mengikuti identitas footer index.html. -->
+<footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
+        <div class="w-full md:w-1/2">
+            <div class="flex items-center gap-3 mb-4">
+                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-contain">
+                <span class="font-brand font-bold text-xl text-white">PPL PROKOMPIM 2026</span>
+            </div>
+            <p class="text-brand-div text-sm max-w-sm">
+                Dokumentasi pengalaman, pembelajaran, dan karya mahasiswa KPI selama pelaksanaan PPL di Prokompim Kota Pekalongan.
+            </p>
+        </div>
+
+        <div class="w-full md:w-1/2 md:text-right">
+            <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
+            <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
+                <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
+                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, 51111</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
+        <p>&copy; 2026 Tim PPL KPI — Prokompim Kota Pekalongan.</p>
+    </div>
+</footer>
 
 <script>
+    // Data publikasi: manifest menjadi satu-satunya sumber urutan artikel.
     (function () {
-        const featuredEl = document.getElementById('galeri-featured');
-        const listEl = document.getElementById('galeri-list');
+        const featuredEl = document.getElementById('featured-publication');
+        const archiveEl = document.getElementById('archive-list');
+
+        const bulan = [
+            'Januari','Februari','Maret','April','Mei','Juni',
+            'Juli','Agustus','September','Oktober','November','Desember'
+        ];
+
+        const hari = [
+            'Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'
+        ];
 
         function formatTanggal(iso) {
-            const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-            const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
             const [y, m, d] = iso.split('-').map(Number);
             const dow = new Date(y, m - 1, d).getDay();
-            return `${hari[dow]}, ${String(d).padStart(2,'0')} ${bulan[m-1]} ${y}`;
+            return `${hari[dow]}, ${String(d).padStart(2, '0')} ${bulan[m - 1]} ${y}`;
+        }
+
+        function renderFeatured(item) {
+            if (!item) {
+                featuredEl.innerHTML = `
+                    <div class="card-neo p-6 bg-white">
+                        <p class="text-sm text-brand-sub">Belum ada publikasi yang tersedia.</p>
+                    </div>`;
+                return;
+            }
+
+            featuredEl.innerHTML = `
+                <a href="${item.link}" class="card-neo overflow-hidden grid grid-cols-1 lg:grid-cols-2 hover:-translate-y-1 transition">
+                    <div class="aspect-[16/10] lg:aspect-auto bg-brand-bg overflow-hidden">
+                        <img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="p-6 lg:p-8 flex flex-col justify-center">
+                        <span class="inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded w-fit mb-4">
+                            ${item.kategori}
+                        </span>
+
+                        <h2 class="font-brand text-xl md:text-2xl lg:text-3xl font-bold text-brand-header leading-snug mb-4">
+                            ${item.judul}
+                        </h2>
+
+                        <p class="text-sm lg:text-base text-brand-sub leading-relaxed mb-5">
+                            ${item.dek}
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-brand-sub mb-6">
+                            <span>
+                                <i class="fa-solid fa-calendar-days text-brand-accent mr-1.5"></i>
+                                ${formatTanggal(item.tanggal)}
+                            </span>
+                            <span>
+                                <i class="fa-solid fa-location-dot text-brand-accent mr-1.5"></i>
+                                ${item.lokasi || ''}
+                            </span>
+                        </div>
+
+                        <span class="btn-neo btn-neo-dark text-sm w-fit">
+                            Baca Publikasi <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </span>
+                    </div>
+                </a>`;
+        }
+
+        function renderArchive(items) {
+            if (!items.length) {
+                archiveEl.innerHTML = `
+                    <p class="text-sm text-brand-sub text-center py-8">
+                        Belum ada publikasi lain dalam arsip.
+                    </p>`;
+                return;
+            }
+
+            archiveEl.innerHTML = items.map(item => `
+                <a href="${item.link}" class="archive-item flex items-center gap-4 p-4 sm:p-5">
+                    <div class="min-w-0 flex-1">
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1.5">
+                            <span class="inline-block bg-brand-bg border border-brand-div text-brand-header text-[10px] font-bold uppercase px-2 py-0.5 rounded">
+                                ${item.kategori}
+                            </span>
+                            <span class="text-xs text-brand-sub">
+                                ${formatTanggal(item.tanggal)}
+                            </span>
+                        </div>
+
+                        <h3 class="font-bold text-brand-header text-sm sm:text-base leading-snug">
+                            ${item.judul}
+                        </h3>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right text-brand-accent flex-shrink-0"></i>
+                </a>
+            `).join('');
         }
 
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
                 const urut = [...data].sort((a, b) => b.tanggal.localeCompare(a.tanggal));
-                const featured = urut[3];
-                const sisanya = urut.slice(4);
 
-                if (featured) {
-                    featuredEl.innerHTML = `
-                        <a href="${featured.link}" class="card-neo flex flex-col md:flex-row overflow-hidden hover:-translate-y-1 transition">
-                            <div class="md:w-1/2 aspect-[16/10] md:aspect-auto overflow-hidden">
-                                <img src="${featured.foto}" alt="${featured.judul}" class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
-                                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit badge">${featured.kategori}</span>
-                                <h2 class="font-brand text-xl md:text-2xl font-bold text-brand-header leading-snug mb-3">${featured.judul}</h2>
-                                <p class="text-sm text-brand-sub mb-4">${featured.dek}</p>
-                                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
-                                    <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(featured.tanggal)}</span>
-                                    <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> ${featured.lokasi || ''}</span>
-                                </div>
-                            </div>
-                        </a>`;
-                } else {
-                    featuredEl.innerHTML = '<p class="text-sm text-brand-sub text-center py-8">Belum ada publikasi tambahan di luar 3 yang tampil di beranda.</p>';
-                }
+                // Satu artikel paling baru menjadi preview utama.
+                const terbaru = urut[0];
 
-                listEl.innerHTML = sisanya.length === 0
-                    ? '<p class="text-sm text-brand-sub text-center py-8">Belum ada publikasi lain.</p>'
-                    : sisanya.map(item => `
-                        <a href="${item.link}" class="row-artikel flex items-center gap-4 p-4">
-                            <div class="min-w-0 flex-1">
-                                <span class="inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full mb-1.5 badge">${item.kategori}</span>
-                                <h3 class="font-bold text-brand-header text-sm sm:text-base leading-snug">${item.judul}</h3>
-                                <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-brand-sub">
-                                    <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(item.tanggal)}</span>
-                                    <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> ${item.lokasi || ''}</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-chevron-right text-brand-div flex-shrink-0"></i>
-                        </a>`).join('');
+                // Semua artikel setelahnya menjadi arsip tanpa preview gambar.
+                const arsip = urut.slice(1);
+
+                renderFeatured(terbaru);
+                renderArchive(arsip);
             })
-            .catch(() => {}); // gagal -> biarkan fallback featured di HTML tetap tampil
+            .catch(() => {
+                featuredEl.innerHTML = `
+                    <div class="card-neo p-6 bg-white">
+                        <p class="text-sm text-brand-sub">
+                            Publikasi belum dapat dimuat. Silakan coba kembali beberapa saat lagi.
+                        </p>
+                    </div>`;
+
+                archiveEl.innerHTML = `
+                    <p class="text-sm text-brand-sub text-center py-8">
+                        Arsip belum dapat dimuat.
+                    </p>`;
+            });
     })();
 </script>
 
-<footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
-        <div class="w-full md:w-1/2">
-            <div class="flex items-center gap-3 mb-4">
-                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-cover">
-                <span class="font-brand font-bold text-xl text-white">Portofolio PPL <span class="mono-text">2026</span></span>
-            </div>
-            <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
-        </div>
-        <div class="w-full md:w-1/2 md:text-right">
-            <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
-            <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
-                <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
-                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, <span class="mono-text">51111</span></li>
-            </ul>
-        </div>
-    </div>
-    <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
-        <p>&copy; <span class="mono-text">2026</span> Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
-    </div>
-</footer>
-
 <script>
+    // Menu mobile: membuka dan menutup navigasi pada layar kecil.
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+
     menuBtn.addEventListener('click', () => {
         const isOpen = !mobileMenu.classList.contains('hidden');
+
         mobileMenu.classList.toggle('hidden');
         menuBtn.setAttribute('aria-expanded', String(!isOpen));
-        menuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
+        menuBtn.innerHTML = isOpen
+            ? '<i class="fa-solid fa-bars"></i>'
+            : '<i class="fa-solid fa-xmark"></i>';
     });
+
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
