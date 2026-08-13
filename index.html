@@ -23,45 +23,84 @@
                     colors: {
                         'brand-bg': '#F0F4F8',
                         'brand-sub': '#475569',
-                        'brand-div': '#93C5FD',
-                        'brand-header': '#1E3A8A',
+                        'brand-div': '#1E3A8A', /* Diubah ke gelap untuk border neobrutalism */
+                        'brand-header': '#0F172A', /* Dipergelap untuk kontras tinggi */
                         'brand-text': '#1E293B',
-                        'brand-dark': '#1E3A8A',
+                        'brand-dark': '#0F172A',
                         'brand-accent': '#3B82F6',
                         'kat-liputan': '#3B82F6',
                         'kat-jurnal': '#0D9488',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        /* Mengubah default sans menjadi Space Grotesk untuk gaya neobrutalism */
+                        'sans': ['Space Grotesk', 'sans-serif'],
                         'display': ['Space Grotesk', 'sans-serif'],
                         'brand': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'voice': ['Merriweather', 'serif'],
+                    },
+                    boxShadow: {
+                        /* Shadow kustom Neobrutalism (tajam, solid, tanpa blur) */
+                        'neo-sm': '3px 3px 0px 0px rgba(15, 23, 42, 1)',
+                        'neo-md': '5px 5px 0px 0px rgba(15, 23, 42, 1)',
+                        'neo-lg': '8px 8px 0px 0px rgba(15, 23, 42, 1)',
                     }
                 }
             }
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Memuat font yang diperlukan -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
-        body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
-        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+        body { 
+            font-family: 'Space Grotesk', sans-serif; 
+            background-color: #F8FAFC; /* Latar belakang lebih terang untuk kontras */
+            color: #0F172A; 
+            /* Mengaktifkan fitur angka tabular (sama lebar) pada font */
+            font-variant-numeric: tabular-nums lining-nums;
+        }
+        
+        /* Heading dibuat lebih berani */
+        h1, h2, h3, h4, .font-brand { 
+            font-family: 'Space Grotesk', sans-serif; 
+            letter-spacing: -0.03em;
+            font-weight: 800; /* Extra bold */
+        }
+
+        /* Class khusus untuk angka agar selalu rata (JetBrains Mono) */
+        .angka, .badge, .dates, .nim-text, .mono-text, 
+        [class*="calendar-days"] + span,
+        [class*="location-dot"] + span,
+        span:has(> .fa-calendar-days),
+        span:has(> .fa-location-dot) {
+            font-family: 'JetBrains Mono', monospace !important;
+            letter-spacing: -0.04em;
+        }
+
         img { max-width: 100%; height: auto; display: block; }
 
+        /* =========================================
+           GAYA NEOBRUTALISM INTI 
+           ========================================= */
         .card-neo {
             background-color: white;
-            border: 2px solid #1E3A8A;
-            border-radius: 1rem;
-            box-shadow: 4px 4px 0px #1E3A8A;
+            border: 3px solid #0F172A; /* Border tebal dan gelap */
+            border-radius: 0.5rem; /* Sudut agak kotak (tidak terlalu bulat) */
+            box-shadow: 6px 6px 0px #0F172A; /* Shadow solid */
+            transition: all 0.2s ease;
         }
 
         .card-neo-dark {
-            background-color: #1E3A8A;
+            background-color: #0F172A;
             color: #EFF6FF;
-            border: 2px solid #1E3A8A;
-            border-radius: 1rem;
-            box-shadow: 4px 4px 0px #0F172A;
+            border: 3px solid #0F172A;
+            border-radius: 0.5rem;
+            box-shadow: 6px 6px 0px #3B82F6; /* Shadow biru terang untuk variasi */
         }
 
         .btn-neo {
@@ -71,100 +110,89 @@
             padding: 0.75rem 1.5rem;
             background-color: #3B82F6;
             color: white;
-            font-weight: 600;
-            border: 2px solid #1E3A8A;
-            border-radius: 0.75rem;
-            box-shadow: 3px 3px 0px #1E3A8A;
+            font-weight: 700;
+            border: 3px solid #0F172A;
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 0px #0F172A;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
+        
+        /* Efek klik ala Neobrutalism: masuk ke dalam shadow */
+        .btn-neo:hover { 
+            transform: translate(2px, 2px); 
+            box-shadow: 2px 2px 0px #0F172A; 
+        }
+        .btn-neo:active { 
+            transform: translate(4px, 4px); 
+            box-shadow: 0px 0px 0px #0F172A; 
+        }
 
         .btn-neo-dark {
-            background-color: #1E3A8A;
-            color: white;
-            border-color: #1E3A8A;
+            background-color: #FBBF24; /* Kuning kontras ala neobrutalism */
+            color: #0F172A;
         }
 
         .highlight-bg {
             background-color: #3B82F6;
             padding: 0.25rem 0.75rem;
-            border-radius: 0.5rem;
+            border-radius: 0.25rem;
+            border: 3px solid #0F172A;
+            box-shadow: 4px 4px 0px #0F172A;
             color: white;
+            display: inline-block;
+            transform: rotate(-2deg); /* Sedikit rotasi untuk gaya brutal */
         }
     </style>
 </head>
 
 <body class="antialiased selection:bg-brand-accent selection:text-white">
 
-<nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-        <!-- REVISI 6: GANTI KOTAK TEKS PPL DENGAN LOGO GAMBAR -->
-        <div class="flex items-center gap-3 min-w-0">
-            <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50">
-            <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
-        </div>
-
-        <div class="hidden md:flex space-x-8 items-center">
-            <a href="#tentang" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Profil</a>
-            <a href="#tugas" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Ruang Lingkup</a>
-            <a href="#kegiatan" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tujuan</a>
-            <a href="#tim" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tim</a>
-            <a href="galeri.html" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Dokumentasi</a>
-        </div>
-
-        <div class="hidden md:block">
-            <a href="#karya" class="btn-neo text-sm py-2 px-4">Jelajahi Karya Kami</a>
-        </div>
-
-        <button id="menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="md:hidden text-brand-header text-2xl flex-shrink-0 ml-3">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-div/50 px-6 py-4 space-y-4">
-        <a href="#tentang" class="block text-brand-header font-medium text-sm">Profil</a>
-        <a href="#tugas" class="block text-brand-header font-medium text-sm">Ruang Lingkup</a>
-        <a href="#kegiatan" class="block text-brand-header font-medium text-sm">Tujuan</a>
-        <a href="#tim" class="block text-brand-header font-medium text-sm">Tim</a>
-        <a href="galeri.html" class="block text-brand-header font-medium text-sm">Dokumentasi</a>
-        <a href="#karya" class="btn-neo text-sm py-2 px-4 w-full">Jelajahi Karya Kami</a>
-    </div>
+<nav class="w-full bg-white/90 backdrop-blur-md border-b-3 border-brand-dark sticky top-0 z-50">
 </nav>
 
-<!-- REVISI 7 & 3: STRUKTUR MAIN DAN LAYOUT DIPERBAIKI UNTUK MENGURANGI SPACE KOSONG -->
-<main class="py-10 lg:py-16 px-6 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- STRUKTUR MAIN DAN LAYOUT DIPERBAIKI UNTUK MENGURANGI SPACE KOSONG -->
+<main class="py-12 lg:py-20 px-6 bg-[#F8FAFC] overflow-hidden border-b-4 border-brand-dark">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        <!-- Area Teks Kiri (Mengambil 7 kolom dari 12 di layar besar) -->
+        <!-- Area Teks Kiri -->
         <div class="flex flex-col space-y-6 lg:col-span-7 relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-bg border border-brand-div/50 text-xs font-medium text-brand-header w-fit">
-                <span class="w-2 h-2 rounded-full bg-blue-500"></span> 03 Agustus - 02 September 2026
+            <!-- Badge Tanggal Neobrutalism -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#A7F3D0] border-3 border-brand-dark rounded-md shadow-[4px_4px_0px_#0F172A] w-fit font-bold text-brand-dark uppercase tracking-wider text-xs">
+                <i class="fa-solid fa-bolt text-[#FBBF24]"></i> <span class="angka">03 AGU - 02 SEP 2026</span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] text-brand-header py-2 break-words">
-                Dokumentasi Kinerja,<br>
-                <span class="highlight-bg mt-3 inline-block leading-normal">Menyampaikan Informasi Publik.</span>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] text-brand-dark py-2 break-words uppercase">
+                Dokumentasi<br>Kinerja,<br>
+                <span class="highlight-bg mt-4 leading-normal text-4xl sm:text-5xl lg:text-6xl">Informasi Publik.</span>
             </h1>
 
-            <div class="bg-brand-bg/50 p-6 rounded-2xl border border-brand-div/30 mt-4 max-w-2xl">
-                <h3 class="text-sm font-bold text-brand-accent mb-3 uppercase tracking-wide">Ringkasan</h3>
-                <p class="text-base sm:text-lg text-brand-sub leading-relaxed">
+            <!-- Kotak Ringkasan Neobrutalism -->
+            <div class="bg-white p-6 md:p-8 rounded-lg border-3 border-brand-dark shadow-[6px_6px_0px_#0F172A] mt-6 max-w-2xl relative">
+                <!-- Ornamen Neobrutalism (Pin) -->
+                <div class="absolute -top-3 -right-3 w-8 h-8 bg-[#F87171] border-2 border-brand-dark rounded-full shadow-[2px_2px_0px_#0F172A]"></div>
+                
+                <h3 class="text-sm font-extrabold text-brand-dark mb-3 uppercase tracking-widest border-b-2 border-brand-dark pb-2 w-fit">Ringkasan Laporan</h3>
+                <p class="text-base sm:text-lg font-medium text-brand-dark leading-relaxed">
                     Selama satu bulan, kami — empat mahasiswa KPI UIN K.H. Abdurrahman Wahid Pekalongan — turun langsung membantu jalannya keprotokolan dan komunikasi publik di Sekretariat Daerah Kota Pekalongan. Halaman ini adalah catatan perjalanan kami: apa yang kami kerjakan, apa yang kami pelajari, dan karya apa yang kami hasilkan.
                 </p>
             </div>
 
-            <div class="flex flex-wrap gap-4 pt-4">
-                <a href="#kegiatan" class="btn-neo"><i class="fa-solid fa-bullseye mr-2"></i> Lihat Tujuan Kami</a>
-                <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Jelajahi Karya Kami</a>
+            <div class="flex flex-wrap gap-4 pt-6">
+                <a href="#kegiatan" class="btn-neo bg-[#A7F3D0] text-brand-dark"><i class="fa-solid fa-bullseye mr-2"></i> Lihat Tujuan</a>
+                <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Jelajahi Karya</a>
             </div>
         </div>
 
-        <!-- REVISI 2, 3, 4: AREA WIDGET INSTAN BARU (Mengambil 5 kolom sisanya) -->
+        <!-- AREA WIDGET INSTAN BARU -->
         <div class="flex justify-center items-center lg:col-span-5 relative w-full h-[450px] sm:h-[500px] lg:h-[600px] mt-10 lg:mt-0" aria-hidden="true">
             <div class="instans-wrapper w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square" id="instansWrapper">
                 <!-- Fallback Loading -->
-                <div class="text-brand-div font-medium animate-pulse absolute inset-0 flex items-center justify-center">Memuat Momen...</div>
+                <div class="text-brand-dark font-bold font-mono animate-pulse absolute inset-0 flex items-center justify-center border-3 border-brand-dark bg-[#FDE047] shadow-[6px_6px_0px_#0F172A] rounded-3xl" style="border-radius: 35%;">
+                    [ MEMUAT DATA ]
+                </div>
             </div>
         </div>
 
@@ -173,13 +201,12 @@
 
 <style>
     /* ================================================================
-       REVISI 1, 2, 5: STYLING WIDGET INSTAN BARU
+       STYLING WIDGET INSTAN BARU (Disesuaikan Neobrutalism)
        ================================================================ */
     .instans-wrapper {
         position: relative;
         perspective: 1200px;
         margin: 0 auto;
-        /* Menghapus margin kanan yang menyebabkan tidak center di mobile */
     }
 
     .instans-card {
@@ -188,27 +215,25 @@
         width: 100%;
         height: 100%;
         
-        /* REVISI 1: Bentuk lebih kotak (persegi tumpul organik) seperti referensi */
         border-radius: 35% 35% 35% 35% / 35% 35% 35% 35%;
         
         overflow: hidden;
-        border: 5px solid white;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
-        background-color: #e2e8f0;
+        /* Border lebih gelap dan shadow lebih solid ala neobrutalism */
+        border: 6px solid #0F172A;
+        box-shadow: 10px 10px 0px 0px #0F172A;
+        background-color: #FBBF24;
         cursor: pointer;
         
-        /* REVISI 5: Transisi diubah agar fokus ke pergerakan vertikal (tenggelam) */
         transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
                     opacity 0.8s ease,
                     filter 0.8s ease;
     }
 
-    /* Gradient gelap pinggiran agar tidak terlalu flat */
     .instans-card::after {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%);
+        background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(15,23,42,0.3) 100%);
         z-index: 1;
         pointer-events: none;
     }
@@ -605,22 +630,25 @@
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    menuBtn.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        mobileMenu.classList.toggle('hidden');
-        menuBtn.setAttribute('aria-expanded', String(!isOpen));
-        menuBtn.innerHTML = isOpen
-            ? '<i class="fa-solid fa-bars"></i>'
-            : '<i class="fa-solid fa-xmark"></i>';
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            menuBtn.setAttribute('aria-expanded', 'false');
-            menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    // Menambahkan pengecekan (if) agar tidak error jika elemen tidak ditemukan
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!isOpen));
+            menuBtn.innerHTML = isOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
         });
-    });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+    }
 </script>
 
 </body>
