@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perubahan APBD 2026 Difokuskan untuk Kebutuhan Mendesak</title>
+    <link rel="icon" href="../aset-profil/Logo-PPL.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -14,15 +15,40 @@
                         'brand-bg': '#F0F4F8', 'brand-sub': '#475569', 'brand-div': '#93C5FD',
                         'brand-header': '#1E3A8A', 'brand-text': '#1E293B', 'brand-accent': '#3B82F6', 'kat-liputan': '#3B82F6'
                     },
-                    fontFamily: { 'sans': ['Inter', 'sans-serif'], 'display': ['Space Grotesk', 'sans-serif'], 'brand': ['Space Grotesk', 'sans-serif'] }
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'brand': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'voice': ['Merriweather', 'serif'],
+                    }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #F0F4F8; 
+            color: #1E293B; 
+            font-variant-numeric: lining-nums tabular-nums;
+            font-feature-settings: "lnum" 1, "tnum" 1;
+        }
+        h1, h2, h3, h4, .font-brand { 
+            font-family: 'Space Grotesk', sans-serif; 
+            letter-spacing: -0.02em;
+        }
+        .badge, .dates, .nim-text, .mono-text, 
+        [class*="calendar-days"] + span,
+        [class*="location-dot"] + span,
+        span:has(> .fa-calendar-days),
+        span:has(> .fa-location-dot) {
+            font-family: 'JetBrains Mono', monospace !important;
+            letter-spacing: -0.03em;
+        }
         .article-body { font-family: 'Merriweather', serif; font-size: 1.05rem; line-height: 1.9; }
         .article-body p { margin-bottom: 1.5rem; }
         .btn-neo { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; background-color: #3B82F6; color: white; font-weight: 600; border: 2px solid #1E3A8A; border-radius: 0.75rem; box-shadow: 3px 3px 0px #1E3A8A; }
@@ -34,7 +60,7 @@
     <div class="max-w-4xl mx-auto px-6 h-20 flex justify-between items-center">
         <a href="../index.html" class="flex items-center gap-3">
             <img src="../aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover">
-            <span class="font-brand font-bold text-lg text-brand-header tracking-tight">Portofolio PPL 2026</span>
+            <span class="font-brand font-bold text-lg text-brand-header tracking-tight">Portofolio PPL <span class="mono-text">2026</span></span>
         </a>
         <a href="../galeri.html" class="text-brand-header font-medium text-sm hover:text-brand-accent">
             <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
