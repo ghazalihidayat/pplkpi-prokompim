@@ -3,99 +3,730 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empat Mahasiswa KPI UIN Gusdur Jalani PPL di Prokompim</title>
-    <link rel="icon" href="../aset-profil/Logo-PPL.svg" type="image/svg+xml">
+
+    <title>Empat Mahasiswa KPI UIN Gus Dur Pekalongan Jalani PPL di Prokompim Kota Pekalongan | PPL PROKOMPIM 2026</title>
+
+    <meta
+        name="description"
+        content="Program Studi Komunikasi dan Penyiaran Islam UIN K.H. Abdurrahman Wahid Pekalongan menerjunkan empat mahasiswa untuk melaksanakan Praktik Pengalaman Lapangan di Prokompim Kota Pekalongan."
+    >
+
+    <meta
+        property="og:title"
+        content="Empat Mahasiswa KPI UIN Gus Dur Pekalongan Jalani PPL di Prokompim Kota Pekalongan"
+    >
+
+    <meta
+        property="og:description"
+        content="Empat mahasiswa KPI UIN Gus Dur Pekalongan melaksanakan PPL di Prokompim Kota Pekalongan."
+    >
+
+    <meta
+        property="og:image"
+        content="../aset-artikel/penerjunan.jpeg"
+    >
+
+    <meta property="og:type" content="article">
+
+    <link
+        rel="icon"
+        href="../aset-profil/Logo-PPL.svg"
+        type="image/svg+xml"
+    >
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- Konfigurasi desain mengikuti index.html dan galeri.html -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-bg': '#F0F4F8', 'brand-sub': '#475569', 'brand-div': '#93C5FD',
-                        'brand-header': '#1E3A8A', 'brand-text': '#1E293B', 'brand-accent': '#3B82F6', 'kat-liputan': '#3B82F6'
+                        'brand-bg': '#F0F4F8',
+                        'brand-sub': '#475569',
+                        'brand-div': '#93C5FD',
+                        'brand-header': '#1E3A8A',
+                        'brand-text': '#1E293B',
+                        'brand-dark': '#1E3A8A',
+                        'brand-accent': '#3B82F6',
+                        'kat-liputan': '#3B82F6',
+                        'kat-jurnal': '#0D9488'
                     },
+
                     fontFamily: {
                         'sans': ['Plus Jakarta Sans', 'sans-serif'],
-                        'display': ['Space Grotesk', 'sans-serif'],
-                        'brand': ['Space Grotesk', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                        'voice': ['Merriweather', 'serif'],
+                        'display': ['Plus Jakarta Sans', 'sans-serif'],
+                        'brand': ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Plus Jakarta Sans -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #F0F4F8; 
-            color: #1E293B; 
-            font-variant-numeric: lining-nums tabular-nums;
-            font-feature-settings: "lnum" 1, "tnum" 1;
+
+        /* =====================================================
+           GLOBAL
+           ===================================================== */
+
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
         }
-        h1, h2, h3, h4, .font-brand { 
-            font-family: 'Space Grotesk', sans-serif; 
-            letter-spacing: -0.02em;
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F0F4F8;
+            color: #1E293B;
+            font-variant-numeric: tabular-nums lining-nums;
         }
-        .badge, .dates, .nim-text, .mono-text, 
-        [class*="calendar-days"] + span,
-        [class*="location-dot"] + span,
-        span:has(> .fa-calendar-days),
-        span:has(> .fa-location-dot) {
-            font-family: 'JetBrains Mono', monospace !important;
-            letter-spacing: -0.03em;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        .article-body { font-family: 'Merriweather', serif; font-size: 1.05rem; line-height: 1.9; }
-        .article-body p { margin-bottom: 1.5rem; }
-        .btn-neo { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; background-color: #3B82F6; color: white; font-weight: 600; border: 2px solid #1E3A8A; border-radius: 0.75rem; box-shadow: 3px 3px 0px #1E3A8A; }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        /* =====================================================
+           CONTAINER ARTIKEL
+           ===================================================== */
+
+        .article-container {
+            width: 100%;
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* =====================================================
+           JUDUL ARTIKEL
+           ===================================================== */
+
+        .article-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+
+            font-size: clamp(
+                2.25rem,
+                4.5vw,
+                3.4rem
+            );
+
+            line-height: 1.12;
+
+            letter-spacing: -0.035em;
+
+            font-weight: 800;
+
+            color: #1E3A8A;
+
+            max-width: 1080px;
+
+            text-wrap: balance;
+        }
+
+
+        /* =====================================================
+           METADATA
+           ===================================================== */
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            gap: 0.6rem 1rem;
+
+            font-size: 0.875rem;
+
+            line-height: 1.5;
+
+            color: #475569;
+        }
+
+        .article-meta-item {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 0.45rem;
+        }
+
+        .article-meta-icon {
+            color: #3B82F6;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           FOTO UTAMA
+           ===================================================== */
+
+        .article-hero {
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            overflow: hidden;
+
+            border: 2px solid #1E3A8A;
+
+            border-radius: 1rem;
+
+            background-color: #E2E8F0;
+        }
+
+        .article-hero img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+        }
+
+
+        /* =====================================================
+           ISI ARTIKEL
+           ===================================================== */
+
+        .article-body {
+            width: 100%;
+
+            max-width: 820px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            font-family: 'Plus Jakarta Sans', sans-serif;
+
+            font-size: 1.05rem;
+
+            line-height: 1.9;
+
+            color: #1E293B;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2 {
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+
+            font-size: clamp(
+                1.5rem,
+                2.5vw,
+                2rem
+            );
+
+            line-height: 1.25;
+
+            font-weight: 800;
+
+            color: #1E3A8A;
+        }
+
+        .article-body h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 0.75rem;
+
+            font-size: 1.3rem;
+
+            line-height: 1.35;
+
+            font-weight: 700;
+
+            color: #1E3A8A;
+        }
+
+        .article-body strong {
+            font-weight: 700;
+
+            color: #1E293B;
+        }
+
+        .article-body em {
+            color: #334155;
+        }
+
+
+        /* =====================================================
+           KUTIPAN
+           ===================================================== */
+
+        .article-quote {
+            margin: 2rem 0;
+
+            padding: 1.25rem 1.5rem;
+
+            background-color: #F0F4F8;
+
+            border-left: 4px solid #3B82F6;
+
+            color: #334155;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           FOTO DALAM ARTIKEL
+           ===================================================== */
+
+        .article-figure {
+            margin: 2.5rem 0;
+        }
+
+        .article-figure img {
+            width: 100%;
+
+            max-height: 720px;
+
+            object-fit: cover;
+
+            border: 2px solid #1E3A8A;
+
+            border-radius: 1rem;
+
+            background-color: #E2E8F0;
+        }
+
+        .article-caption {
+            margin-top: 0.7rem;
+
+            padding: 0 0.25rem;
+
+            font-size: 0.8rem;
+
+            line-height: 1.6;
+
+            color: #64748B;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           TOMBOL
+           ===================================================== */
+
+        .btn-neo {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 0.75rem 1.5rem;
+
+            background-color: #3B82F6;
+
+            color: white;
+
+            font-weight: 600;
+
+            border: 2px solid #1E3A8A;
+
+            border-radius: 0.75rem;
+
+            box-shadow: 3px 3px 0px #1E3A8A;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .btn-neo:hover {
+            transform: translate(2px, 2px);
+
+            box-shadow: 1px 1px 0px #1E3A8A;
+        }
+
+
+        /* =====================================================
+           NAVIGASI ARTIKEL
+           ===================================================== */
+
+        .article-navigation {
+            border-top: 1px solid rgba(30, 58, 138, 0.18);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE MOBILE
+           ===================================================== */
+
+        @media (max-width: 640px) {
+
+            .article-title {
+                font-size: 2rem;
+
+                line-height: 1.16;
+
+                letter-spacing: -0.03em;
+            }
+
+            .article-body {
+                font-size: 1rem;
+
+                line-height: 1.8;
+            }
+
+            .article-hero {
+                border-radius: 0.8rem;
+            }
+
+            .article-figure img {
+                border-radius: 0.8rem;
+            }
+
+            .article-meta {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 0.55rem;
+            }
+
+            .article-meta-separator {
+                display: none;
+            }
+        }
+
     </style>
 </head>
-<body class="antialiased">
 
-<nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
-    <div class="max-w-4xl mx-auto px-6 h-20 flex justify-between items-center">
-        <a href="../index.html" class="flex items-center gap-3">
-            <img src="../aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover">
-            <span class="font-brand font-bold text-lg text-brand-header tracking-tight">Portofolio PPL <span class="mono-text">2026</span></span>
-        </a>
-        <a href="../galeri.html" class="text-brand-header font-medium text-sm hover:text-brand-accent">
-            <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
-        </a>
-    </div>
-</nav>
 
-<header class="max-w-4xl mx-auto px-6 pt-12 pb-6">
-    <h1 class="text-3xl sm:text-4xl font-bold text-brand-header leading-tight mb-4">
-        Empat Mahasiswa KPI UIN Gusdur Pekalongan Jalani PPL di Prokompim Kota Pekalongan
-    </h1>
-    <div class="flex items-center gap-4 text-sm text-brand-sub">
-        <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> 03 Agustus 2026</span>
-        <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Ruang Kabag Protokol dan Komunikasi Pimpinan</span>
-    </div>
-</header>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
 
-<div class="max-w-4xl mx-auto px-6 mb-10">
-    <img src="../aset-artikel/penerjunan.jpeg" alt="Penerjunan PPL" class="w-full h-auto rounded-xl border-2 border-brand-header shadow-md">
-</div>
 
-<article class="max-w-4xl mx-auto px-6 pb-16">
-    <div class="article-body">
-        <p>Kota Pekalongan — Program Studi Komunikasi dan Penyiaran Islam (KPI) UIN K.H. Abdurrahman Wahid Pekalongan menyerahkan empat mahasiswa untuk melaksanakan Praktik Pengalaman Lapangan (PPL) di Bagian Protokol dan Komunikasi Pimpinan (Prokompim) Sekretariat Daerah Kota Pekalongan, Senin (3/8/2026).</p>
-        <p>Kegiatan penyerahan berlangsung di Kantor Sekretariat Daerah Kota Pekalongan. Keempat mahasiswa akan menjalani PPL selama satu bulan, mulai 3 Agustus hingga 2 September 2026.</p>
-        <p>Penyerahan mahasiswa dilakukan secara simbolis oleh Dosen Pembimbing Lapangan, Wirayudha Pramana Bhakti, M.Pd., kepada Kepala Bagian Protokol dan Komunikasi Pimpinan Kota Pekalongan, Tubagus Muhammad Sadaruddin, S.E., M.Si.</p>
-        <p>Selama menjalani PPL, para mahasiswa akan dibimbing oleh Srimulat Utami, S.H., selaku Pranata Humas Ahli Muda sekaligus Pembimbing Lapangan di lingkungan Sekretariat Daerah Kota Pekalongan.</p>
-        <p>Dalam arahannya, Srimulat Utami mendorong para mahasiswa untuk aktif selama mengikuti kegiatan magang.</p>
-        <p><em>"Para mahasiswa diharapkan tetap berinisiatif untuk aktif bertanya dan mencari tahu apa yang dibutuhkan selama satu bulan magang di sini. Meskipun nantinya akan ada arahan dari kakak-kakak yang ahli di bidangnya, inisiatif dari mahasiswa tetap diperlukan,"</em> ujarnya.</p>
-        <p>Melalui kegiatan PPL ini, mahasiswa diharapkan dapat memperoleh pengalaman kerja secara langsung, memahami tugas dan fungsi Prokompim, serta mengembangkan kompetensi di bidang komunikasi, kehumasan, dan protokoler sebagai bekal memasuki dunia kerja.</p>
-    </div>
-    <div class="mt-10 pt-8 border-t border-brand-div/30">
-        <a href="../galeri.html" class="btn-neo"><i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Dokumentasi</a>
-    </div>
-</article>
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
+
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+            <!-- Identitas website -->
+
+            <a
+                href="../index.html"
+                class="flex items-center gap-3 min-w-0"
+            >
+
+                <img
+                    src="../aset-profil/Logo-PPL.svg"
+                    alt="Logo PPL KPI"
+                    class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50"
+                >
+
+                <span
+                    class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate"
+                >
+                    PPL PROKOMPIM 2026
+                </span>
+
+            </a>
+
+
+            <!-- Kembali -->
+
+            <a
+                href="../galeri.html"
+                class="text-brand-header font-medium text-sm hover:text-brand-accent transition"
+            >
+
+                <i class="fa-solid fa-arrow-left mr-1"></i>
+
+                Kembali
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HEADER ARTIKEL
+         ===================================================== -->
+
+    <header class="bg-white">
+
+        <div class="article-container px-6 pt-12 pb-8 lg:pt-14 lg:pb-9">
+
+            <h1 class="article-title mb-6">
+
+                Empat Mahasiswa KPI UIN Gusdur Pekalongan
+                Jalani PPL di Prokompim Kota Pekalongan
+
+            </h1>
+
+
+            <!-- Metadata -->
+
+            <div class="article-meta">
+
+                <span class="article-meta-item">
+
+                    <i class="fa-solid fa-calendar-days article-meta-icon"></i>
+
+                    <span>
+                        03 Agustus 2026
+                    </span>
+
+                </span>
+
+
+                <span class="article-meta-separator text-brand-div">
+                    ·
+                </span>
+
+
+                <span class="article-meta-item">
+
+                    <i class="fa-solid fa-location-dot article-meta-icon"></i>
+
+                    <span>
+                        Ruang Kabag Protokol dan Komunikasi Pimpinan
+                    </span>
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         FOTO UTAMA
+         ===================================================== -->
+
+    <section class="bg-brand-bg">
+
+        <div class="article-container px-6 py-8 lg:py-10">
+
+            <figure class="article-hero">
+
+                <img
+                    src="../aset-artikel/penerjunan.jpeg"
+                    alt="Penerjunan empat mahasiswa KPI UIN Gus Dur Pekalongan di Prokompim Kota Pekalongan"
+                    loading="eager"
+                >
+
+            </figure>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ISI ARTIKEL
+         ===================================================== -->
+
+    <main class="bg-white">
+
+        <article class="article-container px-6 py-10 lg:py-14">
+
+
+            <div class="article-body">
+
+
+                <p>
+                    Kota Pekalongan — Program Studi Komunikasi dan Penyiaran Islam (KPI) UIN K.H. Abdurrahman Wahid Pekalongan menyerahkan empat mahasiswa untuk melaksanakan Praktik Pengalaman Lapangan (PPL) di Bagian Protokol dan Komunikasi Pimpinan (Prokompim) Sekretariat Daerah Kota Pekalongan, Senin (3/8/2026).
+                </p>
+
+
+                <p>
+                    Kegiatan penyerahan berlangsung di Kantor Sekretariat Daerah Kota Pekalongan. Keempat mahasiswa akan menjalani PPL selama satu bulan, mulai 3 Agustus hingga 2 September 2026.
+                </p>
+
+
+                <p>
+                    Penyerahan mahasiswa dilakukan secara simbolis oleh Dosen Pembimbing Lapangan, Wirayudha Pramana Bhakti, M.Pd., kepada Kepala Bagian Protokol dan Komunikasi Pimpinan Kota Pekalongan, Tubagus Muhammad Sadaruddin, S.E., M.Si.
+                </p>
+
+
+                <p>
+                    Selama menjalani PPL, para mahasiswa akan dibimbing oleh Srimulat Utami, S.H., selaku Pranata Humas Ahli Muda sekaligus Pembimbing Lapangan di lingkungan Sekretariat Daerah Kota Pekalongan.
+                </p>
+
+
+                <p>
+                    Dalam arahannya, Srimulat Utami mendorong para mahasiswa untuk aktif selama mengikuti kegiatan magang.
+                </p>
+
+
+                <div class="article-quote">
+
+                    <p class="mb-0">
+                        <em>
+                            "Para mahasiswa diharapkan tetap berinisiatif untuk aktif bertanya dan mencari tahu apa yang dibutuhkan selama satu bulan magang di sini. Meskipun nantinya akan ada arahan dari kakak-kakak yang ahli di bidangnya, inisiatif dari mahasiswa tetap diperlukan,"
+                        </em>
+                        ujarnya.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    Melalui kegiatan PPL ini, mahasiswa diharapkan dapat memperoleh pengalaman kerja secara langsung, memahami tugas dan fungsi Prokompim, serta mengembangkan kompetensi di bidang komunikasi, kehumasan, dan protokoler sebagai bekal memasuki dunia kerja.
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NAVIGASI KEMBALI
+                 ================================================= -->
+
+            <div class="article-navigation max-w-[820px] mx-auto mt-14 pt-8">
+
+                <a
+                    href="../galeri.html"
+                    class="btn-neo"
+                >
+
+                    <i class="fa-solid fa-arrow-left mr-2"></i>
+
+                    Kembali ke Dokumentasi
+
+                </a>
+
+            </div>
+
+
+        </article>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
+
+
+            <!-- Identitas -->
+
+            <div class="w-full md:w-1/2">
+
+                <div class="flex items-center gap-3 mb-4">
+
+                    <img
+                        src="../aset-profil/Logo-PPL.svg"
+                        alt="Logo PPL KPI"
+                        class="w-8 h-8 rounded object-contain"
+                    >
+
+                    <span class="font-brand font-bold text-xl text-white">
+                        PPL PROKOMPIM 2026
+                    </span>
+
+                </div>
+
+
+                <p class="text-brand-div text-sm max-w-sm leading-relaxed">
+
+                    Dokumentasi pengalaman, pembelajaran, dan karya mahasiswa KPI selama pelaksanaan PPL di Prokompim Kota Pekalongan.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Informasi Prokompim -->
+
+            <div class="w-full md:w-1/2 md:text-right">
+
+                <h4 class="text-white font-bold mb-4">
+                    Protokol dan Komunikasi Pimpinan
+                </h4>
+
+
+                <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
+
+                    <li>
+
+                        <i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i>
+
+                        Kota Pekalongan
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i>
+
+                        Jl. Mataram No. 1, 51111
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Copyright -->
+
+        <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
+
+            <p>
+                &copy; 2026 Tim PPL KPI — Prokompim Kota Pekalongan.
+            </p>
+
+        </div>
+
+    </footer>
+
 
 </body>
 </html>
