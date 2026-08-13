@@ -32,42 +32,21 @@
                         'kat-jurnal': '#0D9488',
                     },
                     fontFamily: {
-                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'sans': ['Inter', 'sans-serif'],
                         'display': ['Space Grotesk', 'sans-serif'],
                         'brand': ['Space Grotesk', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                        'voice': ['Merriweather', 'serif'],
                     }
                 }
             }
         }
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #F0F4F8; 
-            color: #1E293B; 
-            font-variant-numeric: lining-nums tabular-nums;
-            font-feature-settings: "lnum" 1, "tnum" 1;
-        }
-        h1, h2, h3, h4, .font-brand { 
-            font-family: 'Space Grotesk', sans-serif; 
-            letter-spacing: -0.02em;
-        }
-        .badge, .dates, .nim-text, .mono-text, 
-        [class*="calendar-days"] + span,
-        [class*="location-dot"] + span,
-        span:has(> .fa-calendar-days),
-        span:has(> .fa-location-dot) {
-            font-family: 'JetBrains Mono', monospace !important;
-            letter-spacing: -0.03em;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
         img { max-width: 100%; height: auto; display: block; }
 
         .card-neo {
@@ -111,8 +90,6 @@
             background-color: #3B82F6;
             padding: 0.25rem 0.75rem;
             border-radius: 0.5rem;
-            border: 2px solid #1E3A8A;
-            box-shadow: 3px 3px 0px #1E3A8A;
             color: white;
         }
     </style>
@@ -125,7 +102,7 @@
         <!-- REVISI 6: GANTI KOTAK TEKS PPL DENGAN LOGO GAMBAR -->
         <div class="flex items-center gap-3 min-w-0">
             <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50">
-            <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL <span class="mono-text">2026</span></span>
+            <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
         </div>
 
         <div class="hidden md:flex space-x-8 items-center">
@@ -161,8 +138,8 @@
         
         <!-- Area Teks Kiri (Mengambil 7 kolom dari 12 di layar besar) -->
         <div class="flex flex-col space-y-6 lg:col-span-7 relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border-2 border-brand-header text-xs font-bold text-brand-header w-fit shadow-[3px_3px_0px_#1E3A8A]">
-                <span class="w-2 h-2 rounded-full bg-blue-500"></span> <span class="dates">03 Agustus - 02 September 2026</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-bg border border-brand-div/50 text-xs font-medium text-brand-header w-fit">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span> 03 Agustus - 02 September 2026
             </div>
 
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] text-brand-header py-2 break-words">
@@ -170,7 +147,7 @@
                 <span class="highlight-bg mt-3 inline-block leading-normal">Menyampaikan Informasi Publik.</span>
             </h1>
 
-            <div class="card-neo bg-white p-6 mt-4 max-w-2xl">
+            <div class="bg-brand-bg/50 p-6 rounded-2xl border border-brand-div/30 mt-4 max-w-2xl">
                 <h3 class="text-sm font-bold text-brand-accent mb-3 uppercase tracking-wide">Ringkasan</h3>
                 <p class="text-base sm:text-lg text-brand-sub leading-relaxed">
                     Selama satu bulan, kami — empat mahasiswa KPI UIN K.H. Abdurrahman Wahid Pekalongan — turun langsung membantu jalannya keprotokolan dan komunikasi publik di Sekretariat Daerah Kota Pekalongan. Halaman ini adalah catatan perjalanan kami: apa yang kami kerjakan, apa yang kami pelajari, dan karya apa yang kami hasilkan.
@@ -374,7 +351,7 @@
 <section id="tentang" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">01</span>
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">01</span>
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Profil Penugasan</h2>
         </div>
 
@@ -401,11 +378,11 @@
                 <div class="space-y-6">
                     <div>
                         <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-calendar-days text-brand-accent mr-2"></i> Periode Magang</h4>
-                        <p class="text-sm text-brand-div mt-1 dates">03 Agustus – 02 September 2026</p>
+                        <p class="text-sm text-brand-div mt-1">03 Agustus – 02 September 2026</p>
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-location-dot text-brand-accent mr-2"></i> Lokasi Kantor</h4>
-                        <p class="text-sm text-brand-div mt-1">Jl. Mataram No. 1, Kota Pekalongan <span class="mono-text">51111</span></p>
+                        <p class="text-sm text-brand-div mt-1">Jl. Mataram No. 1, Kota Pekalongan 51111</p>
                     </div>
                 </div>
             </div>
@@ -423,7 +400,7 @@
 <section id="tugas" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">02</span>
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">02</span>
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Ruang Lingkup Pekerjaan</h2>
         </div>
 
@@ -465,41 +442,41 @@
 <section id="kegiatan" class="py-20 bg-brand-bg px-6">
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">03</span>
+            <span class="highlight-bg text-2xl font-bold px-3 py-1">03</span>
             <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Capaian Belajar Kami</h2>
         </div>
 
         <div class="space-y-4">
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">01.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg">01.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Praktik Keprotokolan</h4>
                     <p class="text-sm text-brand-text">Kami belajar langsung menyusun rencana kegiatan, menyiapkan informasi acara, dan mempraktikkan fasilitasi keprotokolan saat menyambut tamu resmi.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">02.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg">02.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Kompetensi Kehumasan</h4>
                     <p class="text-sm text-brand-text">Kami mengasah kemampuan mengelola alur informasi kegiatan pimpinan, sekaligus berkomunikasi secara profesional dengan OPD, panitia, dan tamu daerah.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">03.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg">03.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Produksi Konten Publikasi</h4>
                     <p class="text-sm text-brand-text">Kami melatih keterampilan dokumentasi visual, penulisan berita, dan pengarsipan materi untuk publikasi resmi instansi.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">04.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg">04.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Disiplin Birokrasi & SOP</h4>
                     <p class="text-sm text-brand-text">Kami belajar menjunjung etika profesi, memahami tata tertib birokrasi pemerintahan, dan menerapkan SOP dalam setiap pelaporan kegiatan.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">05.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg">05.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Luaran PPL (Output Karya)</h4>
                     <p class="text-sm text-brand-text">Sebagai hasil nyata, kami menghasilkan arsip rundown acara, naskah/caption rilis, dan karya visual dokumentasi kegiatan.</p>
@@ -517,19 +494,14 @@
         </div>
 
         <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Fallback Content -->
             <a href="berita/apbd.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="p-5 pb-3">
-                    <span class="badge inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded mb-2 w-fit">Liputan Kegiatan</span>
-                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Perubahan APBD 2026 Difokuskan untuk Program Prioritas dan Kebutuhan Mendesak Masyarakat</h4>
-                    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
-                        <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> Rabu, 05 Agustus 2026</span>
-                        <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Gedung Diklat Kota Pekalongan</span>
-                    </div>
-                </div>
-                <div class="aspect-[4/3] bg-brand-bg overflow-hidden border-y-2 border-brand-header">
+                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
                     <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
+                    <span class="badge absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
                 </div>
-                <div class="p-5 pt-4 flex-grow">
+                <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                    <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Perubahan APBD 2026 Difokuskan untuk Program Prioritas dan Kebutuhan Mendesak Masyarakat</h4>
                     <p class="text-sm text-brand-sub line-clamp-3">Wali Kota arahkan perubahan APBD 2026 untuk program mendesak dan prioritas warga.</p>
                 </div>
             </a>
@@ -545,14 +517,6 @@
     (function () {
         const grid = document.getElementById('karya-grid');
 
-        function formatTanggal(iso) {
-            const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-            const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-            const [y, m, d] = iso.split('-').map(Number);
-            const dow = new Date(y, m - 1, d).getDay();
-            return `${hari[dow]}, ${String(d).padStart(2,'0')} ${bulan[m-1]} ${y}`;
-        }
-
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
@@ -560,18 +524,12 @@
                 if (terbaru.length === 0) return; // biarkan fallback tampil
                 grid.innerHTML = terbaru.map(item => `
                     <a href="${item.link}" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                        <div class="p-5 pb-3">
-                            <span class="badge inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded mb-2 w-fit">${item.kategori}</span>
-                            <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">${item.judul}</h4>
-                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
-                                <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(item.tanggal)}</span>
-                                <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> ${item.lokasi || ''}</span>
-                            </div>
-                        </div>
-                        <div class="aspect-[4/3] bg-brand-bg overflow-hidden border-y-2 border-brand-header">
+                        <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
                             <img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover">
+                            <span class="badge absolute top-3 left-3 bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded">${item.kategori}</span>
                         </div>
-                        <div class="p-5 pt-4 flex-grow">
+                        <div class="p-6 bg-white border-t-2 border-brand-header flex-grow">
+                            <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">${item.judul}</h4>
                             <p class="text-sm text-brand-sub line-clamp-3">${item.dek}</p>
                         </div>
                     </a>
@@ -583,7 +541,7 @@
 
 <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
-        <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block font-mono">05</span>
+        <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block">05</span>
         <h2 class="text-3xl lg:text-4xl font-bold text-brand-header mb-12">Susunan Anggota Kelompok</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -592,28 +550,28 @@
                     <img src="aset-profil/Ghazali.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Mazda Ghazali Hidayat</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423003</p>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423003</p>
             </div>
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Nabila.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Nabilla R. Citra Anggraeny</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423011</p>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423011</p>
             </div>
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Fara.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Fara Azahra</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423081</p>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423081</p>
             </div>
             <div class="card-neo p-6 bg-white">
                 <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Intan.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
                 <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Intan Fatmah Farkhati</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423158</p>
+                <p class="text-xs font-bold text-brand-accent">NIM: 30423158</p>
             </div>
         </div>
     </div>
@@ -624,7 +582,7 @@
         <div class="w-full md:w-1/2">
             <div class="flex items-center gap-3 mb-4">
                 <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-contain">
-                <span class="font-brand font-bold text-xl text-white">Portofolio PPL <span class="mono-text">2026</span></span>
+                <span class="font-brand font-bold text-xl text-white">Portofolio PPL 2026</span>
             </div>
             <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
         </div>
@@ -633,13 +591,13 @@
             <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
             <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
                 <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
-                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, <span class="mono-text">51111</span></li>
+                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, 51111</li>
             </ul>
         </div>
     </div>
 
     <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
-        <p>&copy; <span class="mono-text">2026</span> Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
+        <p>&copy; 2026 Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
     </div>
 </footer>
 
