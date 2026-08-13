@@ -21,20 +21,18 @@
             theme: {
                 extend: {
                     colors: {
-                        /* Tema murni Biru (dari Logo) dan Putih */
-                        'brand-main': '#2563EB', /* Biru Logo PPL */
-                        'brand-bg': '#EFF6FF', /* Biru sangat muda untuk background */
-                        'brand-sub': '#1E40AF',
-                        'brand-div': '#2563EB', 
-                        'brand-header': '#1E3A8A', /* Biru gelap untuk teks/border, bukan hitam */
-                        'brand-text': '#1E3A8A', 
-                        'brand-dark': '#1E3A8A', /* Biru gelap pengganti hitam */
-                        'brand-accent': '#2563EB', 
-                        'kat-liputan': '#2563EB',
+                        'brand-bg': '#F0F4F8',
+                        'brand-sub': '#475569',
+                        'brand-div': '#93C5FD',
+                        'brand-header': '#1E3A8A',
+                        'brand-text': '#1E293B',
+                        'brand-dark': '#1E3A8A',
+                        'brand-accent': '#3B82F6',
+                        'kat-liputan': '#3B82F6',
                         'kat-jurnal': '#0D9488',
                     },
                     fontFamily: {
-                        'sans': ['Space Grotesk', 'sans-serif'],
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
                         'display': ['Space Grotesk', 'sans-serif'],
                         'brand': ['Space Grotesk', 'sans-serif'],
                         'mono': ['JetBrains Mono', 'monospace'],
@@ -47,161 +45,99 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
         body { 
-            font-family: 'Space Grotesk', sans-serif; 
-            background-color: #EFF6FF; 
-            color: #1E3A8A; 
-            font-variant-numeric: tabular-nums lining-nums;
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #F0F4F8; 
+            color: #1E293B; 
+            font-variant-numeric: lining-nums tabular-nums;
+            font-feature-settings: "lnum" 1, "tnum" 1;
         }
-        
         h1, h2, h3, h4, .font-brand { 
-            letter-spacing: -0.03em;
-            font-weight: 800; 
+            font-family: 'Space Grotesk', sans-serif; 
+            letter-spacing: -0.02em;
         }
-
-        .angka, .badge, .dates, .nim-text, .mono-text, 
+        .badge, .dates, .nim-text, .mono-text, 
         [class*="calendar-days"] + span,
         [class*="location-dot"] + span,
         span:has(> .fa-calendar-days),
         span:has(> .fa-location-dot) {
             font-family: 'JetBrains Mono', monospace !important;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
         }
-
         img { max-width: 100%; height: auto; display: block; }
 
-        /* Gaya Kartu Neobrutalism (Biru Gelap) */
         .card-neo {
             background-color: white;
-            border: 3px solid #1E3A8A; 
-            border-radius: 0.5rem; 
-            box-shadow: 6px 6px 0px #1E3A8A; 
-            transition: all 0.2s ease;
+            border: 2px solid #1E3A8A;
+            border-radius: 1rem;
+            box-shadow: 4px 4px 0px #1E3A8A;
         }
 
-        /* Detail Kegiatan (Biru Logo) */
         .card-neo-dark {
-            background-color: #2563EB; /* Warna Biru Logo */
-            color: #FFFFFF;
-            border: 3px solid #1E3A8A;
-            border-radius: 0.5rem;
-            box-shadow: 6px 6px 0px #1E3A8A; 
+            background-color: #1E3A8A;
+            color: #EFF6FF;
+            border: 2px solid #1E3A8A;
+            border-radius: 1rem;
+            box-shadow: 4px 4px 0px #0F172A;
         }
 
-        /* Gaya Tombol Neobrutalism */
         .btn-neo {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0.75rem 1.5rem;
-            background-color: #2563EB; 
+            background-color: #3B82F6;
             color: white;
-            font-weight: 700;
-            border: 3px solid #1E3A8A;
-            border-radius: 0.5rem;
-            box-shadow: 4px 4px 0px #1E3A8A;
+            font-weight: 600;
+            border: 2px solid #1E3A8A;
+            border-radius: 0.75rem;
+            box-shadow: 3px 3px 0px #1E3A8A;
             cursor: pointer;
-            transition: all 0.15s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            transition: all 0.2s;
         }
-        
-        .btn-neo:hover { 
-            transform: translate(2px, 2px); 
-            box-shadow: 2px 2px 0px #1E3A8A; 
-        }
-        
+        .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
+
         .btn-neo-dark {
-            background-color: #FFFFFF; /* Putih */
-            color: #1E3A8A;
-        }
-
-        /* Teks Highlight Hero */
-        .highlight-bg {
-            background-color: #2563EB; 
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.25rem;
-            border: 3px solid #1E3A8A;
-            box-shadow: 4px 4px 0px #1E3A8A;
+            background-color: #1E3A8A;
             color: white;
-            display: inline-block;
-            transform: rotate(-2deg); 
+            border-color: #1E3A8A;
         }
 
-        .instans-wrapper {
-            position: relative;
-            perspective: 1200px;
-            margin: 0 auto;
+        .highlight-bg {
+            background-color: #3B82F6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            border: 2px solid #1E3A8A;
+            box-shadow: 3px 3px 0px #1E3A8A;
+            color: white;
         }
-
-        .instans-card {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 35%;
-            overflow: hidden;
-            
-            /* Border Putih, Bayangan Biru Gelap (Tanpa Kuning/Hitam) */
-            border: 6px solid #FFFFFF; 
-            box-shadow: 10px 10px 0px 0px #1E3A8A; 
-            background-color: #2563EB;
-            cursor: pointer;
-            
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-                        opacity 0.8s ease,
-                        filter 0.8s ease;
-        }
-
-        .instans-card::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(30,58,138,0.3) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .instans-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 50% 25%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .card-front { z-index: 3; transform: translate3d(0, 0, 0) rotate(-2deg); opacity: 1; filter: brightness(1); }
-        .card-middle { z-index: 2; transform: translate3d(5%, -5%, -50px) rotate(4deg); opacity: 0.95; filter: brightness(0.75); }
-        .card-back { z-index: 1; transform: translate3d(8%, -8%, -100px) rotate(8deg); opacity: 0; }
-        .card-out { z-index: 4; transform: translate3d(0, 50%, 50px) rotate(-10deg) scale(0.9); opacity: 0; }
     </style>
 </head>
 
 <body class="antialiased selection:bg-brand-accent selection:text-white">
 
-<nav class="w-full bg-white/90 backdrop-blur-md border-b-3 border-brand-dark sticky top-0 z-50">
+<nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <!-- REVISI 6: GANTI KOTAK TEKS PPL DENGAN LOGO GAMBAR -->
         <div class="flex items-center gap-3 min-w-0">
-            <!-- Logo Biru Transparan -->
-            <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 object-contain flex-shrink-0">
-            <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate uppercase">Portofolio PPL <span class="mono-text">2026</span></span>
+            <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50">
+            <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL <span class="mono-text">2026</span></span>
         </div>
 
         <div class="hidden md:flex space-x-8 items-center">
-            <a href="#tentang" class="text-brand-header font-bold text-sm hover:text-brand-accent transition uppercase">Profil</a>
-            <a href="#tugas" class="text-brand-header font-bold text-sm hover:text-brand-accent transition uppercase">Ruang Lingkup</a>
-            <a href="#kegiatan" class="text-brand-header font-bold text-sm hover:text-brand-accent transition uppercase">Tujuan</a>
-            <a href="#tim" class="text-brand-header font-bold text-sm hover:text-brand-accent transition uppercase">Tim</a>
-            <a href="galeri.html" class="text-brand-header font-bold text-sm hover:text-brand-accent transition uppercase">Dokumentasi</a>
+            <a href="#tentang" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Profil</a>
+            <a href="#tugas" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Ruang Lingkup</a>
+            <a href="#kegiatan" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tujuan</a>
+            <a href="#tim" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Tim</a>
+            <a href="galeri.html" class="text-brand-header font-medium text-sm hover:text-brand-accent transition">Dokumentasi</a>
         </div>
 
         <div class="hidden md:block">
-            <a href="#karya" class="btn-neo btn-neo-dark text-sm py-2 px-4">Jelajahi Karya</a>
+            <a href="#karya" class="btn-neo text-sm py-2 px-4">Jelajahi Karya Kami</a>
         </div>
 
         <button id="menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="md:hidden text-brand-header text-2xl flex-shrink-0 ml-3">
@@ -209,72 +145,152 @@
         </button>
     </div>
 
-    <!-- Menu Mobile -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t-3 border-brand-dark px-6 py-4 space-y-4">
-        <a href="#tentang" class="block text-brand-header font-bold text-sm uppercase">Profil</a>
-        <a href="#tugas" class="block text-brand-header font-bold text-sm uppercase">Ruang Lingkup</a>
-        <a href="#kegiatan" class="block text-brand-header font-bold text-sm uppercase">Tujuan</a>
-        <a href="#tim" class="block text-brand-header font-bold text-sm uppercase">Tim</a>
-        <a href="galeri.html" class="block text-brand-header font-bold text-sm uppercase">Dokumentasi</a>
-        <a href="#karya" class="btn-neo btn-neo-dark text-sm py-2 px-4 w-full">Jelajahi Karya</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-div/50 px-6 py-4 space-y-4">
+        <a href="#tentang" class="block text-brand-header font-medium text-sm">Profil</a>
+        <a href="#tugas" class="block text-brand-header font-medium text-sm">Ruang Lingkup</a>
+        <a href="#kegiatan" class="block text-brand-header font-medium text-sm">Tujuan</a>
+        <a href="#tim" class="block text-brand-header font-medium text-sm">Tim</a>
+        <a href="galeri.html" class="block text-brand-header font-medium text-sm">Dokumentasi</a>
+        <a href="#karya" class="btn-neo text-sm py-2 px-4 w-full">Jelajahi Karya Kami</a>
     </div>
 </nav>
 
-<main class="py-12 lg:py-20 px-6 bg-[#EFF6FF] overflow-x-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<!-- REVISI 7 & 3: STRUKTUR MAIN DAN LAYOUT DIPERBAIKI UNTUK MENGURANGI SPACE KOSONG -->
+<main class="py-10 lg:py-16 px-6 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Area Teks Kiri -->
+        <!-- Area Teks Kiri (Mengambil 7 kolom dari 12 di layar besar) -->
         <div class="flex flex-col space-y-6 lg:col-span-7 relative z-10">
-            <!-- Badge Tanggal (Biru & Putih) -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border-3 border-brand-dark rounded-md shadow-[4px_4px_0px_#1E3A8A] w-fit font-bold text-brand-dark uppercase tracking-wider text-xs">
-                <i class="fa-solid fa-bolt text-brand-main"></i> <span class="angka">03 AGU - 02 SEP 2026</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border-2 border-brand-header text-xs font-bold text-brand-header w-fit shadow-[3px_3px_0px_#1E3A8A]">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span> <span class="dates">03 Agustus - 02 September 2026</span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.3] text-brand-dark py-2 break-words uppercase">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.2] text-brand-header py-2 break-words">
                 Dokumentasi Kinerja,<br>
-                <span class="highlight-bg mt-4 mb-2 leading-normal text-3xl sm:text-4xl lg:text-5xl">Menyampaikan Informasi Publik.</span>
+                <span class="highlight-bg mt-3 inline-block leading-normal">Menyampaikan Informasi Publik.</span>
             </h1>
 
-            <!-- Kotak Ringkasan -->
-            <div class="bg-white p-6 md:p-8 rounded-lg border-3 border-brand-dark shadow-[6px_6px_0px_#1E3A8A] mt-6 max-w-2xl relative">
-                <div class="absolute -top-3 -right-3 w-8 h-8 bg-brand-main border-2 border-brand-dark rounded-full shadow-[2px_2px_0px_#1E3A8A]"></div>
-                
-                <h3 class="text-sm font-extrabold text-brand-dark mb-3 uppercase tracking-widest border-b-2 border-brand-dark pb-2 w-fit">Ringkasan Laporan</h3>
-                <p class="text-base sm:text-lg font-medium text-brand-dark leading-relaxed">
+            <div class="card-neo bg-white p-6 mt-4 max-w-2xl">
+                <h3 class="text-sm font-bold text-brand-accent mb-3 uppercase tracking-wide">Ringkasan</h3>
+                <p class="text-base sm:text-lg text-brand-sub leading-relaxed">
                     Selama satu bulan, kami — empat mahasiswa KPI UIN K.H. Abdurrahman Wahid Pekalongan — turun langsung membantu jalannya keprotokolan dan komunikasi publik di Sekretariat Daerah Kota Pekalongan. Halaman ini adalah catatan perjalanan kami: apa yang kami kerjakan, apa yang kami pelajari, dan karya apa yang kami hasilkan.
                 </p>
             </div>
 
-            <div class="flex flex-wrap gap-4 pt-6">
-                <a href="#kegiatan" class="btn-neo"><i class="fa-solid fa-bullseye mr-2"></i> Lihat Tujuan</a>
-                <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Jelajahi Karya</a>
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a href="#kegiatan" class="btn-neo"><i class="fa-solid fa-bullseye mr-2"></i> Lihat Tujuan Kami</a>
+                <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-clapperboard mr-2"></i> Jelajahi Karya Kami</a>
             </div>
         </div>
 
-        <!-- Area Widget Instan -->
+        <!-- REVISI 2, 3, 4: AREA WIDGET INSTAN BARU (Mengambil 5 kolom sisanya) -->
         <div class="flex justify-center items-center lg:col-span-5 relative w-full h-[450px] sm:h-[500px] lg:h-[600px] mt-10 lg:mt-0" aria-hidden="true">
             <div class="instans-wrapper w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square" id="instansWrapper">
                 <!-- Fallback Loading -->
-                <div class="text-brand-dark font-bold font-mono animate-pulse absolute inset-0 flex items-center justify-center border-3 border-brand-dark bg-white shadow-[6px_6px_0px_#1E3A8A] rounded-3xl" style="border-radius: 35%;">
-                    [ MEMUAT DATA ]
-                </div>
+                <div class="text-brand-div font-medium animate-pulse absolute inset-0 flex items-center justify-center">Memuat Momen...</div>
             </div>
         </div>
 
     </div>
 </main>
 
+<style>
+    /* ================================================================
+       REVISI 1, 2, 5: STYLING WIDGET INSTAN BARU
+       ================================================================ */
+    .instans-wrapper {
+        position: relative;
+        perspective: 1200px;
+        margin: 0 auto;
+        /* Menghapus margin kanan yang menyebabkan tidak center di mobile */
+    }
+
+    .instans-card {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        
+        /* REVISI 1: Bentuk lebih kotak (persegi tumpul organik) seperti referensi */
+        border-radius: 35% 35% 35% 35% / 35% 35% 35% 35%;
+        
+        overflow: hidden;
+        border: 5px solid white;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+        background-color: #e2e8f0;
+        cursor: pointer;
+        
+        /* REVISI 5: Transisi diubah agar fokus ke pergerakan vertikal (tenggelam) */
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                    opacity 0.8s ease,
+                    filter 0.8s ease;
+    }
+
+    /* Gradient gelap pinggiran agar tidak terlalu flat */
+    .instans-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .instans-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Fokus ke 50% horizontal dan 25% vertikal (wajah/badan atas) */
+        object-position: 50% 25%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* REVISI 2: PENGATURAN TUMPUKAN YANG LEBIH HALUS */
+    .card-front {
+        z-index: 3;
+        transform: translate3d(0, 0, 0) rotate(-2deg);
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    .card-middle {
+        z-index: 2;
+        /* Kartu di belakang bergeser ke atas dan kanan sedikit, skala dikecilkan */
+        transform: translate3d(5%, -5%, -50px) rotate(4deg);
+        opacity: 0.95;
+        filter: brightness(0.75);
+    }
+
+    .card-back {
+        z-index: 1;
+        /* Kartu tumpukan ketiga disembunyikan di belakang */
+        transform: translate3d(8%, -8%, -100px) rotate(8deg);
+        opacity: 0; 
+    }
+
+    /* REVISI 5: Animasi Keluar - Tenggelam ke bawah */
+    .card-out {
+        z-index: 4;
+        /* Kartu jatuh ke bawah, bukan ke samping */
+        transform: translate3d(0, 50%, 50px) rotate(-10deg) scale(0.9);
+        opacity: 0;
+    }
+</style>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const wrapper = document.getElementById('instansWrapper');
 
         function buildInstans(data) {
-            wrapper.innerHTML = ''; 
+            wrapper.innerHTML = ''; // Hapus teks loading
             let autoRollInterval;
 
             data.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'instans-card';
+
+                // REVISI 4: Menghilangkan bagian badge/tulisan INSTANTS SVG
 
                 const img = document.createElement('img');
                 img.src = item.foto;
@@ -295,17 +311,21 @@
 
                 if (!frontCard || !middleCard) return;
 
+                // Kartu depan jatuh/tenggelam
                 frontCard.classList.remove('card-front');
                 frontCard.classList.add('card-out');
 
+                // Kartu tengah maju
                 middleCard.classList.remove('card-middle');
                 middleCard.classList.add('card-front');
 
+                // Kartu belakang (antrean 1) maju ke tengah
                 if (backCards.length > 0) {
                     backCards[0].classList.remove('card-back');
                     backCards[0].classList.add('card-middle');
                 }
 
+                // Setelah animasi jatuh selesai, pindahkan ke belakang
                 setTimeout(() => {
                     frontCard.classList.remove('card-out');
                     frontCard.classList.add('card-back');
@@ -315,7 +335,7 @@
                          frontCard.classList.add('card-middle');
                     }
                     wrapper.insertBefore(frontCard, wrapper.firstChild);
-                }, 800); 
+                }, 800); // Sesuaikan dengan durasi CSS (0.8s)
             }
 
             autoRollInterval = setInterval(rollNext, 3500);
@@ -327,6 +347,7 @@
             });
         }
 
+        // Ambil Data
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
@@ -339,6 +360,7 @@
                 }
             })
             .catch(() => {
+                // Fallback (opsional jika manifest gagal)
                 const dummyData = [
                     { foto: 'aset-artikel/igtki-pgri.jpeg', judul: 'Fallback 1' },
                     { foto: 'aset-artikel/mtq-manic.jpeg', judul: 'Fallback 2' },
@@ -353,15 +375,15 @@
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">01</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header uppercase">Profil Penugasan</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Profil Penugasan</h2>
         </div>
 
         <div class="card-neo p-6 lg:p-8 bg-white mb-8">
             <h3 class="text-2xl font-bold mb-4 text-brand-header"><i class="fa-solid fa-graduation-cap text-brand-accent mr-2"></i>Program Studi Kami</h3>
-            <p class="text-brand-text leading-relaxed text-lg mb-3 font-medium">
+            <p class="text-brand-text leading-relaxed text-lg mb-3">
                 Program Studi Komunikasi dan Penyiaran Islam (KPI), Fakultas Ushuluddin, Adab, dan Dakwah UIN K.H. Abdurrahman Wahid Pekalongan, mewajibkan setiap mahasiswanya menjalani Praktik Pengalaman Lapangan (PPL) sebagai bentuk penerapan langsung teori komunikasi dan penyiaran ke dunia kerja nyata.
             </p>
-            <p class="text-brand-text leading-relaxed text-lg font-medium">
+            <p class="text-brand-text leading-relaxed text-lg">
                 Selain dua konsentrasi utama — <strong>Jurnalistik</strong> dan <strong>Broadcasting</strong> — mahasiswa KPI juga dibekali kompetensi <strong>Public Relation (kehumasan)</strong>. Kompetensi inilah yang menjadi dasar kami diterjunkan PPL di lembaga pemerintahan seperti Bagian Protokol dan Komunikasi Pimpinan (Prokompim).
             </p>
         </div>
@@ -369,21 +391,21 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div class="card-neo p-6 lg:p-8 md:col-span-2 bg-white flex flex-col justify-center">
                 <h3 class="text-2xl font-bold mb-4 text-brand-header">Instansi Penempatan</h3>
-                <p class="text-brand-text leading-relaxed text-lg font-medium">
+                <p class="text-brand-text leading-relaxed text-lg">
                     Kami bertugas di <strong>Sekretariat Daerah Kota Pekalongan — Bagian Protokol dan Komunikasi Pimpinan</strong>.
                 </p>
             </div>
 
             <div class="card-neo-dark p-6 lg:p-8 flex flex-col justify-center">
-                <h3 class="text-xl font-bold mb-6 text-white uppercase">Detail Kegiatan</h3>
+                <h3 class="text-xl font-bold mb-6 text-brand-accent">Detail Kegiatan</h3>
                 <div class="space-y-6">
                     <div>
-                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-calendar-days text-white mr-2"></i> Periode Magang</h4>
-                        <p class="text-sm text-white mt-1 dates">03 Agustus – 02 September 2026</p>
+                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-calendar-days text-brand-accent mr-2"></i> Periode Magang</h4>
+                        <p class="text-sm text-brand-div mt-1 dates">03 Agustus – 02 September 2026</p>
                     </div>
                     <div>
-                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-location-dot text-white mr-2"></i> Lokasi Kantor</h4>
-                        <p class="text-sm text-white mt-1">Jl. Mataram No. 1, Kota Pekalongan <span class="mono-text">51111</span></p>
+                        <h4 class="font-bold text-white text-sm"><i class="fa-solid fa-location-dot text-brand-accent mr-2"></i> Lokasi Kantor</h4>
+                        <p class="text-sm text-brand-div mt-1">Jl. Mataram No. 1, Kota Pekalongan <span class="mono-text">51111</span></p>
                     </div>
                 </div>
             </div>
@@ -391,29 +413,29 @@
 
         <div class="card-neo p-6 lg:p-8 bg-white">
             <h3 class="text-xl font-bold mb-4 text-brand-header"><i class="fa-solid fa-circle-info text-brand-accent mr-2"></i>Apa Itu Prokompim?</h3>
-            <p class="text-brand-text leading-relaxed font-medium">
+            <p class="text-brand-text leading-relaxed">
                 Bagian Protokol dan Komunikasi Pimpinan (Prokompim) adalah unit kerja di lingkungan Sekretariat Daerah Kota Pekalongan, berada di bawah koordinasi Asisten Administrasi Umum dan bertanggung jawab langsung kepada Sekretaris Daerah. Secara sederhana, Prokompim berperan sebagai "wajah" pemerintah kota dalam mengatur jalannya acara resmi, mengelola komunikasi Walikota dan Wakil Walikota kepada publik, serta mendokumentasikan seluruh kegiatan kepemimpinan daerah.
             </p>
         </div>
     </div>
 </section>
 
-<section id="tugas" class="py-20 bg-white px-6 border-y-3 border-brand-dark">
+<section id="tugas" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">02</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header uppercase">Ruang Lingkup Pekerjaan</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Ruang Lingkup Pekerjaan</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
-                    <div class="w-12 h-12 bg-brand-main border-2 border-brand-dark rounded-lg flex items-center justify-center text-white shadow-[2px_2px_0px_#1E3A8A]">
+                    <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
                         <i class="fa-solid fa-handshake"></i>
                     </div>
                     <h3 class="text-xl font-bold text-brand-header">Subbagian Protokol</h3>
                 </div>
-                <ul class="space-y-3 text-sm text-brand-text font-medium flex-grow">
+                <ul class="space-y-3 text-sm text-brand-text flex-grow">
                     <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun rencana kegiatan & kebijakan protokol.</li>
                     <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Melaksanakan tata protokoler penyambutan tamu Pemda.</li>
                     <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun bahan informasi acara & jadwal kegiatan Walikota / Wakil Walikota.</li>
@@ -424,12 +446,12 @@
 
             <div class="card-neo p-6 bg-brand-bg flex flex-col h-full">
                 <div class="flex items-center gap-3 mb-6">
-                    <div class="w-12 h-12 bg-brand-main border-2 border-brand-dark rounded-lg flex items-center justify-center text-white shadow-[2px_2px_0px_#1E3A8A]">
+                    <div class="w-12 h-12 bg-brand-header rounded-lg flex items-center justify-center text-white">
                         <i class="fa-solid fa-camera"></i>
                     </div>
                     <h3 class="text-xl font-bold text-brand-header">Komunikasi Pimpinan & Dokumentasi</h3>
                 </div>
-                <ul class="space-y-3 text-sm text-brand-text font-medium flex-grow">
+                <ul class="space-y-3 text-sm text-brand-text flex-grow">
                     <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyelenggarakan fasilitasi komunikasi pimpinan dengan publik/media.</li>
                     <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Mendokumentasikan tugas pimpinan (arsip publikasi & dokumentasi).</li>
                     <li class="flex gap-2"><i class="fa-solid fa-check text-brand-accent mt-1"></i> Menyusun perencanaan dan pelaporan kegiatan.</li>
@@ -444,65 +466,71 @@
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">03</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header uppercase">Capaian Belajar Kami</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Capaian Belajar Kami</h2>
         </div>
 
         <div class="space-y-4">
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-extrabold text-brand-accent text-lg font-mono">01.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">01.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Praktik Keprotokolan</h4>
-                    <p class="text-sm text-brand-text font-medium">Kami belajar langsung menyusun rencana kegiatan, menyiapkan informasi acara, dan mempraktikkan fasilitasi keprotokolan saat menyambut tamu resmi.</p>
+                    <p class="text-sm text-brand-text">Kami belajar langsung menyusun rencana kegiatan, menyiapkan informasi acara, dan mempraktikkan fasilitasi keprotokolan saat menyambut tamu resmi.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-extrabold text-brand-accent text-lg font-mono">02.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">02.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Kompetensi Kehumasan</h4>
-                    <p class="text-sm text-brand-text font-medium">Kami mengasah kemampuan mengelola alur informasi kegiatan pimpinan, sekaligus berkomunikasi secara profesional dengan OPD, panitia, dan tamu daerah.</p>
+                    <p class="text-sm text-brand-text">Kami mengasah kemampuan mengelola alur informasi kegiatan pimpinan, sekaligus berkomunikasi secara profesional dengan OPD, panitia, dan tamu daerah.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-extrabold text-brand-accent text-lg font-mono">03.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">03.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Produksi Konten Publikasi</h4>
-                    <p class="text-sm text-brand-text font-medium">Kami melatih keterampilan dokumentasi visual, penulisan berita, dan pengarsipan materi untuk publikasi resmi instansi.</p>
+                    <p class="text-sm text-brand-text">Kami melatih keterampilan dokumentasi visual, penulisan berita, dan pengarsipan materi untuk publikasi resmi instansi.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-extrabold text-brand-accent text-lg font-mono">04.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">04.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Disiplin Birokrasi & SOP</h4>
-                    <p class="text-sm text-brand-text font-medium">Kami belajar menjunjung etika profesi, memahami tata tertib birokrasi pemerintahan, dan menerapkan SOP dalam setiap pelaporan kegiatan.</p>
+                    <p class="text-sm text-brand-text">Kami belajar menjunjung etika profesi, memahami tata tertib birokrasi pemerintahan, dan menerapkan SOP dalam setiap pelaporan kegiatan.</p>
                 </div>
             </div>
             <div class="card-neo p-5 bg-white flex items-start gap-4">
-                <div class="mt-1 font-extrabold text-brand-accent text-lg font-mono">05.</div>
+                <div class="mt-1 font-bold text-brand-accent text-lg font-mono">05.</div>
                 <div>
                     <h4 class="font-bold text-brand-header mb-1">Luaran PPL (Output Karya)</h4>
-                    <p class="text-sm text-brand-text font-medium">Sebagai hasil nyata, kami menghasilkan arsip rundown acara, naskah/caption rilis, dan karya visual dokumentasi kegiatan.</p>
+                    <p class="text-sm text-brand-text">Sebagai hasil nyata, kami menghasilkan arsip rundown acara, naskah/caption rilis, dan karya visual dokumentasi kegiatan.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="karya" class="py-20 bg-white px-6 border-y-3 border-brand-dark">
+<section id="karya" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
             <span class="highlight-bg text-2xl font-bold px-3 py-1 font-mono">04</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header uppercase">Luaran Karya / Portofolio</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Luaran Karya / Portofolio</h2>
         </div>
 
         <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="berita/apbd.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden border-b-3 border-brand-dark">
-                    <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
-                    <span class="badge absolute top-3 left-3 bg-kat-liputan border-2 border-brand-dark text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Liputan Kegiatan</span>
-                </div>
-                <div class="p-6 bg-white flex-grow">
+                <div class="p-5 pb-3">
+                    <span class="badge inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded mb-2 w-fit">Liputan Kegiatan</span>
                     <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">Perubahan APBD 2026 Difokuskan untuk Program Prioritas dan Kebutuhan Mendesak Masyarakat</h4>
-                    <p class="text-sm text-brand-text line-clamp-3 font-medium">Wali Kota arahkan perubahan APBD 2026 untuk program mendesak dan prioritas warga.</p>
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
+                        <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> Rabu, 05 Agustus 2026</span>
+                        <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Gedung Diklat Kota Pekalongan</span>
+                    </div>
+                </div>
+                <div class="aspect-[4/3] bg-brand-bg overflow-hidden border-y-2 border-brand-header">
+                    <img src="aset-artikel/apbd.jpeg" alt="Rapat Paripurna APBD" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5 pt-4 flex-grow">
+                    <p class="text-sm text-brand-sub line-clamp-3">Wali Kota arahkan perubahan APBD 2026 untuk program mendesak dan prioritas warga.</p>
                 </div>
             </a>
         </div>
@@ -517,114 +545,123 @@
     (function () {
         const grid = document.getElementById('karya-grid');
 
+        function formatTanggal(iso) {
+            const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+            const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+            const [y, m, d] = iso.split('-').map(Number);
+            const dow = new Date(y, m - 1, d).getDay();
+            return `${hari[dow]}, ${String(d).padStart(2,'0')} ${bulan[m-1]} ${y}`;
+        }
+
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
                 const terbaru = [...data].sort((a, b) => b.tanggal.localeCompare(a.tanggal)).slice(0, 3);
-                if (terbaru.length === 0) return; 
-                
+                if (terbaru.length === 0) return; // biarkan fallback tampil
                 grid.innerHTML = terbaru.map(item => `
                     <a href="${item.link}" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
-                        <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden border-b-3 border-brand-dark">
-                            <img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover">
-                            <span class="badge absolute top-3 left-3 bg-kat-liputan border-2 border-brand-dark text-white text-[10px] font-bold uppercase px-2 py-1 rounded shadow-[2px_2px_0px_#1E3A8A]">${item.kategori}</span>
-                        </div>
-                        <div class="p-6 bg-white flex-grow">
+                        <div class="p-5 pb-3">
+                            <span class="badge inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-1 rounded mb-2 w-fit">${item.kategori}</span>
                             <h4 class="font-brand font-bold text-lg mb-2 text-brand-header line-clamp-2">${item.judul}</h4>
-                            <p class="text-sm text-brand-text line-clamp-3 font-medium">${item.dek}</p>
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
+                                <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(item.tanggal)}</span>
+                                <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> ${item.lokasi || ''}</span>
+                            </div>
+                        </div>
+                        <div class="aspect-[4/3] bg-brand-bg overflow-hidden border-y-2 border-brand-header">
+                            <img src="${item.foto}" alt="${item.judul}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-5 pt-4 flex-grow">
+                            <p class="text-sm text-brand-sub line-clamp-3">${item.dek}</p>
                         </div>
                     </a>
                 `).join('');
             })
-            .catch(() => {}); 
+            .catch(() => {}); // gagal -> biarkan fallback di HTML tetap tampil
     })();
 </script>
 
 <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
         <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block font-mono">05</span>
-        <h2 class="text-3xl lg:text-4xl font-bold text-brand-header mb-12 uppercase">Susunan Anggota Kelompok</h2>
+        <h2 class="text-3xl lg:text-4xl font-bold text-brand-header mb-12">Susunan Anggota Kelompok</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="card-neo p-6 bg-white">
-                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-3 border-brand-dark mb-4 flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#1E3A8A]">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Ghazali.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
-                <h4 class="font-bold text-base text-brand-header leading-tight mb-1 uppercase">Mazda Ghazali Hidayat</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text bg-white border-2 border-brand-dark px-2 py-1 w-fit mx-auto mt-2 shadow-[2px_2px_0px_#1E3A8A]">NIM: 30423003</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Mazda Ghazali Hidayat</h4>
+                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423003</p>
             </div>
             <div class="card-neo p-6 bg-white">
-                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-3 border-brand-dark mb-4 flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#1E3A8A]">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Nabila.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
-                <h4 class="font-bold text-base text-brand-header leading-tight mb-1 uppercase">Nabilla R. Citra Anggraeny</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text bg-white border-2 border-brand-dark px-2 py-1 w-fit mx-auto mt-2 shadow-[2px_2px_0px_#1E3A8A]">NIM: 30423011</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Nabilla R. Citra Anggraeny</h4>
+                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423011</p>
             </div>
             <div class="card-neo p-6 bg-white">
-                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-3 border-brand-dark mb-4 flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#1E3A8A]">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Fara.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
-                <h4 class="font-bold text-base text-brand-header leading-tight mb-1 uppercase">Fara Azahra</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text bg-white border-2 border-brand-dark px-2 py-1 w-fit mx-auto mt-2 shadow-[2px_2px_0px_#1E3A8A]">NIM: 30423081</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Fara Azahra</h4>
+                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423081</p>
             </div>
             <div class="card-neo p-6 bg-white">
-                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-3 border-brand-dark mb-4 flex items-center justify-center overflow-hidden shadow-[4px_4px_0px_#1E3A8A]">
+                <div class="w-20 h-20 mx-auto bg-brand-bg rounded-full border-2 border-brand-header mb-4 flex items-center justify-center overflow-hidden">
                     <img src="aset-profil/Intan.jpeg" class="w-full h-full object-cover text-xs">
                 </div>
-                <h4 class="font-bold text-base text-brand-header leading-tight mb-1 uppercase">Intan Fatmah Farkhati</h4>
-                <p class="text-xs font-bold text-brand-accent nim-text bg-white border-2 border-brand-dark px-2 py-1 w-fit mx-auto mt-2 shadow-[2px_2px_0px_#1E3A8A]">NIM: 30423158</p>
+                <h4 class="font-bold text-base text-brand-header leading-tight mb-1">Intan Fatmah Farkhati</h4>
+                <p class="text-xs font-bold text-brand-accent nim-text">NIM: 30423158</p>
             </div>
         </div>
     </div>
 </section>
 
-<footer class="bg-brand-main pt-16 pb-8 px-6 text-white border-t-8 border-white">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b-2 border-white/30 pb-8 mb-8">
+<footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
         <div class="w-full md:w-1/2">
             <div class="flex items-center gap-3 mb-4">
-                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 object-contain">
-                <span class="font-brand font-bold text-xl text-white uppercase">Portofolio PPL <span class="mono-text">2026</span></span>
+                <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-contain">
+                <span class="font-brand font-bold text-xl text-white">Portofolio PPL <span class="mono-text">2026</span></span>
             </div>
-            <p class="text-white/90 text-sm max-w-sm font-medium">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
+            <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
         </div>
 
         <div class="w-full md:w-1/2 md:text-right">
-            <h4 class="text-white font-extrabold mb-4 font-display uppercase tracking-wide">Protokol dan Komunikasi Pimpinan</h4>
-            <ul class="space-y-2 text-sm text-white/90 inline-block text-left md:text-right font-medium">
-                <li><i class="fa-solid fa-building text-white mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
-                <li><i class="fa-solid fa-map-pin text-white mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, <span class="mono-text">51111</span></li>
+            <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
+            <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
+                <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
+                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, <span class="mono-text">51111</span></li>
             </ul>
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto text-center text-xs font-bold text-white/80">
-        <p>&copy; <span class="mono-text">2026</span> TIM MAGANG KELOMPOK PPL KPI — PROKOMPIM KOTA PEKALONGAN.</p>
+    <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
+        <p>&copy; <span class="mono-text">2026</span> Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
     </div>
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden');
-                menuBtn.setAttribute('aria-expanded', String(!isOpen));
-                menuBtn.innerHTML = isOpen
-                    ? '<i class="fa-solid fa-bars"></i>'
-                    : '<i class="fa-solid fa-xmark"></i>';
-            });
+    menuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        menuBtn.innerHTML = isOpen
+            ? '<i class="fa-solid fa-bars"></i>'
+            : '<i class="fa-solid fa-xmark"></i>';
+    });
 
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                    menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                });
-            });
-        }
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
     });
 </script>
 
