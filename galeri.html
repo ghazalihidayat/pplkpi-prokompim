@@ -11,6 +11,8 @@
     <meta property="og:image" content="aset-profil/Logo-PPL.svg">
     <meta property="og:type" content="website">
 
+    <link rel="icon" href="aset-profil/Logo-PPL.svg" type="image/svg+xml">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -30,21 +32,42 @@
                         'kat-jurnal': '#0D9488',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
                         'display': ['Space Grotesk', 'sans-serif'],
                         'brand': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                        'voice': ['Merriweather', 'serif'],
                     }
                 }
             }
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
-        body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; color: #1E293B; }
-        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #F0F4F8; 
+            color: #1E293B; 
+            font-variant-numeric: lining-nums tabular-nums;
+            font-feature-settings: "lnum" 1, "tnum" 1;
+        }
+        h1, h2, h3, h4, .font-brand { 
+            font-family: 'Space Grotesk', sans-serif; 
+            letter-spacing: -0.02em;
+        }
+        .badge, .dates, .nim-text, .mono-text, 
+        [class*="calendar-days"] + span,
+        [class*="location-dot"] + span,
+        span:has(> .fa-calendar-days),
+        span:has(> .fa-location-dot) {
+            font-family: 'JetBrains Mono', monospace !important;
+            letter-spacing: -0.03em;
+        }
         img { max-width: 100%; height: auto; display: block; }
 
         .card-neo {
@@ -68,7 +91,7 @@
             transition: all 0.2s;
         }
         .btn-neo:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1E3A8A; }
-        .highlight-bg { background-color: #3B82F6; padding: 0.25rem 0.75rem; border-radius: 0.5rem; color: white; }
+        .highlight-bg { background-color: #3B82F6; padding: 0.25rem 0.75rem; border-radius: 0.5rem; border: 2px solid #1E3A8A; box-shadow: 3px 3px 0px #1E3A8A; color: white; }
 
         .row-artikel {
             background-color: white;
@@ -87,7 +110,7 @@
         <div class="flex items-center gap-3 min-w-0">
             <a href="index.html" class="flex items-center gap-3 min-w-0">
                 <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-cover border border-brand-div/30 shadow-sm flex-shrink-0">
-                <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL 2026</span>
+                <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">Portofolio PPL <span class="mono-text">2026</span></span>
             </a>
         </div>
 
@@ -136,10 +159,13 @@
                 <img src="aset-artikel/penerjunan.jpeg" alt="Penerjunan PPL" class="w-full h-full object-cover">
             </div>
             <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
-                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit">Liputan Kegiatan</span>
+                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit badge">Liputan Kegiatan</span>
                 <h2 class="font-brand text-xl md:text-2xl font-bold text-brand-header leading-snug mb-3">Empat Mahasiswa KPI UIN Gusdur Pekalongan Jalani PPL di Prokompim Kota Pekalongan</h2>
                 <p class="text-sm text-brand-sub mb-4">Penyerahan simbolis empat mahasiswa PPL KPI kepada Prokompim Kota Pekalongan.</p>
-                <span class="text-xs text-brand-sub"><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> 03 Agustus 2026</span>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
+                    <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> Senin, 03 Agustus 2026</span>
+                    <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> Ruang Kabag Protokol dan Komunikasi Pimpinan</span>
+                </div>
             </div>
         </a>
     </div>
@@ -158,8 +184,10 @@
 
         function formatTanggal(iso) {
             const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+            const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
             const [y, m, d] = iso.split('-').map(Number);
-            return `${String(d).padStart(2,'0')} ${bulan[m-1]} ${y}`;
+            const dow = new Date(y, m - 1, d).getDay();
+            return `${hari[dow]}, ${String(d).padStart(2,'0')} ${bulan[m-1]} ${y}`;
         }
 
         fetch('manifest.json')
@@ -176,10 +204,13 @@
                                 <img src="${featured.foto}" alt="${featured.judul}" class="w-full h-full object-cover">
                             </div>
                             <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
-                                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit">${featured.kategori}</span>
+                                <span class="inline-block bg-kat-liputan text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-3 w-fit badge">${featured.kategori}</span>
                                 <h2 class="font-brand text-xl md:text-2xl font-bold text-brand-header leading-snug mb-3">${featured.judul}</h2>
                                 <p class="text-sm text-brand-sub mb-4">${featured.dek}</p>
-                                <span class="text-xs text-brand-sub"><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(featured.tanggal)}</span>
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-brand-sub">
+                                    <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(featured.tanggal)}</span>
+                                    <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> ${featured.lokasi || ''}</span>
+                                </div>
                             </div>
                         </a>`;
                 } else {
@@ -191,9 +222,12 @@
                     : sisanya.map(item => `
                         <a href="${item.link}" class="row-artikel flex items-center gap-4 p-4">
                             <div class="min-w-0 flex-1">
-                                <span class="inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full mb-1.5">${item.kategori}</span>
+                                <span class="inline-block bg-kat-liputan text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full mb-1.5 badge">${item.kategori}</span>
                                 <h3 class="font-bold text-brand-header text-sm sm:text-base leading-snug">${item.judul}</h3>
-                                <span class="text-xs text-brand-sub"><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(item.tanggal)}</span>
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-brand-sub">
+                                    <span><i class="fa-solid fa-calendar-days text-brand-accent mr-1"></i> ${formatTanggal(item.tanggal)}</span>
+                                    <span><i class="fa-solid fa-location-dot text-brand-accent mr-1"></i> ${item.lokasi || ''}</span>
+                                </div>
                             </div>
                             <i class="fa-solid fa-chevron-right text-brand-div flex-shrink-0"></i>
                         </a>`).join('');
@@ -207,7 +241,7 @@
         <div class="w-full md:w-1/2">
             <div class="flex items-center gap-3 mb-4">
                 <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-8 h-8 rounded object-cover">
-                <span class="font-brand font-bold text-xl text-white">Portofolio PPL 2026</span>
+                <span class="font-brand font-bold text-xl text-white">Portofolio PPL <span class="mono-text">2026</span></span>
             </div>
             <p class="text-brand-div text-sm max-w-sm">Laporan akhir & portofolio karya PPL — Komunikasi dan Penyiaran Islam.</p>
         </div>
@@ -215,12 +249,12 @@
             <h4 class="text-white font-bold mb-4 font-display">Protokol dan Komunikasi Pimpinan</h4>
             <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
                 <li><i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Kota Pekalongan</li>
-                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, 51111</li>
+                <li><i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i> Jl. Mataram No. 1, <span class="mono-text">51111</span></li>
             </ul>
         </div>
     </div>
     <div class="max-w-7xl mx-auto text-center text-xs text-brand-div/80">
-        <p>&copy; 2026 Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
+        <p>&copy; <span class="mono-text">2026</span> Tim Magang Kelompok PPL KPI — Prokompim Kota Pekalongan.</p>
     </div>
 </footer>
 
