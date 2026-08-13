@@ -1,0 +1,715 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         IDENTITAS ARTIKEL
+         ========================= -->
+    <title>{{JUDUL}} | PPL PROKOMPIM 2026</title>
+
+    <meta
+        name="description"
+        content="{{DEK}}"
+    >
+
+    <meta property="og:title" content="{{JUDUL}}">
+    <meta property="og:description" content="{{DEK}}">
+    <meta property="og:image" content="{{FOTO_UTAMA}}">
+    <meta property="og:type" content="article">
+
+    <link rel="icon" href="../aset-profil/Logo-PPL.svg" type="image/svg+xml">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <!-- =========================
+         KONFIGURASI VISUAL WEBSITE
+         HARUS SAMA DENGAN INDEX & GALERI
+         ========================= -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#F0F4F8',
+                        'brand-sub': '#475569',
+                        'brand-div': '#93C5FD',
+                        'brand-header': '#1E3A8A',
+                        'brand-text': '#1E293B',
+                        'brand-dark': '#1E3A8A',
+                        'brand-accent': '#3B82F6',
+                        'kat-liputan': '#3B82F6',
+                        'kat-jurnal': '#0D9488'
+                    },
+
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'display': ['Plus Jakarta Sans', 'sans-serif'],
+                        'brand': ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Plus Jakarta Sans -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================================
+           GLOBAL
+           ========================================= */
+
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F0F4F8;
+            color: #1E293B;
+            font-variant-numeric: tabular-nums lining-nums;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================================
+           ARTIKEL
+           ========================================= */
+
+        .article-container {
+            width: 100%;
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /*
+         * Judul dibuat menggunakan clamp agar:
+         * - tidak terlalu kecil di desktop
+         * - tidak terlalu besar di layar kecil
+         * - panjang judul tetap terkendali
+         */
+        .article-title {
+            font-size: clamp(2rem, 4.2vw, 3.4rem);
+            line-height: 1.12;
+            letter-spacing: -0.035em;
+            font-weight: 800;
+            color: #1E3A8A;
+            max-width: 1080px;
+            text-wrap: balance;
+        }
+
+        /*
+         * Dek dibuat sedikit lebih kecil daripada judul.
+         * Tetap menggunakan Plus Jakarta Sans.
+         */
+        .article-dek {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.75;
+            color: #475569;
+            max-width: 900px;
+        }
+
+        /*
+         * Metadata
+         */
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem 1rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #475569;
+        }
+
+        .article-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .article-meta-icon {
+            color: #3B82F6;
+            flex-shrink: 0;
+        }
+
+        /*
+         * Foto utama.
+         *
+         * aspect-ratio menjaga semua artikel mempunyai
+         * ukuran visual yang konsisten walaupun file
+         * foto yang dimasukkan berbeda.
+         */
+        .article-hero {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border: 2px solid #1E3A8A;
+            border-radius: 1rem;
+            background-color: #E2E8F0;
+        }
+
+        .article-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /*
+         * Isi artikel
+         */
+        .article-body {
+            width: 100%;
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #1E293B;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2 {
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            line-height: 1.25;
+            font-weight: 800;
+            color: #1E3A8A;
+        }
+
+        .article-body h3 {
+            margin-top: 2.25rem;
+            margin-bottom: 0.75rem;
+
+            font-size: 1.3rem;
+            line-height: 1.35;
+            font-weight: 700;
+            color: #1E3A8A;
+        }
+
+        .article-body strong {
+            font-weight: 700;
+            color: #1E293B;
+        }
+
+        .article-body a {
+            color: #2563EB;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /*
+         * Foto di tengah artikel
+         */
+        .article-figure {
+            margin: 2.5rem 0;
+        }
+
+        .article-figure img {
+            width: 100%;
+            height: auto;
+            max-height: 720px;
+            object-fit: cover;
+
+            border: 2px solid #1E3A8A;
+            border-radius: 1rem;
+            background-color: #E2E8F0;
+        }
+
+        .article-caption {
+            margin-top: 0.7rem;
+            padding: 0 0.25rem;
+
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #64748B;
+            text-align: center;
+        }
+
+        /*
+         * Galeri tambahan
+         */
+        .article-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .article-gallery-item {
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+
+            border: 2px solid #1E3A8A;
+            border-radius: 0.75rem;
+            background-color: #E2E8F0;
+
+            cursor: pointer;
+        }
+
+        .article-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: transform 0.3s ease;
+        }
+
+        .article-gallery-item:hover img {
+            transform: scale(1.04);
+        }
+
+        /*
+         * Tombol identitas website
+         */
+        .btn-neo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0.75rem 1.5rem;
+
+            background-color: #3B82F6;
+            color: white;
+
+            font-weight: 600;
+
+            border: 2px solid #1E3A8A;
+            border-radius: 0.75rem;
+
+            box-shadow: 3px 3px 0 #1E3A8A;
+
+            cursor: pointer;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .btn-neo:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 #1E3A8A;
+        }
+
+        /*
+         * Navigasi artikel
+         */
+        .article-navigation {
+            border-top: 1px solid rgba(30, 58, 138, 0.18);
+        }
+
+        /*
+         * Mobile
+         */
+        @media (max-width: 640px) {
+
+            .article-title {
+                font-size: 2rem;
+                line-height: 1.16;
+                letter-spacing: -0.03em;
+            }
+
+            .article-dek {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .article-body {
+                font-size: 1rem;
+                line-height: 1.8;
+            }
+
+            .article-hero {
+                border-radius: 0.8rem;
+            }
+
+            .article-figure img {
+                border-radius: 0.8rem;
+            }
+
+            .article-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- =========================================
+         NAVBAR
+         SAMA DENGAN INDEX & GALERI
+         ========================================= -->
+    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
+
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+            <a
+                href="../index.html"
+                class="flex items-center gap-3 min-w-0"
+            >
+                <img
+                    src="../aset-profil/Logo-PPL.svg"
+                    alt="Logo PPL KPI"
+                    class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50"
+                >
+
+                <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">
+                    PPL PROKOMPIM 2026
+                </span>
+            </a>
+
+            <a
+                href="../galeri.html"
+                class="text-brand-header font-medium text-sm hover:text-brand-accent transition flex-shrink-0"
+            >
+                <i class="fa-solid fa-arrow-left mr-1"></i>
+                Kembali
+            </a>
+
+        </div>
+    </nav>
+
+
+    <!-- =========================================
+         HEADER ARTIKEL
+         ========================================= -->
+    <header class="bg-white">
+
+        <div class="article-container px-6 pt-12 pb-8 lg:pt-16 lg:pb-10">
+
+            <!-- Kategori -->
+            <div class="mb-5">
+                <span class="inline-flex items-center bg-kat-liputan text-white text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded">
+                    {{KATEGORI}}
+                </span>
+            </div>
+
+            <!-- Judul -->
+            <h1 class="article-title mb-5">
+                {{JUDUL}}
+            </h1>
+
+            <!-- Dek -->
+            <!-- Jika tidak digunakan, hapus seluruh blok ini -->
+            <p class="article-dek mb-6">
+                {{DEK}}
+            </p>
+
+            <!-- Metadata -->
+            <div class="article-meta">
+
+                <span class="article-meta-item">
+                    <i class="fa-solid fa-calendar-days article-meta-icon"></i>
+                    <span>{{TANGGAL}}</span>
+                </span>
+
+                <span class="text-brand-div hidden sm:inline">
+                    ·
+                </span>
+
+                <span class="article-meta-item">
+                    <i class="fa-solid fa-location-dot article-meta-icon"></i>
+                    <span>{{LOKASI}}</span>
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         FOTO UTAMA
+         ========================================= -->
+    <div class="bg-brand-bg">
+
+        <div class="article-container px-6 py-8 lg:py-10">
+
+            <figure class="article-hero">
+
+                <img
+                    src="{{FOTO_UTAMA}}"
+                    alt="{{ALT_FOTO_UTAMA}}"
+                    loading="eager"
+                >
+
+            </figure>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         ISI ARTIKEL
+         ========================================= -->
+    <main class="bg-white">
+
+        <article class="article-container px-6 py-10 lg:py-14">
+
+            <div class="article-body">
+
+                <!-- PARAGRAF 1 -->
+                <p>
+                    {{PARAGRAF_1}}
+                </p>
+
+                <!-- PARAGRAF 2 -->
+                <p>
+                    {{PARAGRAF_2}}
+                </p>
+
+
+                <!--
+                FOTO DALAM ARTIKEL
+
+                Jika tidak diperlukan, hapus figure ini.
+                -->
+                <figure class="article-figure">
+
+                    <img
+                        src="{{FOTO_TENGAH}}"
+                        alt="{{ALT_FOTO_TENGAH}}"
+                        loading="lazy"
+                    >
+
+                    <figcaption class="article-caption">
+                        {{CAPTION_FOTO_TENGAH}}
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- PARAGRAF 3 -->
+                <p>
+                    {{PARAGRAF_3}}
+                </p>
+
+                <!-- PARAGRAF 4 -->
+                <p>
+                    {{PARAGRAF_4}}
+                </p>
+
+
+                <!--
+                SUBJUDUL OPSIONAL
+
+                Jika tidak diperlukan, hapus blok ini.
+                -->
+                <h2>
+                    {{SUBJUDUL}}
+                </h2>
+
+                <p>
+                    {{PARAGRAF_5}}
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 GALERI TAMBAHAN
+                 ================================= -->
+            <section class="max-w-820px mx-auto mt-14">
+
+                <div class="max-w-[820px] mx-auto">
+
+                    <div class="mb-5">
+
+                        <p class="text-sm font-bold text-brand-accent uppercase tracking-wide mb-2">
+                            Dokumentasi
+                        </p>
+
+                        <h2 class="text-2xl lg:text-3xl font-bold text-brand-header">
+                            Foto Kegiatan
+                        </h2>
+
+                    </div>
+
+
+                    <div class="article-gallery">
+
+                        <a
+                            href="{{FOTO_2}}"
+                            target="_blank"
+                            class="article-gallery-item"
+                        >
+                            <img
+                                src="{{FOTO_2}}"
+                                alt="{{ALT_FOTO_2}}"
+                                loading="lazy"
+                            >
+                        </a>
+
+                        <a
+                            href="{{FOTO_3}}"
+                            target="_blank"
+                            class="article-gallery-item"
+                        >
+                            <img
+                                src="{{FOTO_3}}"
+                                alt="{{ALT_FOTO_3}}"
+                                loading="lazy"
+                            >
+                        </a>
+
+                        <a
+                            href="{{FOTO_4}}"
+                            target="_blank"
+                            class="article-gallery-item"
+                        >
+                            <img
+                                src="{{FOTO_4}}"
+                                alt="{{ALT_FOTO_4}}"
+                                loading="lazy"
+                            >
+                        </a>
+
+                        <a
+                            href="{{FOTO_5}}"
+                            target="_blank"
+                            class="article-gallery-item"
+                        >
+                            <img
+                                src="{{FOTO_5}}"
+                                alt="{{ALT_FOTO_5}}"
+                                loading="lazy"
+                            >
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 KEMBALI KE DOKUMENTASI
+                 ================================= -->
+            <div class="article-navigation max-w-[820px] mx-auto mt-14 pt-8">
+
+                <a
+                    href="../galeri.html"
+                    class="btn-neo"
+                >
+                    <i class="fa-solid fa-arrow-left mr-2"></i>
+                    Kembali ke Dokumentasi
+                </a>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="bg-brand-dark pt-12 pb-8 px-6 text-white border-t-8 border-brand-accent">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
+
+                <div class="w-full md:w-1/2">
+
+                    <div class="flex items-center gap-3 mb-4">
+
+                        <img
+                            src="../aset-profil/Logo-PPL.svg"
+                            alt="Logo PPL KPI"
+                            class="w-8 h-8 rounded object-contain"
+                        >
+
+                        <span class="font-brand font-bold text-xl text-white">
+                            PPL PROKOMPIM 2026
+                        </span>
+
+                    </div>
+
+                    <p class="text-brand-div text-sm max-w-sm leading-relaxed">
+                        Dokumentasi pengalaman, pembelajaran, dan karya mahasiswa KPI selama pelaksanaan PPL di Prokompim Kota Pekalongan.
+                    </p>
+
+                </div>
+
+
+                <div class="w-full md:w-1/2 md:text-right">
+
+                    <h4 class="text-white font-bold mb-4">
+                        Protokol dan Komunikasi Pimpinan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-brand-div inline-block text-left md:text-right">
+
+                        <li>
+                            <i class="fa-solid fa-building text-brand-accent mr-2 md:ml-2 md:mr-0"></i>
+                            Kota Pekalongan
+                        </li>
+
+                        <li>
+                            <i class="fa-solid fa-map-pin text-brand-accent mr-2 md:ml-2 md:mr-0"></i>
+                            Jl. Mataram No. 1, 51111
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="text-center text-xs text-brand-div/80">
+
+                <p>
+                    &copy; 2026 Tim PPL KPI — Prokompim Kota Pekalongan.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
