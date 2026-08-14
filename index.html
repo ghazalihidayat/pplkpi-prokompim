@@ -85,6 +85,7 @@
         }
     </style>
 </head>
+
 <body class="antialiased selection:bg-brand-accent selection:text-white">
 <!-- Navbar: navigasi utama dan identitas website. -->
 <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
@@ -117,6 +118,7 @@
         <a href="#karya" class="btn-neo text-sm py-2 px-4 w-full">Jelajahi Karya Kami</a>
     </div>
 </nav>
+
 <!-- PERBAIKAN STRUKTUR MAIN DAN LAYOUT UNTUK MENGURANGI SPACE KOSONG -->
 <main class="py-10 lg:py-16 px-6 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -140,6 +142,7 @@
                 <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-folder-open mr-2"></i> Lihat Karya</a>
             </div>
         </div>
+        
         <!-- AREA WIDGET INSTAN BARU -->
         <div class="flex justify-center items-center lg:col-span-5 relative w-full h-[450px] sm:h-[500px] lg:h-[600px] mt-10 lg:mt-0" aria-hidden="true">
             <div class="instans-wrapper w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square" id="instansWrapper">
@@ -149,6 +152,7 @@
         </div>
     </div>
 </main>
+
 <style>
     /* ===========================
        STYLING WIDGET INSTAN BARU
@@ -157,26 +161,23 @@
         position: relative;
         perspective: 1200px;
         margin: 0 auto;
-        /* Menghapus margin kanan untuk menyempurnakan tampilan mobile */
     }
     .instans-card {
         position: absolute;
         top: 0; left: 0;
         width: 100%;
         height: 100%;
-        /* Bentuk lebih kotak (pesegi tumpul) */
         border-radius: 35% 35% 35% 35% / 35% 35% 35% 35%;
         overflow: hidden;
         border: 5px solid white;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.3);
         background-color: #e2e8f0;
         cursor: pointer;
-        /* Transisi diubah agar fokus ke pergerakan vertikal (tenggelam) */
         transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
                     opacity 0.8s ease,
-                    filter 0.8s ease;
+                    filter 0.8s ease,
+                    z-index 0s;
     }
-    /* Gradient gelap pinggiran agar tidak terlalu flat */
     .instans-card::after {
         content: '';
         position: absolute;
@@ -189,35 +190,41 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* Fokus ke 50% horizontal dan 25% vertikal (wajah/badan atas) */
         object-position: 50% 25%;
         pointer-events: none;
         z-index: 0;
     }
-    /* PENGATURAN TUMPUKAN YANG LEBIH HALUS */
+    /* PENGATURAN TUMPUKAN SESUAI CONTOH */
     .card-front {
         z-index: 3;
-        transform: translate3d(0, 0, 0) rotate(-2deg);
+        /* Paling atas miring kanan dikit */
+        transform: translate3d(0, 0, 0) rotate(3deg) scale(1);
         opacity: 1;
         filter: brightness(1);
     }
     .card-middle {
         z-index: 2;
-        /* Kartu di belakang bergeser ke atas dan kanan sedikit, skala dikecilkan */
-        transform: translate3d(5%, -5%, -50px) rotate(4deg);
-        opacity: 0.95;
-        filter: brightness(0.75);
+        /* Di bawahnya miring kiri dan spill di kiri */
+        transform: translate3d(-10%, 2%, -20px) rotate(-6deg) scale(0.95);
+        opacity: 1;
+        filter: brightness(0.85);
     }
     .card-back {
         z-index: 1;
-        /* Kartu tumpukan ketiga disembunyikan di belakang */
-        transform: translate3d(8%, -8%, -100px) rotate(8deg);
+        /* Paling belakang miring kanan tajam dan spill di kanan */
+        transform: translate3d(12%, 6%, -40px) rotate(10deg) scale(0.9);
+        opacity: 1;
+        filter: brightness(0.7);
+    }
+    .card-hidden {
+        z-index: 0;
+        /* Sisanya disembunyikan agar hanya ada 3 tumpukan yang terlihat */
+        transform: translate3d(0, 0, -60px) scale(0.8);
         opacity: 0;
     }
-    /* Animasi Keluar - Tenggelam ke bawah */
     .card-out {
         z-index: 4;
-        /* Kartu jatuh ke bawah, bukan ke samping */
+        /* Animasi jatuh ke bawah saat diganti */
         transform: translate3d(0, 50%, 50px) rotate(-10deg) scale(0.9);
         opacity: 0;
     }
@@ -228,46 +235,64 @@
         function buildInstans(data) {
             wrapper.innerHTML = ''; // Hapus teks loading
             let autoRollInterval;
+            
             data.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'instans-card';
-                // Menghilangkan bagian badge/tulisan INSTANTS SVG
                 const img = document.createElement('img');
                 img.src = item.foto;
                 img.alt = item.judul;
                 card.appendChild(img);
+                
                 if (index === 0) card.classList.add('card-front');
                 else if (index === 1) card.classList.add('card-middle');
-                else card.classList.add('card-back');
+                else if (index === 2) card.classList.add('card-back');
+                else card.classList.add('card-hidden');
+                
                 wrapper.appendChild(card);
             });
+            
             function rollNext() {
                 const frontCard = wrapper.querySelector('.card-front');
                 const middleCard = wrapper.querySelector('.card-middle');
-                const backCards = Array.from(wrapper.querySelectorAll('.card-back'));
-                if (!frontCard || !middleCard) return;
-                // Kartu depan jatuh/tenggelam
+                const backCard = wrapper.querySelector('.card-back');
+                const hiddenCards = Array.from(wrapper.querySelectorAll('.card-hidden'));
+                
+                if (!frontCard) return;
+                
                 frontCard.classList.remove('card-front');
                 frontCard.classList.add('card-out');
-                // Kartu tengah maju
-                middleCard.classList.remove('card-middle');
-                middleCard.classList.add('card-front');
-                // Kartu belakang (antrean 1) maju ke tengah
-                if (backCards.length > 0) {
-                    backCards[0].classList.remove('card-back');
-                    backCards[0].classList.add('card-middle');
+                
+                if (middleCard) {
+                    middleCard.classList.remove('card-middle');
+                    middleCard.classList.add('card-front');
                 }
-                // Setelah animasi jatuh selesai, pindahkan ke belakang
+                
+                if (backCard) {
+                    backCard.classList.remove('card-back');
+                    backCard.classList.add('card-middle');
+                }
+                
+                if (hiddenCards.length > 0) {
+                    hiddenCards[0].classList.remove('card-hidden');
+                    hiddenCards[0].classList.add('card-back');
+                }
+                
                 setTimeout(() => {
                     frontCard.classList.remove('card-out');
-                    frontCard.classList.add('card-back');
-                    if (backCards.length === 0) {
-                         frontCard.classList.remove('card-back');
+                    wrapper.appendChild(frontCard); 
+                    
+                    const totalCards = wrapper.children.length;
+                    if (totalCards > 3) {
+                        frontCard.classList.add('card-hidden');
+                    } else if (totalCards === 3) {
+                        frontCard.classList.add('card-back');
+                    } else if (totalCards === 2) {
                          frontCard.classList.add('card-middle');
                     }
-                    wrapper.insertBefore(frontCard, wrapper.firstChild);
-                }, 800); // Sesuaikan dengan durasi CSS (0.8s)
+                }, 800); 
             }
+            
             autoRollInterval = setInterval(rollNext, 3500);
             wrapper.addEventListener('click', () => {
                 clearInterval(autoRollInterval);
@@ -275,6 +300,7 @@
                 autoRollInterval = setInterval(rollNext, 3500);
             });
         }
+        
         // Ambil Data
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
@@ -287,7 +313,6 @@
                 }
             })
             .catch(() => {
-                // Fallback (opsional jika manifest gagal)
                 const dummyData = [
                     { foto: 'aset-artikel/igtki-pgri.jpeg', judul: 'Fallback 1' },
                     { foto: 'aset-artikel/mtq-manic.jpeg', judul: 'Fallback 2' },
@@ -297,6 +322,7 @@
             });
     });
 </script>
+
 <!-- Ringkasan: konteks Program Studi dan instansi penempatan PPL. -->
     <section id="tentang" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto">
@@ -344,6 +370,7 @@
         </div>
     </div>
 </section>
+
 <!-- Ruang Lingkup: aktivitas dan bidang yang dipelajari selama PPL. -->
     <section id="tugas" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
@@ -383,6 +410,7 @@
         </div>
     </div>
 </section>
+
 <!-- Pengalaman & Kompetensi: hasil pembelajaran selama PPL. -->
     <section id="kegiatan" class="py-20 bg-brand-bg px-6">
     <div class="max-w-4xl mx-auto">
@@ -429,6 +457,7 @@
         </div>
     </div>
 </section>
+
 <!-- Karya & Portofolio: kumpulan hasil publikasi dan dokumentasi. -->
     <section id="karya" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
@@ -493,6 +522,7 @@
             .catch(() => {}); // gagal -> biarkan fallback di HTML tetap tampil
     })();
 </script>
+
 <!-- Tim: informasi mahasiswa yang menjalani PPL. -->
     <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
@@ -530,6 +560,7 @@
         </div>
     </div>
 </section>
+
 <!-- Footer: identitas singkat dan informasi instansi. -->
 <footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
