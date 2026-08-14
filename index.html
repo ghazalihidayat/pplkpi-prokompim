@@ -169,7 +169,7 @@
         height: 100%;
         border-radius: 35% 35% 35% 35% / 35% 35% 35% 35%;
         overflow: hidden;
-        border: 5px solid white;
+        border: 3px solid white;
         box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.3);
         background-color: #e2e8f0;
         cursor: pointer;
@@ -197,29 +197,29 @@
     /* PENGATURAN TUMPUKAN SESUAI CONTOH */
     .card-front {
         z-index: 3;
-        /* Paling atas miring kanan dikit */
-        transform: translate3d(0, 0, 0) rotate(3deg) scale(1);
+        /* Paling depan miring kanan dikit, posisi vertikal paling rendah */
+        transform: translate3d(0, 0%, 0) rotate(3deg) scale(1);
         opacity: 1;
         filter: brightness(1);
     }
     .card-middle {
         z-index: 2;
-        /* Di bawahnya miring kiri dan spill di kiri */
-        transform: translate3d(-10%, 2%, -20px) rotate(-6deg) scale(0.95);
+        /* Tengah miring kiri dan spill di kiri, posisi naik ke ATAS (-8%) */
+        transform: translate3d(-10%, -8%, -20px) rotate(-6deg) scale(0.95);
         opacity: 1;
         filter: brightness(0.85);
     }
     .card-back {
         z-index: 1;
-        /* Paling belakang miring kanan tajam dan spill di kanan */
-        transform: translate3d(12%, 6%, -40px) rotate(10deg) scale(0.9);
+        /* Belakang miring kanan tajam dan spill di kanan, posisi PALING ATAS (-16%) */
+        transform: translate3d(12%, -16%, -40px) rotate(10deg) scale(0.9);
         opacity: 1;
         filter: brightness(0.7);
     }
     .card-hidden {
         z-index: 0;
-        /* Sisanya disembunyikan agar hanya ada 3 tumpukan yang terlihat */
-        transform: translate3d(0, 0, -60px) scale(0.8);
+        /* Sisanya disembunyikan di belakang dengan posisi lebih tinggi agar transisi mulus */
+        transform: translate3d(0, -24%, -60px) scale(0.8);
         opacity: 0;
     }
     .card-out {
