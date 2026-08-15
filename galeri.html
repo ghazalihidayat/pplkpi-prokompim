@@ -185,7 +185,9 @@
                 </h1>
             </div>
             <p class="max-w-2xl text-base leading-relaxed text-brand-sub lg:text-lg">
-                Kumpulan publikasi kegiatan, liputan, dan karya yang dihasilkan selama pelaksanaan PPL di Bagian Protokol dan Komunikasi Pimpinan Kota Pekalongan.
+                Kumpulan publikasi kegiatan, liputan, dan karya yang dihasilkan selama
+                pelaksanaan PPL di Bagian Protokol dan Komunikasi Pimpinan Kota
+                Pekalongan.
             </p>
         </div>
     </header>
@@ -239,7 +241,8 @@
                     </span>
                 </div>
                 <p class="max-w-sm text-sm text-brand-div">
-                    Dokumentasi pengalaman, pembelajaran, dan karya mahasiswa KPI selama pelaksanaan PPL di Prokompim Kota Pekalongan.
+                    Dokumentasi pengalaman, pembelajaran, dan karya mahasiswa KPI selama
+                    pelaksanaan PPL di Prokompim Kota Pekalongan.
                 </p>
             </div>
             <div class="w-full md:w-1/2 md:text-right">
@@ -362,26 +365,31 @@
                     return;
                 }
                 archiveEl.innerHTML = items.map(item => `
-                    <a href="${item.link}" class="archive-item group flex h-full flex-col">
-                        <div class="aspect-[16/10] overflow-hidden bg-brand-bg">
-                            <img src="${item.foto}" alt="${item.judul}" class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]" loading="lazy">
+                    <a href="${item.link}" class="archive-item group flex h-full flex-col p-4">
+                        <div class="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                            <span class="inline-block rounded border border-brand-div bg-brand-bg px-2 py-0.5 text-[10px] font-bold uppercase text-brand-header">
+                                ${item.kategori || 'Liputan'}
+                            </span>
+                            <span class="text-xs text-brand-sub">
+                                ${formatTanggal(item.tanggal)}
+                            </span>
                         </div>
-                        <div class="flex flex-1 flex-col p-4">
-                            <div class="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-                                <span class="inline-block rounded border border-brand-div bg-brand-bg px-2 py-0.5 text-[10px] font-bold uppercase text-brand-header">
-                                    ${item.kategori || 'Liputan'}
+                        <h3 class="text-sm font-bold leading-snug text-brand-header sm:text-base">
+                            ${item.judul}
+                        </h3>
+                        ${
+                            item.lokasi
+                            ? `
+                                <span class="mt-2 text-xs text-brand-sub">
+                                    <i class="fa-solid fa-location-dot mr-1 text-brand-accent"></i>
+                                    ${item.lokasi}
                                 </span>
-                                <span class="text-xs text-brand-sub">
-                                    ${formatTanggal(item.tanggal)}
-                                </span>
-                            </div>
-                            <h3 class="text-sm font-bold leading-snug text-brand-header sm:text-base">
-                                ${item.judul}
-                            </h3>
-                            <div class="mt-4 text-xs font-semibold text-brand-accent">
-                                Baca Publikasi
-                                <i class="fa-solid fa-arrow-right ml-1"></i>
-                            </div>
+                            `
+                            : ''
+                        }
+                        <div class="mt-4 text-xs font-semibold text-brand-accent">
+                            Baca Publikasi
+                            <i class="fa-solid fa-arrow-right ml-1"></i>
                         </div>
                     </a>
                 `).join('');
@@ -421,8 +429,7 @@
                     featuredEl.innerHTML = `
                         <div class="card-neo col-span-full p-6">
                             <p class="text-sm text-brand-sub">
-                                Publikasi belum dapat dimuat.
-                                Silakan coba kembali beberapa saat lagi.
+                                Publikasi belum dapat dimuat. Silakan coba kembali beberapa saat lagi.
                             </p>
                         </div>
                     `;
