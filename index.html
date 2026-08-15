@@ -83,6 +83,26 @@
             border-radius: 0.5rem;
             color: white;
         }
+
+        /* Kartu dokumentasi harian bisa dibalik (flip) untuk menampilkan
+           keterangan foto. Properti perspective & preserve-3d dibutuhkan
+           supaya efek putar terlihat seperti kartu fisik, bukan pipih. */
+        .perspective-1000 { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+
+        .flip-inner {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .flip-inner.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Scrollbar carousel disembunyikan agar tampilan tetap bersih,
+           geser tetap berfungsi normal lewat drag mouse atau sentuhan. */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 
@@ -496,13 +516,116 @@
     </div>
 </section>
 
-<!-- Karya & Portofolio: kumpulan hasil publikasi dan dokumentasi. -->
-    <section id="karya" class="py-20 bg-white px-6">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex items-center gap-4 mb-12">
-            <span class="highlight-bg text-2xl font-bold px-3 py-1">04</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Karya & Portofolio</h2>
+<!-- Karya & Portofolio: dokumentasi harian magang serta liputan kegiatan pimpinan. -->
+    <section id="karya" class="py-20 bg-white px-6 overflow-hidden">
+
+    <div class="max-w-7xl mx-auto flex items-center gap-4 mb-12">
+        <span class="highlight-bg text-2xl font-bold px-3 py-1">04</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Karya & Portofolio</h2>
+    </div>
+
+    <!-- Subbagian 1: carousel dokumentasi harian, sumber foto dari folder kegiatan/. -->
+    <div class="mb-20">
+        <div class="max-w-7xl mx-auto px-2 mb-6">
+            <span class="inline-block bg-brand-accent text-white text-xs font-bold uppercase px-3 py-1.5 rounded border-2 border-brand-header shadow-[2px_2px_0px_#1E3A8A] mb-3">Dokumentasi Harian</span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-brand-header">Dokumentasi Harian Selama Magang</h3>
         </div>
+
+        <div class="w-full relative">
+            <div id="magang-track" class="flex gap-5 overflow-x-auto snap-x snap-mandatory px-4 md:px-6 lg:px-[calc((100vw-80rem)/2)] pb-8 hide-scrollbar cursor-grab active:cursor-grabbing" style="scroll-padding-left: 1rem;">
+
+                <!-- Klik kartu untuk membalik dan membaca keterangan foto. -->
+                <div class="snap-start shrink-0 w-[320px] md:w-[480px] lg:w-[540px] h-[360px] md:h-[400px] perspective-1000 group">
+                    <div class="flip-inner w-full h-full relative preserve-3d cursor-pointer" onclick="flipCard(this)">
+                        <div class="absolute inset-0 backface-hidden card-neo p-2 bg-white flex flex-col">
+                            <div class="w-full h-full rounded-lg overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                                <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold uppercase px-2 py-1 rounded shadow-sm z-10 pointer-events-none">Kegiatan Magang</span>
+                                <img src="kegiatan/foto-1.jpeg" alt="Wawancara dan dokumentasi lapangan" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 card-neo bg-white border-2 border-brand-header p-6 flex flex-col items-center justify-center text-center">
+                            <div class="w-12 h-1.5 bg-brand-accent mb-5 rounded-full"></div>
+                            <h4 class="font-bold text-brand-header text-xl mb-3">Wawancara Lapangan</h4>
+                            <p class="text-sm text-brand-text leading-relaxed">Mendampingi proses wawancara dan pengambilan dokumentasi bersama narasumber di lokasi kegiatan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-start shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] perspective-1000 group">
+                    <div class="flip-inner w-full h-full relative preserve-3d cursor-pointer" onclick="flipCard(this)">
+                        <div class="absolute inset-0 backface-hidden card-neo p-2 bg-white flex flex-col">
+                            <div class="w-full h-full rounded-lg overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                                <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold uppercase px-2 py-1 rounded shadow-sm z-10 pointer-events-none">Kegiatan Magang</span>
+                                <img src="kegiatan/foto-2.jpeg" alt="Dialog bersama pimpinan instansi" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 card-neo bg-white border-2 border-brand-header p-6 flex flex-col items-center justify-center text-center">
+                            <div class="w-12 h-1.5 bg-brand-accent mb-5 rounded-full"></div>
+                            <h4 class="font-bold text-brand-header text-xl mb-3">Dialog Bersama Pimpinan</h4>
+                            <p class="text-sm text-brand-text leading-relaxed">Mengabadikan momen wawancara singkat bersama pejabat instansi usai kegiatan berlangsung.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-start shrink-0 w-[260px] md:w-[300px] h-[360px] md:h-[400px] perspective-1000 group">
+                    <div class="flip-inner w-full h-full relative preserve-3d cursor-pointer" onclick="flipCard(this)">
+                        <div class="absolute inset-0 backface-hidden card-neo p-2 bg-white flex flex-col">
+                            <div class="w-full h-full rounded-lg overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                                <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold uppercase px-2 py-1 rounded shadow-sm z-10 pointer-events-none">Kegiatan Magang</span>
+                                <img src="kegiatan/foto-3.jpeg" alt="Liputan kegiatan resmi pimpinan daerah" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 card-neo bg-white border-2 border-brand-header p-6 flex flex-col items-center justify-center text-center">
+                            <div class="w-12 h-1.5 bg-brand-accent mb-5 rounded-full"></div>
+                            <h4 class="font-bold text-brand-header text-xl mb-3">Liputan Kegiatan Resmi</h4>
+                            <p class="text-sm text-brand-text leading-relaxed">Turut meliput dan merekam momen penting dalam agenda kegiatan resmi pimpinan daerah.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-start shrink-0 w-[320px] md:w-[480px] lg:w-[540px] h-[360px] md:h-[400px] perspective-1000 group">
+                    <div class="flip-inner w-full h-full relative preserve-3d cursor-pointer" onclick="flipCard(this)">
+                        <div class="absolute inset-0 backface-hidden card-neo p-2 bg-white flex flex-col">
+                            <div class="w-full h-full rounded-lg overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                                <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold uppercase px-2 py-1 rounded shadow-sm z-10 pointer-events-none">Kegiatan Magang</span>
+                                <img src="kegiatan/foto-4.jpeg" alt="Dokumentasi rapat menggunakan smartphone" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 card-neo bg-white border-2 border-brand-header p-6 flex flex-col items-center justify-center text-center">
+                            <div class="w-12 h-1.5 bg-brand-accent mb-5 rounded-full"></div>
+                            <h4 class="font-bold text-brand-header text-xl mb-3">Mobile Journalism</h4>
+                            <p class="text-sm text-brand-text leading-relaxed">Mendokumentasikan jalannya rapat secara cepat dan praktis menggunakan perangkat smartphone.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-start shrink-0 w-[320px] md:w-[480px] lg:w-[540px] h-[360px] md:h-[400px] perspective-1000 group">
+                    <div class="flip-inner w-full h-full relative preserve-3d cursor-pointer" onclick="flipCard(this)">
+                        <div class="absolute inset-0 backface-hidden card-neo p-2 bg-white flex flex-col">
+                            <div class="w-full h-full rounded-lg overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                                <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold uppercase px-2 py-1 rounded shadow-sm z-10 pointer-events-none">Kegiatan Magang</span>
+                                <img src="kegiatan/foto-5.jpeg" alt="Dokumentasi profesional menggunakan kamera" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 card-neo bg-white border-2 border-brand-header p-6 flex flex-col items-center justify-center text-center">
+                            <div class="w-12 h-1.5 bg-brand-accent mb-5 rounded-full"></div>
+                            <h4 class="font-bold text-brand-header text-xl mb-3">Dokumentasi Profesional</h4>
+                            <p class="text-sm text-brand-text leading-relaxed">Mengoperasikan kamera profesional untuk merekam suasana rapat secara detail dan berkualitas tinggi.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subbagian 2: liputan kegiatan pimpinan, tiga berita terbaru diambil dari manifest.json. -->
+    <div class="max-w-7xl mx-auto">
+        <div class="px-2 mb-6">
+            <span class="inline-block bg-brand-accent text-white text-xs font-bold uppercase px-3 py-1.5 rounded border-2 border-brand-header shadow-[2px_2px_0px_#1E3A8A] mb-3">Publikasi Media</span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-brand-header">Liputan Kegiatan Pimpinan</h3>
+        </div>
+
         <div id="karya-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="berita/Igtki-pgri.html" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
                 <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
@@ -532,19 +655,87 @@
                 </div>
             </a>
         </div>
+
         <div class="text-center mt-10">
             <a href="galeri.html" class="btn-neo btn-neo-dark">Lihat Semua Dokumentasi <i class="fa-solid fa-arrow-right ml-2"></i></a>
         </div>
     </div>
-</section>
+
+    </section>
+
 <script>
+    // Kartu dokumentasi harian dibalik saat diklik, lalu kembali sendiri
+    // setelah 3 detik supaya pengunjung tidak perlu klik dua kali.
+    function flipCard(element) {
+        if (element.classList.contains('is-flipped')) {
+            element.classList.remove('is-flipped');
+            return;
+        }
+
+        element.classList.add('is-flipped');
+
+        setTimeout(() => {
+            if (element.classList.contains('is-flipped')) {
+                element.classList.remove('is-flipped');
+            }
+        }, 3000);
+    }
+
+    // Carousel digandakan dua kali agar terasa tak berujung saat digeser,
+    // lalu diaktifkan mode drag-to-scroll untuk pengguna mouse di desktop.
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('magang-track');
+        if (!track) return;
+
+        const originalCards = [...track.children];
+        for (let i = 0; i < 2; i++) {
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.querySelector('.flip-inner').setAttribute('onclick', 'flipCard(this)');
+                track.appendChild(clone);
+            });
+        }
+
+        let isDragging = false;
+        let startX = 0;
+        let scrollStart = 0;
+
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            track.classList.add('cursor-grabbing');
+            track.classList.remove('snap-x', 'snap-mandatory');
+            startX = e.pageX - track.offsetLeft;
+            scrollStart = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', () => {
+            isDragging = false;
+            track.classList.remove('cursor-grabbing');
+            track.classList.add('snap-x', 'snap-mandatory');
+        });
+        track.addEventListener('mouseup', () => {
+            isDragging = false;
+            track.classList.remove('cursor-grabbing');
+            track.classList.add('snap-x', 'snap-mandatory');
+        });
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            track.scrollLeft = scrollStart - (x - startX) * 2;
+        });
+    });
+
+    // Tiga liputan terbaru diambil dari manifest.json; jika gagal dimuat,
+    // tiga kartu contoh yang sudah tertulis di HTML akan tetap tampil.
     (function () {
         const grid = document.getElementById('karya-grid');
+
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
                 const terbaru = [...data].sort((a, b) => b.tanggal.localeCompare(a.tanggal)).slice(0, 3);
-                if (terbaru.length === 0) return; // biarkan fallback tampil
+                if (terbaru.length === 0) return;
+
                 grid.innerHTML = terbaru.map(item => `
                     <a href="${item.link}" class="card-neo flex flex-col overflow-hidden hover:-translate-y-1 transition">
                         <div class="aspect-[4/3] bg-brand-bg relative overflow-hidden">
@@ -557,7 +748,7 @@
                     </a>
                 `).join('');
             })
-            .catch(() => {}); // gagal -> biarkan fallback di HTML tetap tampil
+            .catch(() => {}); // manifest gagal dimuat -> fallback HTML dibiarkan tampil
     })();
 </script>
 
