@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[JUDUL ARTIKEL] | PPL PROKOMPIM 2026</title>
     <meta name="description" content="[DESKRIPSI SEO SINGKAT]">
+
+    <!-- Ikon situs dan gambar pratinjau saat tautan dibagikan -->
     <link rel="icon" href="../aset-profil/Logo-PPL.svg" type="image/svg+xml">
     <meta property="og:image" content="../aset-profil/Logo-PPL.svg">
+
+    <!-- Pustaka eksternal: Tailwind CSS, Font Awesome, dan Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi warna dan tipografi Tailwind khusus situs -->
     <script>
         tailwind.config = {
             theme: {
@@ -34,6 +40,8 @@
             }
         }
     </script>
+
+    <!-- Penyesuaian gaya tambahan di luar utility class Tailwind -->
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -44,7 +52,7 @@
     </style>
 </head>
 <body class="bg-brand-bg text-brand-text antialiased">
-    <!-- NAVBAR -->
+    <!-- Navigasi atas: logo situs dan tautan kembali ke beranda -->
     <nav class="sticky top-0 z-50 border-b border-brand-div/50 bg-white/90 backdrop-blur-md">
         <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
             <a href="../index.html" class="flex min-w-0 items-center gap-3">
@@ -59,7 +67,8 @@
             </a>
         </div>
     </nav>
-    <!-- HEADER ARTIKEL -->
+
+    <!-- Kepala artikel: judul berita, tanggal, dan lokasi kegiatan -->
     <header class="bg-white">
         <div class="mx-auto max-w-6xl px-6 pb-8 pt-12 lg:pb-10 lg:pt-14">
             <h1 class="max-w-5xl text-4xl font-extrabold leading-tight tracking-tight text-brand-header sm:text-5xl lg:text-[3.25rem]">
@@ -77,13 +86,15 @@
             </div>
         </div>
     </header>
-    <!-- FOTO UTAMA -->
+
+    <!-- Foto utama artikel -->
     <section class="bg-brand-bg">
         <div class="mx-auto max-w-6xl px-6 py-8 lg:py-10">
             <img src="../aset-artikel/[NAMA-FOTO].jpeg" alt="[ALT FOTO]" class="aspect-video w-full rounded-2xl border-2 border-brand-header object-cover" loading="eager">
         </div>
     </section>
-    <!-- ISI ARTIKEL -->
+
+    <!-- Isi artikel: paragraf berita dan kutipan narasumber -->
     <main class="bg-white">
         <article class="mx-auto max-w-3xl px-6 py-10 sm:py-12 lg:py-14">
             <div class="article-content text-base leading-8 text-brand-text sm:text-[17px]">
@@ -93,7 +104,7 @@
                 <p>
                     [PARAGRAF ARTIKEL]
                 </p>
-                <!-- FOTO PENDUKUNG (OPSIONAL) — hapus seluruh blok <figure> ini kalau tidak pakai foto di sini. Boleh copy-paste blok ini lagi kalau mau lebih dari 1 foto pendukung. -->
+                <!-- Foto pendukung (opsional): hapus blok <figure> ini jika tidak dipakai, atau duplikasi jika lebih dari satu foto -->
                 <figure class="my-8">
                     <img src="../aset-artikel/[NAMA-FOTO-PENDUKUNG].jpeg" alt="[ALT FOTO PENDUKUNG]" class="w-full rounded-2xl border-2 border-brand-header object-cover">
                     <figcaption class="mt-2 text-center text-sm text-brand-sub">
@@ -103,7 +114,7 @@
                 <p>
                     [PARAGRAF ARTIKEL]
                 </p>
-                <!-- KUTIPAN OPSIONAL -->
+                <!-- Kutipan narasumber (opsional) -->
                 <blockquote class="my-8 border-l-4 border-brand-accent bg-brand-bg px-5 py-4 italic leading-7 text-brand-sub">
                     “[KUTIPAN]”
                 </blockquote>
@@ -114,7 +125,8 @@
                     [PARAGRAF ARTIKEL]
                 </p>
             </div>
-            <!-- KEMBALI -->
+
+            <!-- Tautan kembali ke halaman dokumentasi -->
             <div class="mt-10 border-t border-brand-div/30 pt-8">
                 <a href="../galeri.html" class="inline-flex items-center rounded-xl border-2 border-brand-header bg-brand-accent px-5 py-3 font-semibold text-white shadow-[3px_3px_0_#1E3A8A] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0_#1E3A8A]">
                     <i class="fa-solid fa-arrow-left mr-2"></i>
@@ -123,7 +135,8 @@
             </div>
         </article>
     </main>
-    <!-- FOOTER -->
+
+    <!-- Footer situs: identitas program dan informasi kontak -->
     <footer class="border-t-8 border-brand-accent bg-brand-dark px-6 py-10 text-white">
         <div class="mx-auto max-w-7xl">
             <div class="flex flex-col justify-between gap-8 border-b border-brand-div/30 pb-8 md:flex-row">
