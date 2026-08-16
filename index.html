@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-    <!-- Head: identitas halaman, SEO, font, dan konfigurasi visual. -->
+    <!-- Metadata dasar: encoding, judul, dan deskripsi halaman untuk SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPL KPI × Prokompim Kota Pekalongan | Portofolio</title>
@@ -10,11 +10,16 @@
     <meta property="og:description" content="Dokumentasi pengalaman, ruang lingkup kegiatan, pembelajaran, dan karya mahasiswa KPI selama PPL di Prokompim Kota Pekalongan.">
     <meta property="og:image" content="aset-profil/Logo-PPL.svg">
     <meta property="og:type" content="website">
+
+    <!-- Ikon situs dan gambar pratinjau saat tautan dibagikan -->
     <link rel="icon" href="aset-profil/Logo-PPL.svg" type="image/svg+xml">
+
+    <!-- Pustaka eksternal: Tailwind CSS dan Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Script: interaksi menu dan pemuatan data karya. -->
-<script>
+
+    <!-- Konfigurasi warna dan tipografi Tailwind khusus situs -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -38,7 +43,11 @@
             }
         }
     </script>
+
+    <!-- Font kustom dari Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Penyesuaian gaya tambahan di luar utility class Tailwind -->
     <style>
         html, body { overflow-x: hidden; max-width: 100%; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F0F4F8; color: #1E293B; font-variant-numeric: tabular-nums lining-nums; }
@@ -107,10 +116,9 @@
 </head>
 
 <body class="antialiased selection:bg-brand-accent selection:text-white">
-<!-- Navbar: navigasi utama dan identitas website. -->
+<!-- Navigasi atas: logo situs, tautan antar-bagian, dan menu mobile -->
 <nav class="w-full bg-white/90 backdrop-blur-md border-b border-brand-div/50 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-        <!-- GANTI KOTAK TEKS PPL DENGAN LOGO GAMBAR -->
         <div class="flex items-center gap-3 min-w-0">
             <img src="aset-profil/Logo-PPL.svg" alt="Logo PPL KPI" class="w-10 h-10 rounded-lg object-contain border border-brand-div/30 shadow-sm flex-shrink-0 bg-blue-50">
             <span class="font-brand font-bold text-base sm:text-xl text-brand-header tracking-tight whitespace-nowrap truncate">PPL PROKOMPIM 2026</span>
@@ -139,7 +147,7 @@
     </div>
 </nav>
 
-<!-- PERBAIKAN STRUKTUR MAIN DAN LAYOUT UNTUK MENGURANGI SPACE KOSONG -->
+<!-- Hero: judul utama, ringkasan singkat, dan carousel foto kegiatan terbaru -->
 <main class="py-10 lg:py-16 px-6 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <!-- Area Teks Kiri (Mengambil 7 kolom dari 12 di layar besar) -->
@@ -166,21 +174,19 @@
                 <a href="#karya" class="btn-neo btn-neo-dark"><i class="fa-solid fa-folder-open mr-2"></i> Lihat Karya</a>
             </div>
         </div>
-        
-        <!-- AREA WIDGET INSTAN BARU -->
+
+        <!-- Carousel foto kegiatan terbaru: sumber data dari manifest.json -->
         <div class="flex justify-center items-center lg:col-span-5 relative w-full h-[450px] sm:h-[500px] lg:h-[600px] mt-10 lg:mt-0" aria-hidden="true">
             <div class="instans-wrapper w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square" id="instansWrapper">
-                <!-- Fallback Loading -->
+                <!-- Teks tampil sementara sebelum data foto selesai dimuat -->
                 <div class="text-brand-div font-medium animate-pulse absolute inset-0 flex items-center justify-center">Memuat Momen...</div>
             </div>
         </div>
     </div>
 </main>
 
+<!-- Gaya khusus carousel foto: bentuk kartu, tumpukan, dan animasi pergantian -->
 <style>
-    /* ===========================
-       STYLING WIDGET INSTAN BARU
-       =========================== */
     .instans-wrapper {
         position: relative;
         perspective: 1200px;
@@ -218,7 +224,7 @@
         pointer-events: none;
         z-index: 0;
     }
-    /* PENGATURAN TUMPUKAN SESUAI CONTOH */
+    /* Urutan tumpukan kartu: depan, tengah, belakang, dan tersembunyi */
     .card-front {
         z-index: 3;
         /* Paling depan miring kanan dikit, posisi vertikal paling rendah */
@@ -253,6 +259,8 @@
         opacity: 0;
     }
 </style>
+
+<!-- Perilaku carousel foto: memuat data, mengatur urutan kartu, dan animasi putar -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const wrapper = document.getElementById('instansWrapper');
@@ -325,7 +333,7 @@
             });
         }
         
-        // Ambil Data
+        // Ambil data foto terbaru dari manifest.json
         fetch('manifest.json')
             .then(res => res.ok ? res.json() : Promise.reject(res.status))
             .then(data => {
@@ -347,7 +355,7 @@
     });
 </script>
 
-<!-- Ringkasan: konteks Program Studi dan instansi penempatan PPL. -->
+<!-- Ringkasan: konteks Program Studi dan instansi penempatan PPL -->
     <section id="tentang" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
@@ -413,7 +421,7 @@
     </div>
 </section>
 
-<!-- Ruang Lingkup: aktivitas dan bidang yang dipelajari selama PPL. -->
+<!-- Ruang Lingkup: aktivitas dan bidang yang dipelajari selama PPL -->
     <section id="tugas" class="py-20 bg-white px-6">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
@@ -453,7 +461,7 @@
     </div>
 </section>
 
-<!-- Pengalaman & Kompetensi: hasil pembelajaran selama PPL. -->
+<!-- Pengalaman & Kompetensi: hasil pembelajaran selama PPL -->
     <section id="kegiatan" class="py-20 bg-brand-bg px-6">
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center gap-4 mb-12">
@@ -516,7 +524,7 @@
     </div>
 </section>
 
-<!-- Karya & Portofolio: dokumentasi harian magang serta liputan kegiatan pimpinan. -->
+<!-- Karya & Portofolio: dokumentasi harian magang serta liputan kegiatan pimpinan -->
     <section id="karya" class="py-20 bg-white px-6 overflow-hidden">
 
     <div class="max-w-7xl mx-auto flex items-center gap-4 mb-12">
@@ -524,7 +532,7 @@
         <h2 class="text-3xl lg:text-4xl font-bold text-brand-header">Karya & Portofolio</h2>
     </div>
 
-    <!-- Subbagian 1: carousel dokumentasi harian, sumber foto dari folder kegiatan/. -->
+    <!-- Subbagian 1: carousel dokumentasi harian, sumber foto dari folder kegiatan/ -->
     <div class="mb-20">
         <div class="max-w-7xl mx-auto px-2 mb-6">
             <span class="inline-block bg-brand-accent text-white text-xs font-bold uppercase px-3 py-1.5 rounded border-2 border-brand-header shadow-[2px_2px_0px_#1E3A8A] mb-3">Dokumentasi Harian</span>
@@ -534,7 +542,7 @@
         <div class="w-full relative">
             <div id="magang-track" class="flex gap-5 overflow-x-auto snap-x snap-mandatory px-4 md:px-6 lg:px-[calc((100vw-80rem)/2)] pb-8 hide-scrollbar cursor-grab active:cursor-grabbing" style="scroll-padding-left: 1rem;">
 
-                <!-- Klik kartu untuk membalik dan membaca keterangan foto. -->
+                <!-- Klik kartu untuk membalik dan membaca keterangan foto -->
                 <div class="snap-start shrink-0 w-[320px] md:w-[480px] lg:w-[540px] h-[360px] md:h-[400px] perspective-1000 group">
                     <div class="flip-inner w-full h-full relative preserve-3d cursor-pointer" onclick="flipCard(this)">
                         <div class="absolute inset-0 backface-hidden card-neo p-2 bg-white flex flex-col">
@@ -619,7 +627,7 @@
         </div>
     </div>
 
-    <!-- Subbagian 2: liputan kegiatan pimpinan, tiga berita terbaru diambil dari manifest.json. -->
+    <!-- Subbagian 2: liputan kegiatan pimpinan, tiga berita terbaru diambil dari manifest.json -->
     <div class="max-w-7xl mx-auto">
         <div class="px-2 mb-6">
             <span class="inline-block bg-brand-accent text-white text-xs font-bold uppercase px-3 py-1.5 rounded border-2 border-brand-header shadow-[2px_2px_0px_#1E3A8A] mb-3">Publikasi Media</span>
@@ -663,6 +671,7 @@
 
     </section>
 
+<!-- Interaksi bagian Karya: flip kartu, drag carousel, dan pemuatan liputan terbaru -->
 <script>
     // Kartu dokumentasi harian dibalik saat diklik, lalu kembali sendiri
     // setelah 3 detik supaya pengunjung tidak perlu klik dua kali.
@@ -752,7 +761,7 @@
     })();
 </script>
 
-<!-- Tim: informasi mahasiswa yang menjalani PPL. -->
+<!-- Tim: informasi mahasiswa yang menjalani PPL -->
     <section id="tim" class="py-20 bg-brand-bg px-6">
     <div class="max-w-7xl mx-auto text-center">
         <span class="highlight-bg text-xl font-bold px-3 py-1 mb-4 inline-block">05</span>
@@ -798,7 +807,7 @@
     </div>
 </section>
 
-<!-- Footer: identitas singkat dan informasi instansi. -->
+<!-- Footer: identitas singkat dan informasi instansi -->
 <footer class="bg-brand-dark pt-16 pb-8 px-6 text-white border-t-8 border-brand-accent">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 border-b border-brand-div/30 pb-8 mb-8">
         <div class="w-full md:w-1/2">
@@ -825,6 +834,7 @@
         </p>
     </div>
 </footer>
+<!-- Interaksi menu navigasi pada tampilan mobile -->
 <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');

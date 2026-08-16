@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
+    <!-- Metadata dasar: encoding, judul, dan deskripsi halaman untuk SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dokumentasi | PPL PROKOMPIM 2026</title>
@@ -9,12 +10,18 @@
     <meta property="og:description" content="Publikasi kegiatan, liputan, dan karya mahasiswa selama pelaksanaan PPL di Prokompim Kota Pekalongan.">
     <meta property="og:image" content="aset-profil/Logo-PPL.svg">
     <meta property="og:type" content="website">
+
+    <!-- Ikon situs dan gambar pratinjau saat tautan dibagikan -->
     <link rel="icon" href="aset-profil/Logo-PPL.svg" type="image/svg+xml">
+
+    <!-- Pustaka eksternal: Tailwind CSS, Font Awesome, dan Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi warna dan tipografi Tailwind khusus situs -->
     <script>
         tailwind.config = {
             theme: {
@@ -39,6 +46,7 @@
             }
         }
     </script>
+    <!-- Penyesuaian gaya tambahan di luar utility class Tailwind -->
     <style>
         html,
         body {
@@ -111,7 +119,8 @@
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-white">
-    <!-- NAVBAR -->
+
+    <!-- Navigasi atas: logo situs, tautan antar-bagian, dan menu mobile -->
     <nav class="sticky top-0 z-50 w-full border-b border-brand-div/50 bg-white/90 backdrop-blur-md">
         <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
             <a href="index.html" class="flex min-w-0 items-center gap-3">
@@ -120,7 +129,8 @@
                     PPL PROKOMPIM 2026
                 </span>
             </a>
-            <!-- DESKTOP MENU -->
+
+            <!-- Menu tautan untuk tampilan desktop -->
             <div class="hidden items-center space-x-8 md:flex">
                 <a href="index.html#tentang" class="text-sm font-medium text-brand-header transition hover:text-brand-accent">
                     Profil
@@ -138,19 +148,22 @@
                     Dokumentasi
                 </a>
             </div>
-            <!-- DESKTOP BUTTON -->
+
+            <!-- Tombol kembali ke beranda untuk tampilan desktop -->
             <div class="hidden md:block">
                 <a href="index.html" class="btn-neo px-4 py-2 text-sm">
                     <i class="fa-solid fa-arrow-left mr-2"></i>
                     Kembali
                 </a>
             </div>
-            <!-- MOBILE BUTTON -->
+
+            <!-- Tombol pemicu menu untuk tampilan mobile -->
             <button id="menu-btn" aria-label="Buka menu navigasi" aria-expanded="false" class="ml-3 flex-shrink-0 text-2xl text-brand-header md:hidden">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- MOBILE MENU -->
+
+        <!-- Menu tautan yang tampil saat tombol mobile ditekan -->
         <div id="mobile-menu" class="hidden space-y-4 border-t border-brand-div/50 bg-white px-6 py-4 md:hidden">
             <a href="index.html#tentang" class="block text-sm font-medium text-brand-header">
                 Profil
@@ -173,7 +186,8 @@
             </a>
         </div>
     </nav>
-    <!-- HEADER -->
+
+    <!-- Kepala halaman: judul dan ringkasan singkat isi halaman dokumentasi -->
     <header class="bg-white px-6 py-14 lg:py-16">
         <div class="mx-auto max-w-7xl">
             <div class="mb-4 flex items-center gap-4">
@@ -191,7 +205,8 @@
             </p>
         </div>
     </header>
-    <!-- 3 PUBLIKASI TERBARU -->
+
+    <!-- Publikasi terbaru: tiga liputan terbaru lengkap dengan foto -->
     <section class="bg-brand-bg px-6 py-12 lg:py-16">
         <div class="mx-auto max-w-7xl">
             <div class="mb-8">
@@ -209,7 +224,8 @@
             </div>
         </div>
     </section>
-    <!-- ARSIP -->
+
+    <!-- Arsip: publikasi yang lebih lama, ditampilkan tanpa foto agar halaman tetap ringan -->
     <section class="bg-white px-6 py-12 lg:py-16">
         <div class="mx-auto max-w-7xl">
             <div class="mb-8">
@@ -230,7 +246,8 @@
             </div>
         </div>
     </section>
-    <!-- FOOTER -->
+
+    <!-- Footer situs: identitas program dan informasi kontak -->
     <footer class="border-t-8 border-brand-accent bg-brand-dark px-6 pb-8 pt-16 text-white">
         <div class="mx-auto mb-8 flex max-w-7xl flex-col items-start justify-between gap-8 border-b border-brand-div/30 pb-8 md:flex-row">
             <div class="w-full md:w-1/2">
@@ -267,7 +284,8 @@
             </p>
         </div>
     </footer>
-    <!-- SCRIPT PUBLIKASI -->
+
+    <!-- Pemuatan data publikasi dari manifest.json dan render kartu -->
     <script>
         (function () {
             const featuredEl = document.getElementById('featured-publication');
@@ -300,9 +318,8 @@
                 const dow = new Date(y, m - 1, d).getDay();
                 return `${hari[dow]}, ${String(d).padStart(2, '0')} ${bulan[m - 1]} ${y}`;
             }
-            /* ==============================
-               3 PUBLIKASI TERBARU
-            ============================== */
+
+            // Render tiga publikasi terbaru sebagai kartu unggulan dengan foto
             function renderFeatured(items) {
                 if (!items.length) {
                     featuredEl.innerHTML = `
@@ -352,9 +369,8 @@
                     </a>
                 `).join('');
             }
-            /* ==============================
-               ARSIP DENGAN PREVIEW GAMBAR
-            ============================== */
+
+            // Render sisa publikasi sebagai daftar arsip tanpa foto
             function renderArchive(items) {
                 if (!items.length) {
                     archiveEl.innerHTML = `
@@ -394,9 +410,8 @@
                     </a>
                 `).join('');
             }
-            /* ==============================
-               AMBIL DATA DARI MANIFEST
-            ============================== */
+
+            // Ambil seluruh data publikasi dari manifest.json
             fetch('manifest.json')
                 .then(res => {
                     if (!res.ok) {
@@ -405,23 +420,17 @@
                     return res.json();
                 })
                 .then(data => {
-                    /*
-                     * Semua publikasi diurutkan dari tanggal
-                     * terbaru ke terlama.
-                     */
+                    // Urutkan seluruh publikasi dari tanggal terbaru ke terlama
                     const urut = [...data].sort(
                         (a, b) => b.tanggal.localeCompare(a.tanggal)
                     );
-                    /*
-                     * 3 publikasi paling baru
-                     * menjadi preview utama.
-                     */
+
+                    // Tiga publikasi paling baru menjadi kartu unggulan
                     const terbaru = urut.slice(0, 3);
-                    /*
-                     * Publikasi nomor 4 dan seterusnya
-                     * masuk ke arsip.
-                     */
+
+                    // Publikasi keempat dan seterusnya masuk ke arsip
                     const arsip = urut.slice(3);
+
                     renderFeatured(terbaru);
                     renderArchive(arsip);
                 })
@@ -441,7 +450,8 @@
                 });
         })();
     </script>
-    <!-- SCRIPT MOBILE MENU -->
+
+    <!-- Interaksi menu navigasi pada tampilan mobile -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
