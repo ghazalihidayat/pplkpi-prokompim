@@ -1,6 +1,15 @@
 [
   {
     "tanggal": "2026-08-15",
+    "judul": "Paskibraka Kota Pekalongan 2026 Dikukuhkan, Jelang Tugas Pengibaran Merah Putih",
+    "dek": "Paskibraka Kota Pekalongan Tahun 2026 dikukuhkan menjelang upacara HUT ke-81 Kemerdekaan RI, dirangkai dengan penganugerahan Satya Lencana Karya Satya dan malam tirakatan.",
+    "foto": "aset-artikel/tirakatan.jpeg",
+    "link": "berita/tirakatan-pengukuhan.html",
+    "kategori": "Liputan Kegiatan",
+    "lokasi": "GOR Jetayu, Kota Pekalongan"
+  },
+  {
+    "tanggal": "2026-08-15",
     "judul": "Semarak PKK Cup 2026, Olahraga Jadi Ruang Silaturahmi Perempuan Kota Pekalongan",
     "dek": "PKK Cup 2026 menjadi ruang bagi perempuan Kota Pekalongan untuk berolahraga, berkompetisi, serta mempererat silaturahmi dan kebersamaan.",
     "foto": "aset-artikel/pkk-cup.jpeg",
@@ -27,15 +36,6 @@
     "lokasi": "Ruang Rapat Paripurna"
   },
   {
-    "tanggal": "2026-08-12",
-    "judul": "Tutup Pelatihan Strategi Pemasaran, Wali Kota Pekalongan Dorong UMKM Manfaatkan Digital Marketing",
-    "dek": "Pelatihan strategi pemasaran ditutup dengan ajakan bagi pelaku UMKM Kota Pekalongan untuk lebih memanfaatkan digital marketing.",
-    "foto": "aset-artikel/umkm.jpeg",
-    "link": "berita/umkm.html",
-    "kategori": "Liputan Kegiatan",
-    "lokasi": "Dindagkop-UKM Kota Pekalongan, Lantai 2"
-  },
-  {
     "tanggal": "2026-08-13",
     "judul": "Kain Perca Tak Lagi Jadi Sisa, Kader PKK Pekalongan Dibekali Keterampilan Kreatif",
     "dek": "Sebanyak 34 kader TP PKK se-Kota Pekalongan mengikuti pelatihan mengolah kain perca menjadi produk kreatif yang bernilai guna dan ekonomi.",
@@ -43,6 +43,15 @@
     "link": "berita/kain-perca-pkk.html",
     "kategori": "Liputan Kegiatan",
     "lokasi": "Balai Latihan Kerja (BLK) Kota Pekalongan"
+  },
+  {
+    "tanggal": "2026-08-12",
+    "judul": "Tutup Pelatihan Strategi Pemasaran, Wali Kota Pekalongan Dorong UMKM Manfaatkan Digital Marketing",
+    "dek": "Pelatihan strategi pemasaran ditutup dengan ajakan bagi pelaku UMKM Kota Pekalongan untuk lebih memanfaatkan digital marketing.",
+    "foto": "aset-artikel/umkm.jpeg",
+    "link": "berita/umkm.html",
+    "kategori": "Liputan Kegiatan",
+    "lokasi": "Dindagkop-UKM Kota Pekalongan, Lantai 2"
   },
   {
     "tanggal": "2026-08-12",
